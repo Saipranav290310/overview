@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-key="page_title">AI Career Guide - Professional Edition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+ 
+    :root {
+      
+      --bg-dark: #0f172a;
+      --surface-dark: #1e293b;  
+      --text-dark: #cbd5e1;       
+      --primary-dark: #00e0ff;   
+      --secondary-dark: #9333ea;  
+      --accent-dark: #00ff9d;     
+
+     
+      --bg-light: #f8fafc;        
+      --surface-light: #ffffff;  
+      --text-light: #0f172a;      
+      --primary-light: #0066cc;    
+      --secondary-light: #7c3aed;  
+      --accent-light: #00a86b;     
+
+     
+      --border-radius: 8px;
+      --transition-speed: 0.3s;
+    }
+
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+      transition: background-color var(--transition-speed), color var(--transition-speed);
+      line-height: 1.6;
+    }
+
+
+    .light-mode {
+      --bg-dark: var(--bg-light);
+      --surface-dark: var(--surface-light);
+      --text-dark: var(--text-light);
+      --primary-dark: var(--primary-light);
+      --secondary-dark: var(--secondary-light);
+      --accent-dark: var(--accent-light);
+    }
+    
+    .light-mode .header {
+      background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+    }
+    .light-mode .theme-toggle {
+      background: rgba(0, 0, 0, 0.1);
+      color: var(--text-light);
+    }
+    .light-mode .theme-toggle:hover {
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .light-mode .language-select {
+        background: rgba(0, 0, 0, 0.1);
+        color: var(--text-light);
+    }
+    .light-mode .language-select:hover {
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .light-mode .language-select option {
+        background-color: var(--surface-light); 
+        color: var(--text-light); 
+    }
+    .light-mode .section h2 {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .light-mode .btn {
+        color: white; 
+    }
+    .light-mode .footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 600;
+      font-size: 2rem;
+      margin: 0;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .header-controls {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .theme-toggle,
+    .language-select {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      padding: 0.5rem 1rem;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition-speed);
+      backdrop-filter: blur(5px);
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 0.7em top 50%, 0 0;
+      background-size: 1.5em auto;
+      padding-right: 2.5em; 
+    }
+
+    .language-select option {
+        background-color: var(--surface-dark); 
+        color: var(--text-dark); 
+    }
+
+    .light-mode .language-select {
+        background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    }
+
+    .theme-toggle:hover,
+    .language-select:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Navigation */
+    .nav {
+      background-color: var(--surface-dark);
+      padding: 0.75rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .nav-tab {
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      border: none;
+      color: var(--text-dark);
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition-speed);
+      border-radius: var(--border-radius);
+    }
+
+    .nav-tab:hover {
+      color: var(--primary-dark);
+      background: rgba(0, 224, 255, 0.1);
+    }
+
+    .nav-tab.active {
+      color: var(--primary-dark);
+      background: rgba(0, 224, 255, 0.1);
+      box-shadow: 0 0 0 1px var(--primary-dark);
+    }
+    
+    /* Content */
+    .content {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .section {
+      display: none;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .section h2 {
+      color: var(--secondary-dark);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 0.5rem;
+      font-family: 'Orbitron', sans-serif; 
+      font-weight: 600;
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary-dark);
+      color: var(--bg-dark); 
+      border: none;
+      border-radius: var(--border-radius);
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700; 
+      cursor: pointer;
+      transition: all var(--transition-speed);
+      text-decoration: none;
+      text-align: center;
+      width: auto; 
+      margin: 0; 
+    }
+
+    .btn:hover {
+      background-color: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 255, 157, 0.3);
+    }
+    
+    #options .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .section > .btn {
+        width: auto;
+        display: inline-block;
+    }
+
+    /* Forms */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: var(--surface-dark);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius);
+      color: var(--text-dark);
+      font-family: 'Roboto', sans-serif;
+      transition: all var(--transition-speed);
+      box-sizing: border-box; /* To ensure padding is included in width */
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-dark);
+      box-shadow: 0 0 0 2px rgba(0, 224, 255, 0.3);
+    }
+
+  
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--text-dark);
+      font-size: 0.875rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    
+    @media (max-width: 768px) {
+      .nav-tabs {
+        flex-direction: column;
+        align-items: stretch; 
+      }
+      
+      .nav-tab {
+        width: auto; 
+        text-align: center;
+      }
+      .header-controls {
+        flex-direction: column;
+        top: 0.5rem;
+        right: 0.5rem;
+        gap: 0.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1 data-key="header_title">AI Career Guide 🌟</h1>
+    <div class="header-controls">
+        <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+        <select id="languageSelect" class="language-select" onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+            <option value="hi">हिन्दी</option>
+            <option value="ur">اردو</option>
+            <option value="ml">മലയാളം</option>
+            <option value="tl">Tagalog</option>
+            <option value="ta">தமிழ்</option>
+            <option value="bn">বাংলা</option>
+            <option value="ps">پښتو</option>
+            <option value="fa">فارسی</option>
+        </select>
+    </div>
+  </header>
+  
+  <nav class="nav">
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="showSection('about', event)" data-key="about_tab">📘 About</button>
+      <button class="nav-tab" onclick="showSection('how', event)" data-key="how_it_works_tab">⚙️ How It Works</button>
+      <button class="nav-tab" onclick="showSection('tool', event)" data-key="main_tool_tab">🧠 Main Tool</button>
+      <button class="nav-tab" onclick="showSection('filters', event)" data-key="best_fit_tab">🧪 Best Fit</button>
+      <button class="nav-tab" onclick="showSection('college', event)" data-key="find_college_tab">🎓 Find College</button>
+    </div>
+  </nav>
+
+  <main class="content">
+    <div id="about" class="section active">
+      <h2 style="font-size: 2rem;" data-key="about_heading">About</h2>
+      <p style="font-size: 1.3rem; line-height: 1.8;">
+        <span data-key="about_welcome_para1" data-html="true"></span>
+        <br><br><span data-key="about_welcome_para2"></span>
+      </p>
+      <ul style="font-size: 1.1rem; padding-left: 1.5rem;">
+        <li data-key="about_list_item1">🎓 Designed especially for UAE school students</li>
+        <li data-key="about_list_item2">🧠 Uses AI to guide you to the best career options</li>
+        <li data-key="about_list_item3">💼 Focuses on high-quality courses that lead to top jobs</li>
+        <li data-key="about_list_item4">📚 Includes streams like Science, Commerce, Arts, and Technology</li>
+        <li data-key="about_list_item5">🗂️ Covers popular courses like B.Tech, MBBS, BBA, Design, and more</li>
+        <li data-key="about_list_item6">🌐 Supports multiple languages</li>
+        <li data-key="about_list_item7">📱 Mobile-friendly and visually easy to use</li>
+      </ul>
+    </div>
+
+    <div id="how" class="section">
+      <h2 style="font-size: 2rem;" data-key="how_it_works_heading">How It Works</h2>
+      <ul style="font-size: 1.1rem; padding-left: 1.5rem;">
+        <li data-key="how_list_item1">✏️ Enter your name, grade, and stream (if in 12th)</li>
+        <li data-key="how_list_item2">📊 Input your subject marks</li>
+        <li data-key="how_list_item3">❤️ Select your favorite subjects and hobbies</li>
+        <li data-key="how_list_item4">🎯 Choose your dream job type</li>
+        <li data-key="how_list_item5">📈 Let the AI analyze and generate personalized career suggestions</li>
+        <li data-key="how_list_item6">📥 Download your report as PDF</li>
+      </ul>
+    </div>
+
+    <div id="tool" class="section">
+      <h2 style="font-size: 2rem;" data-key="main_tool_heading">Main Tool</h2>
+      <p data-key="main_tool_description">Click below to open the AI Career Guide in a new tab:</p>
+      <a href="https://saipranav290310.github.io/AI-Career-Guide/" target="_blank" class="btn" data-key="open_tool_button">🚀 Open Tool</a>
+    </div>
+
+    <div id="filters" class="section">
+      <h2 style="font-size: 2rem;" data-key="personalized_best_fit_heading">Personalized Best Fit</h2>
+      <div class="form-group">
+        <label for="coursesInput" class="form-label" data-key="courses_input_label">Paste the Courses Suggested by AI Tool:</label>
+        <textarea id="coursesInput" class="form-control" rows="4" data-key="courses_input_placeholder" placeholder="E.g. B.Tech, MBBS, BBA..."></textarea>
+      </div>
+      <button class="btn" onclick="startQuiz()" data-key="next_quiz_button">Next: Thinking Style Quiz</button>
+
+      <div id="quiz" style="margin-top: 2rem; display: none;">
+        <!-- Removed data-key="question_number_full" from h3 to prevent child spans from being overwritten -->
+        <h3><span data-key="question_number_prefix">Question </span><span id="qNum"></span> <span data-key="question_number_suffix">of 5</span></h3>
+        <div id="questionText" style="margin: 1rem 0;"></div>
+        <div id="options"></div>
+      </div>
+
+      <div id="result" style="margin-top: 2rem; display:none; font-size:1.2rem;"></div>
+    </div>
+
+    <div id="college" class="section">
+      <h2 style="font-size: 2rem;" data-key="find_college_heading">Find College</h2>
+      <p data-key="find_college_description">Click below to open the full College Finder tool in a new tab:</p>
+      <a href="https://saipranav290310.github.io/-UAE_Top_Universities_by_Program" target="_blank" class="btn" data-key="open_college_finder_button">📚 Open College Finder</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p data-key="footer_text">© 2025 Sai Pranav, 10D - IIS</p>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+
+    // Tab Navigation
+    function showSection(id, event) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+      
+      document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      event.currentTarget.classList.add('active');
+    }
+
+    // --- Translation Data ---
+    const translations = {
+        "en": {
+            "page_title": "AI Career Guide - Professional Edition",
+            "header_title": "AI Career Guide 🌟",
+            "about_tab": "📘 About",
+            "how_it_works_tab": "⚙️ How It Works",
+            "main_tool_tab": "🧠 Main Tool",
+            "best_fit_tab": "🧪 Best Fit",
+            "find_college_tab": "🎓 Find College",
+            "about_heading": "About",
+            "about_welcome_para1": "Welcome to the <strong>AI Career Guide</strong> – a smart tool created for UAE school students from Grade 9–12 to discover their ideal career paths!",
+            "about_welcome_para2": "🎯 Our goal is to help you explore top careers by understanding your marks, interests, and hobbies.",
+            "about_list_item1": "🎓 Designed especially for UAE school students",
+            "about_list_item2": "🧠 Uses AI to guide you to the best career options",
+            "about_list_item3": "💼 Focuses on high-quality courses that lead to top jobs",
+            "about_list_item4": "📚 Includes streams like Science, Commerce, Arts, and Technology",
+            "about_list_item5": "🗂️ Covers popular courses like B.Tech, MBBS, BBA, Design, and more",
+            "about_list_item6": "🌐 Supports multiple languages",
+            "about_list_item7": "📱 Mobile-friendly and visually easy to use",
+            "how_it_works_heading": "How It Works",
+            "how_list_item1": "✏️ Enter your name, grade, and stream (if in 12th)",
+            "how_list_item2": "📊 Input your subject marks",
+            "how_list_item3": "❤️ Select your favorite subjects and hobbies",
+            "how_list_item4": "🎯 Choose your dream job type",
+            "how_list_item5": "📈 Let the AI analyze and generate personalized career suggestions",
+            "how_list_item6": "📥 Download your report as PDF",
+            "main_tool_heading": "Main Tool",
+            "main_tool_description": "Click below to open the AI Career Guide in a new tab:",
+            "open_tool_button": "🚀 Open Tool",
+            "personalized_best_fit_heading": "Personalized Best Fit",
+            "courses_input_label": "Paste the Courses Suggested by AI Tool:",
+            "courses_input_placeholder": "E.g. B.Tech, MBBS, BBA...",
+            "next_quiz_button": "Next: Thinking Style Quiz",
+            "question_number_prefix": "Question ",
+            "question_number_suffix": "of 5",
+            "find_college_heading": "Find College",
+            "find_college_description": "Click below to open the full College Finder tool in a new tab:",
+            "open_college_finder_button": "📚 Open College Finder",
+            "footer_text": "© 2025 Sai Pranav, 10D - IIS",
+            "quiz_result_heading": "Your Thinking Style Result",
+            "quiz_primary_thinker_prefix": "You are primarily a ",
+            "quiz_primary_thinker_suffix": " Thinker.",
+            "quiz_recommendation_heading": "Best Fit Course Recommendation:",
+            "quiz_why_match_heading": "Why it's a great match:",
+            "general_studies_course": "General Studies",
+            "general_studies_reason": "Your thinking style is well-rounded, making you adaptable to various fields."
+        },
+        "ar": {
+            "page_title": "دليل المسار المهني بالذكاء الاصطناعي - الإصدار الاحترافي",
+            "header_title": "دليل المسار المهني بالذكاء الاصطناعي 🌟",
+            "about_tab": "📘 حول",
+            "how_it_works_tab": "⚙️ كيف يعمل",
+            "main_tool_tab": "🧠 الأداة الرئيسية",
+            "best_fit_tab": "🧪 الأنسب",
+            "find_college_tab": "🎓 البحث عن كلية",
+            "about_heading": "حول",
+            "about_welcome_para1": "مرحبًا بك في <strong>دليل المسار المهني بالذكاء الاصطناعي</strong> – أداة ذكية تم إنشاؤها لطلاب المدارس في الإمارات العربية المتحدة من الصف التاسع إلى الثاني عشر لاكتشاف مساراتهم المهنية المثالية!",
+            "about_welcome_para2": "🎯 هدفنا هو مساعدتك في استكشاف أفضل المهن من خلال فهم درجاتك واهتماماتك وهواياتك.",
+            "about_list_item1": "🎓 مصمم خصيصًا لطلاب المدارس في الإمارات العربية المتحدة",
+            "about_list_item2": "🧠 يستخدم الذكاء الاصطناعي لإرشادك إلى أفضل الخيارات المهنية",
+            "about_list_item3": "💼 يركز على الدورات عالية الجودة التي تؤدي إلى وظائف مرموقة",
+            "about_list_item4": "📚 يشمل التخصصات مثل العلوم والتجارة والفنون والتكنولوجيا",
+            "about_list_item5": "🗂️ يغطي الدورات الشائعة مثل بكالوريوس التكنولوجيا، بكالوريوس الطب والجراحة، بكالوريوس إدارة الأعمال، التصميم، والمزيد",
+            "about_list_item6": "🌐 يدعم لغات متعددة",
+            "about_list_item7": "📱 متوافق مع الجوال وسهل الاستخدام بصريًا",
+            "how_it_works_heading": "كيف يعمل",
+            "how_list_item1": "✏️ أدخل اسمك، صفك، وتخصصك (إذا كنت في الصف الثاني عشر)",
+            "how_list_item2": "📊 أدخل درجاتك في المواد",
+            "how_list_item3": "❤️ اختر موادك وهواياتك المفضلة",
+            "how_list_item4": "🎯 اختر نوع الوظيفة التي تحلم بها",
+            "how_list_item5": "📈 دع الذكاء الاصطناعي يحلل ويولد اقتراحات مهنية مخصصة",
+            "how_list_item6": "📥 قم بتنزيل تقريرك بصيغة PDF",
+            "main_tool_heading": "الأداة الرئيسية",
+            "main_tool_description": "انقر أدناه لفتح دليل المسار المهني بالذكاء الاصطناعي في علامة تبويب جديدة:",
+            "open_tool_button": "🚀 فتح الأداة",
+            "personalized_best_fit_heading": "الأنسب شخصيًا",
+            "courses_input_label": "الصق الدورات المقترحة من أداة الذكاء الاصطناعي:",
+            "courses_input_placeholder": "مثال: بكالوريوس في التكنولوجيا، بكالوريوس في الطب والجراحة، بكالوريوس في إدارة الأعمال...",
+            "next_quiz_button": "التالي: اختبار نمط التفكير",
+            "question_number_prefix": "سؤال ",
+            "question_number_suffix": "من 5",
+            "find_college_heading": "البحث عن كلية",
+            "find_college_description": "انقر أدناه لفتح أداة البحث عن الكليات كاملة في علامة تبويب جديدة:",
+            "open_college_finder_button": "📚 فتح أداة البحث عن الكليات",
+            "footer_text": "© 2025 ساي براناف، 10D - IIS",
+            "quiz_result_heading": "نتيجة نمط تفكيرك",
+            "quiz_primary_thinker_prefix": "أنت في الأساس مفكر من نوع ",
+            "quiz_primary_thinker_suffix": ".",
+            "quiz_recommendation_heading": "توصية الدورة الأنسب:",
+            "quiz_why_match_heading": "لماذا هي مطابقة رائعة:",
+            "general_studies_course": "دراسات عامة",
+            "general_studies_reason": "نمط تفكيرك متوازن، مما يجعلك قابلاً للتكيف مع مختلف المجالات."
+        },
+        "hi": {
+            "page_title": "एआई करियर गाइड - प्रोफेशनल एडिशन",
+            "header_title": "एआई करियर गाइड 🌟",
+            "about_tab": "📘 परिचय",
+            "how_it_works_tab": "⚙️ कैसे काम करता है",
+            "main_tool_tab": "🧠 मुख्य उपकरण",
+            "best_fit_tab": "🧪 सबसे उपयुक्त",
+            "find_college_tab": "🎓 कॉलेज खोजें",
+            "about_heading": "परिचय",
+            "about_welcome_para1": "<strong>एआई करियर गाइड</strong> में आपका स्वागत है – यूएई के 9वीं से 12वीं कक्षा के स्कूली छात्रों के लिए उनके आदर्श करियर पथों की खोज करने के लिए बनाया गया एक स्मार्ट टूल!",
+            "about_welcome_para2": "🎯 हमारा लक्ष्य आपके अंक, रुचियों और शौक को समझकर आपको शीर्ष करियर का पता लगाने में मदद करना है।",
+            "about_list_item1": "🎓 विशेष रूप से यूएई के स्कूली छात्रों के लिए डिज़ाइन किया गया",
+            "about_list_item2": "🧠 सर्वोत्तम करियर विकल्पों के लिए एआई-संचालित मार्गदर्शन का उपयोग करता है",
+            "about_list_item3": "💼 शीर्ष नौकरियों की ओर ले जाने वाले उच्च गुणवत्ता वाले पाठ्यक्रमों पर ध्यान केंद्रित करता है",
+            "about_list_item4": "📚 विज्ञान, वाणिज्य, कला और प्रौद्योगिकी जैसे स्ट्रीम शामिल हैं",
+            "about_list_item5": "🗂️ बी.टेक, एमबीबीएस, बीबीए, डिज़ाइन और बहुत कुछ जैसे लोकप्रिय पाठ्यक्रम शामिल हैं",
+            "about_list_item6": "🌐 कई भाषाओं का समर्थन करता है",
+            "about_list_item7": "📱 मोबाइल-अनुकूल और देखने में आसान",
+            "how_it_works_heading": "कैसे काम करता है",
+            "how_list_item1": "✏️ अपना नाम, ग्रेड और स्ट्रीम दर्ज करें (यदि 12वीं में हैं)",
+            "how_list_item2": "📊 अपने विषय के अंक दर्ज करें",
+            "how_list_item3": "❤️ अपने पसंदीदा विषय और शौक चुनें",
+            "how_list_item4": "🎯 अपनी पसंदीदा नौकरी का प्रकार चुनें",
+            "how_list_item5": "📈 एआई को व्यक्तिगत करियर सुझावों का विश्लेषण और उत्पन्न करने दें",
+            "how_list_item6": "📥 अपनी रिपोर्ट पीडीएफ के रूप में डाउनलोड करें",
+            "main_tool_heading": "मुख्य उपकरण",
+            "main_tool_description": "एआई करियर गाइड को एक नए टैब में खोलने के लिए नीचे क्लिक करें:",
+            "open_tool_button": "🚀 उपकरण खोलें",
+            "personalized_best_fit_heading": "व्यक्तिगत सबसे उपयुक्त",
+            "courses_input_label": "एआई टूल द्वारा सुझाए गए पाठ्यक्रम पेस्ट करें:",
+            "courses_input_placeholder": "उदाहरण: बी.टेक, एमबीबीएस, बीबीए...",
+            "next_quiz_button": "अगला: सोचने का तरीका क्विज़",
+            "question_number_prefix": "प्रश्न ",
+            "question_number_suffix": "का 5",
+            "find_college_heading": "कॉलेज खोजें",
+            "find_college_description": "पूर्ण कॉलेज फाइंडर टूल को एक नए टैब में खोलने के लिए नीचे क्लिक करें:",
+            "open_college_finder_button": "📚 कॉलेज फाइंडर खोलें",
+            "footer_text": "© 2025 साई प्रणव, 10D - IIS",
+            "quiz_result_heading": "आपकी सोचने की शैली का परिणाम",
+            "quiz_primary_thinker_prefix": "आप मुख्य रूप से एक ",
+            "quiz_primary_thinker_suffix": " विचारक हैं।",
+            "quiz_recommendation_heading": "सबसे उपयुक्त पाठ्यक्रम सिफारिश:",
+            "quiz_why_match_heading": "यह एक बेहतरीन मैच क्यों है:",
+            "general_studies_course": "सामान्य अध्ययन",
+            "general_studies_reason": "आपकी सोचने की शैली बहुमुखी है, जो आपको विभिन्न क्षेत्रों में अनुकूलनीय बनाती है।"
+        },
+        "ur": {
+            "page_title": "اے آئی کیریئر گائیڈ - پروفیشنل ایڈیشن",
+            "header_title": "اے آئی کیریئر گائیڈ 🌟",
+            "about_tab": "📘 بارے میں",
+            "how_it_works_tab": "⚙️ کیسے کام کرتا ہے",
+            "main_tool_tab": "🧠 مرکزی ٹول",
+            "best_fit_tab": "🧪 بہترین فٹ",
+            "find_college_tab": "🎓 کالج تلاش کریں",
+            "about_heading": "بارے میں",
+            "about_welcome_para1": "<strong>اے آئی کیریئر گائیڈ</strong> میں خوش آمدید – متحدہ عرب امارات کے نویں سے بارہویں جماعت کے اسکول کے طلباء کے لیے ان کے مثالی کیریئر کے راستوں کو دریافت کرنے کے لیے ایک سمارٹ ٹول!",
+            "about_welcome_para2": "🎯 ہمارا مقصد آپ کے نمبروں، دلچسپیوں اور مشاغل کو سمجھ کر آپ کو اعلیٰ کیریئر کی تلاش میں مدد کرنا ہے۔",
+            "about_list_item1": "🎓 خاص طور پر متحدہ عرب امارات کے اسکول کے طلباء کے لیے ڈیزائن کیا گیا",
+            "about_list_item2": "🧠 بہترین کیریئر کے اختیارات کے لیے اے آئی سے چلنے والی رہنمائی کا استعمال کرتا ہے",
+            "about_list_item3": "💼 اعلیٰ معیار کے کورسز پر توجہ مرکوز کرتا ہے جو اعلیٰ ملازمتوں کی طرف لے جاتے ہیں",
+            "about_list_item4": "📚 سائنس، کامرس، آرٹس اور ٹیکنالوجی جیسی سٹریمز شامل ہیں",
+            "about_list_item5": "🗂️ مشہور کورسز جیسے بی ٹیک، ایم بی بی ایس، بی بی اے، ڈیزائن، اور مزید شامل ہیں",
+            "about_list_item6": "🌐 متعدد زبانوں کو سپورٹ کرتا ہے",
+            "about_list_item7": "📱 موبائل فرینڈلی اور بصری طور پر استعمال میں آسان",
+            "how_it_works_heading": "کیسے کام کرتا ہے",
+            "how_list_item1": "✏️ اپنا نام، گریڈ اور اسٹریم (اگر 12ویں میں ہیں) درج کریں",
+            "how_list_item2": "📊 اپنے مضامین کے نمبر درج کریں",
+            "how_list_item3": "❤️ اپنے پسندیدہ مضامین اور مشاغل منتخب کریں",
+            "how_list_item4": "🎯 اپنی پسندیدہ ملازمت کی قسم منتخب کریں",
+            "how_list_item5": "📈 اے آئی کو ذاتی نوعیت کے کیریئر کی تجاویز کا تجزیہ اور تیار کرنے دیں",
+            "how_list_item6": "📥 اپنی رپورٹ پی ڈی ایف کے طور پر ڈاؤن لوڈ کریں",
+            "main_tool_heading": "مرکزی ٹول",
+            "main_tool_description": "اے آئی کیریئر گائیڈ کو ایک نئے ٹیب میں کھولنے کے لیے نیچے کلک کریں:",
+            "open_tool_button": "🚀 ٹول کھولیں",
+            "personalized_best_fit_heading": "ذاتی نوعیت کا بہترین فٹ",
+            "courses_input_label": "اے آئی ٹول کی طرف سے تجویز کردہ کورسز پیسٹ کریں:",
+            "courses_input_placeholder": "مثلاً: بی ٹیک، ایم بی بی ایس، بی بی اے...",
+            "next_quiz_button": "اگلا: سوچنے کا انداز کوئز",
+            "question_number_prefix": "سوال ",
+            "question_number_suffix": "میں سے 5",
+            "find_college_heading": "کالج تلاش کریں",
+            "find_college_description": "کالج فائنڈر ٹول کو ایک نئے ٹیب میں کھولنے کے لیے نیچے کلک کریں:",
+            "open_college_finder_button": "📚 کالج فائنڈر کھولیں",
+            "footer_text": "© 2025 سائی پراناو، 10D - IIS",
+            "quiz_result_heading": "آپ کے سوچنے کے انداز کا نتیجہ",
+            "quiz_primary_thinker_prefix": "آپ بنیادی طور پر ایک ",
+            "quiz_primary_thinker_suffix": " مفکر ہیں۔",
+            "quiz_recommendation_heading": "بہترین فٹ کورس کی سفارش:",
+            "quiz_why_match_heading": "یہ ایک بہترین میچ کیوں ہے:",
+            "general_studies_course": "جنرل اسٹڈیز",
+            "general_studies_reason": "آپ کا سوچنے کا انداز متوازن ہے، جو آپ کو مختلف شعبوں کے مطابق ڈھالنے میں مدد کرتا ہے۔"
+        },
+        "ml": {
+            "page_title": "എഐ കരിയർ ഗൈഡ് - പ്രൊഫഷണൽ എഡിഷൻ",
+            "header_title": "എഐ കരിയർ ഗൈഡ് 🌟",
+            "about_tab": "📘 കുറിച്ച്",
+            "how_it_works_tab": "⚙️ എങ്ങനെ പ്രവർത്തിക്കുന്നു",
+            "main_tool_tab": "🧠 പ്രധാന ഉപകരണം",
+            "best_fit_tab": "🧪 ഏറ്റവും അനുയോജ്യം",
+            "find_college_tab": "🎓 കോളേജ് കണ്ടെത്തുക",
+            "about_heading": "കുറിച്ച്",
+            "about_welcome_para1": "യുഎഇയിലെ 9 മുതൽ 12 വരെയുള്ള ക്ലാസുകളിലെ സ്കൂൾ വിദ്യാർത്ഥികൾക്ക് അവരുടെ അനുയോജ്യമായ കരിയർ പാതകൾ കണ്ടെത്താൻ സഹായിക്കുന്ന ഒരു സ്മാർട്ട് ടൂളാണ് <strong>എഐ കരിയർ ഗൈഡ്</strong>!",
+            "about_welcome_para2": "🎯 നിങ്ങളുടെ മാർക്കുകൾ, താല്പര്യങ്ങൾ, ഹോബികൾ എന്നിവ മനസ്സിലാക്കി മികച്ച കരിയറുകൾ കണ്ടെത്താൻ നിങ്ങളെ സഹായിക്കുക എന്നതാണ് ഞങ്ങളുടെ ലക്ഷ്യം.",
+            "about_list_item1": "🎓 യുഎഇയിലെ സ്കൂൾ വിദ്യാർത്ഥികൾക്കായി പ്രത്യേകം രൂപകൽപ്പന ചെയ്തത്",
+            "about_list_item2": "🧠 മികച്ച കരിയർ ഓപ്ഷനുകളിലേക്ക് നിങ്ങളെ നയിക്കാൻ AI ഉപയോഗിക്കുന്നു",
+            "about_list_item3": "💼 മികച്ച ജോലികളിലേക്ക് നയിക്കുന്ന ഉയർന്ന നിലവാരമുള്ള കോഴ്സുകളിൽ ശ്രദ്ധ കേന്ദ്രീകരിക്കുന്നു",
+            "about_list_item4": "📚 സയൻസ്, കൊമേഴ്സ്, ആർട്സ്, ടെക്നോളജി തുടങ്ങിയ സ്ട്രീമുകൾ ഉൾപ്പെടുന്നു",
+            "about_list_item5": "🗂️ ബി.ടെക്, എം.ബി.ബി.എസ്, ബി.ബി.എ, ഡിസൈൻ എന്നിവയുൾപ്പെടെയുള്ള ജനപ്രിയ കോഴ്സുകൾ ഉൾപ്പെടുന്നു",
+            "about_list_item6": "🌐 ഒന്നിലധികം ഭാഷകളെ പിന്തുണയ്ക്കുന്നു",
+            "about_list_item7": "📱 മൊബൈൽ സൗഹൃദവും കാഴ്ചയിൽ ഉപയോഗിക്കാൻ എളുപ്പവുമാണ്",
+            "how_it_works_heading": "എങ്ങനെ പ്രവർത്തിക്കുന്നു",
+            "how_list_item1": "✏️ നിങ്ങളുടെ പേര്, ക്ലാസ്, സ്ട്രീം (12-ാം ക്ലാസിലാണെങ്കിൽ) എന്നിവ നൽകുക",
+            "how_list_item2": "📊 നിങ്ങളുടെ വിഷയത്തിലെ മാർക്കുകൾ നൽകുക",
+            "how_list_item3": "❤️ നിങ്ങളുടെ പ്രിയപ്പെട്ട വിഷയങ്ങളും ഹോബികളും തിരഞ്ഞെടുക്കുക",
+            "how_list_item4": "🎯 നിങ്ങളുടെ ഇഷ്ടപ്പെട്ട ജോലി തരം തിരഞ്ഞെടുക്കുക",
+            "how_list_item5": "📈 എഐ വിശകലനം ചെയ്ത് വ്യക്തിഗത കരിയർ നിർദ്ദേശങ്ങൾ സൃഷ്ടിക്കാൻ അനുവദിക്കുക",
+            "how_list_item6": "📥 നിങ്ങളുടെ റിപ്പോർട്ട് PDF ആയി ഡൗൺലോഡ് ചെയ്യുക",
+            "main_tool_heading": "പ്രധാന ഉപകരണം",
+            "main_tool_description": "ഒരു പുതിയ ടാബിൽ എഐ കരിയർ ഗൈഡ് തുറക്കാൻ താഴെ ക്ലിക്ക് ചെയ്യുക:",
+            "open_tool_button": "🚀 ഉപകരണം തുറക്കുക",
+            "personalized_best_fit_heading": "വ്യക്തിഗതമാക്കിയ മികച്ച അനുയോജ്യത",
+            "courses_input_label": "AI ടൂൾ നിർദ്ദേശിച്ച കോഴ്സുകൾ ഒട്ടിക്കുക:",
+            "courses_input_placeholder": "ഉദാ: ബി.ടെക്, എം.ബി.ബി.എസ്, ബി.ബി.എ...",
+            "next_quiz_button": "അടുത്തത്: ചിന്താ രീതി ക്വിസ്",
+            "question_number_prefix": "ചോദ്യം ",
+            "question_number_suffix": "ൽ 5",
+            "find_college_heading": "കോളേജ് കണ്ടെത്തുക",
+            "find_college_description": "ഒരു പുതിയ ടാബിൽ പൂർണ്ണ കോളേജ് ഫൈൻഡർ ടൂൾ തുറക്കാൻ താഴെ ക്ലിക്ക് ചെയ്യുക:",
+            "open_college_finder_button": "📚 കോളേജ് ഫൈൻഡർ തുറക്കുക",
+            "footer_text": "© 2025 സായി പ്രണവ്, 10D - IIS",
+            "quiz_result_heading": "നിങ്ങളുടെ ചിന്താ രീതി ഫലം",
+            "quiz_primary_thinker_prefix": "നിങ്ങൾ പ്രധാനമായും ഒരു ",
+            "quiz_primary_thinker_suffix": " ചിന്തകനാണ്.",
+            "quiz_recommendation_heading": "ഏറ്റവും അനുയോജ്യമായ കോഴ്സ് ശുപാർശ:",
+            "quiz_why_match_heading": "ഇത് എന്തുകൊണ്ടാണ് മികച്ച അനുയോജ്യമായത്:",
+            "general_studies_course": "ജനറൽ സ്റ്റഡീസ്",
+            "general_studies_reason": "നിങ്ങളുടെ ചിന്താ രീതി നന്നായി വികസിപ്പിച്ചതാണ്, ഇത് നിങ്ങളെ വിവിധ മേഖലകളുമായി പൊരുത്തപ്പെടുത്താൻ സഹായിക്കുന്നു."
+        },
+        "tl": {
+            "page_title": "AI Career Guide - Propesyonal na Edisyon",
+            "header_title": "AI Career Guide 🌟",
+            "about_tab": "📘 Tungkol sa",
+            "how_it_works_tab": "⚙️ Paano Gumagana",
+            "main_tool_tab": "🧠 Pangunahing Tool",
+            "best_fit_tab": "🧪 Pinakaakma",
+            "find_college_tab": "🎓 Maghanap ng Kolehiyo",
+            "about_heading": "Tungkol sa",
+            "about_welcome_para1": "Maligayang pagdating sa <strong>AI Career Guide</strong> – isang matalinong tool na nilikha para sa mga estudyante sa paaralan ng UAE mula Grade 9–12 upang matuklasan ang kanilang ideal na landas sa karera!",
+            "about_welcome_para2": "🎯 Ang aming layunin ay tulungan kang galugarin ang mga nangungunang karera sa pamamagitan ng pag-unawa sa iyong mga marka, interes, at libangan.",
+            "about_list_item1": "🎓 Partikular na idinisenyo para sa mga estudyante sa paaralan ng UAE",
+            "about_list_item2": "🧠 Gumagamit ng AI para gabayan ka sa mga pinakamahusay na opsyon sa karera",
+            "about_list_item3": "💼 Nakatuon sa mataas na kalidad na mga kurso na humahantong sa mga nangungunang trabaho",
+            "about_list_item4": "📚 Kasama ang mga stream tulad ng Science, Commerce, Arts, at Technology",
+            "about_list_item5": "🗂️ Saklaw ang mga sikat na kurso tulad ng B.Tech, MBBS, BBA, Design, at marami pa",
+            "about_list_item6": "🌐 Sumusuporta sa maraming wika",
+            "about_list_item7": "📱 Mobile-friendly at madaling gamitin ang interface",
+            "how_it_works_heading": "Paano Gumagana",
+            "how_list_item1": "✏️ Ilagay ang iyong pangalan, grado, at stream (kung Grade 12)",
+            "how_list_item2": "📊 Ilagay ang iyong mga marka sa asignatura",
+            "how_list_item3": "❤️ Pumili ng paboritong asignatura at libangan",
+            "how_list_item4": "🎯 Piliin ang iyong gustong uri ng trabaho",
+            "how_it_works_heading": "Paano Gumagana",
+            "how_list_item1": "✏️ Ilagay ang iyong pangalan, grado, at stream (kung Grade 12)",
+            "how_list_item2": "📊 Ilagay ang iyong mga marka sa asignatura",
+            "how_list_item3": "❤️ Pumili ng paboritong asignatura at libangan",
+            "how_list_item4": "🎯 Piliin ang iyong gustong uri ng trabaho",
+            "how_list_item5": "📈 Hayaan ang AI na suriin at bumuo ng personalized na mga mungkahi sa karera",
+            "how_list_item6": "📥 I-download ang iyong ulat bilang PDF",
+            "main_tool_heading": "Pangunahing Tool",
+            "main_tool_description": "Mag-click sa ibaba upang buksan ang AI Career Guide sa isang bagong tab:",
+            "open_tool_button": "🚀 Buksan ang Tool",
+            "personalized_best_fit_heading": "Personalized na Pinakaakma",
+            "courses_input_label": "I-paste ang Mga Kursong Iminungkahi ng AI Tool:",
+            "courses_input_placeholder": "Halimbawa: B.Tech, MBBS, BBA...",
+            "next_quiz_button": "Susunod: Thinking Style Quiz",
+            "question_number_prefix": "Tanong ",
+            "question_number_suffix": "ng 5",
+            "find_college_heading": "Maghanap ng Kolehiyo",
+            "find_college_description": "Mag-click sa ibaba upang buksan ang buong College Finder tool sa isang bagong tab:",
+            "open_college_finder_button": "📚 Buksan ang College Finder",
+            "footer_text": "© 2025 Sai Pranav, 10D - IIS",
+            "quiz_result_heading": "Resulta ng Iyong Thinking Style",
+            "quiz_primary_thinker_prefix": "Ikaw ay pangunahing isang ",
+            "quiz_primary_thinker_suffix": " Thinker.",
+            "quiz_recommendation_heading": "Pinakaakmang Rekomendasyon ng Kurso:",
+            "quiz_why_match_heading": "Bakit ito isang magandang tugma:",
+            "general_studies_course": "Pangkalahatang Pag-aaral",
+            "general_studies_reason": "Ang iyong estilo ng pag-iisip ay mahusay, na nagpapahintulot sa iyo na maging adaptable sa iba't ibang larangan."
+        },
+        "ta": {
+            "page_title": "AI தொழில் வழிகாட்டி - நிபுணத்துவப் பதிப்பு",
+            "header_title": "AI தொழில் வழிகாட்டி 🌟",
+            "about_tab": "📘 பற்றி",
+            "how_it_works_tab": "⚙️ எப்படி வேலை செய்கிறது",
+            "main_tool_tab": "🧠 முக்கிய கருவி",
+            "best_fit_tab": "🧪 சிறந்த பொருத்தம்",
+            "find_college_tab": "🎓 கல்லூரி கண்டுபிடி",
+            "about_heading": "பற்றி",
+            "about_welcome_para1": "<strong>AI தொழில் வழிகாட்டி</strong>க்கு வரவேற்கிறோம் – ஐக்கிய அரபு எமிரேட்ஸின் 9-12 ஆம் வகுப்பு பள்ளி மாணவர்களுக்கு அவர்களின் சிறந்த தொழில் பாதைகளைக் கண்டறிய உருவாக்கப்பட்ட ஒரு ஸ்மார்ட் கருவி!",
+            "about_welcome_para2": "🎯 உங்கள் மதிப்பெண்கள், ஆர்வங்கள் மற்றும் பொழுதுபோக்குகளைப் புரிந்துகொள்வதன் மூலம் சிறந்த தொழில்களை ஆராய உங்களுக்கு உதவுவதே எங்கள் குறிக்கோள்.",
+            "about_list_item1": "🎓 ஐக்கிய அரபு எமிரேட்ஸின் பள்ளி மாணவர்களுக்காக சிறப்பாக வடிவமைக்கப்பட்டது",
+            "about_list_item2": "🧠 சிறந்த தொழில் விருப்பங்களுக்கு வழிகாட்ட AI ஐப் பயன்படுத்துகிறது",
+            "about_list_item3": "💼 சிறந்த வேலைகளுக்கு வழிவகுக்கும் உயர்தரப் படிப்புகளில் கவனம் செலுத்துகிறது",
+            "about_list_item4": "📚 அறிவியல், வணிகம், கலை மற்றும் தொழில்நுட்பம் போன்ற நீரோட்டங்கள் அடங்கும்",
+            "about_list_item5": "🗂️ பி.டெக், எம்.பி.பி.எஸ், பி.பி.ஏ, டிசைன் மற்றும் பல பிரபலமான படிப்புகளை உள்ளடக்கியது",
+            "about_list_item6": "🌐 பல மொழிகளை ஆதரிக்கிறது",
+            "about_list_item7": "📱 மொபைல்-நட்பு மற்றும் பார்வைக்கு பயன்படுத்த எளிது",
+            "how_it_works_heading": "எப்படி வேலை செய்கிறது",
+            "how_list_item1": "✏️ உங்கள் பெயர், வகுப்பு மற்றும் பிரிவு (12 ஆம் வகுப்பு என்றால்) உள்ளிடவும்",
+            "how_list_item2": "📊 உங்கள் பாட மதிப்பெண்களை உள்ளிடவும்",
+            "how_list_item3": "❤️ உங்களுக்குப் பிடித்த பாடங்கள் மற்றும் பொழுதுபோக்குகளைத் தேர்ந்தெடுக்கவும்",
+            "how_list_item4": "🎯 நீங்கள் விரும்பும் வேலை வகையைத் தேர்ந்தெடுக்கவும்",
+            "how_list_item5": "📈 AI ஐ பகுப்பாய்வு செய்து தனிப்பயனாக்கப்பட்ட தொழில் பரிந்துரைகளை உருவாக்க அனுமதிக்கவும்",
+            "how_list_item6": "📥 உங்கள் அறிக்கையை PDF ஆக பதிவிறக்கம் செய்யவும்",
+            "main_tool_heading": "முக்கிய கருவி",
+            "main_tool_description": "புதிய தாவலில் AI தொழில் வழிகாட்டியைத் திறக்க கீழே கிளிக் செய்யவும்:",
+            "open_tool_button": "🚀 கருவியைத் திற",
+            "personalized_best_fit_heading": "தனிப்பயனாக்கப்பட்ட சிறந்த பொருத்தம்",
+            "courses_input_label": "AI கருவியால் பரிந்துரைக்கப்பட்ட படிப்புகளை ஒட்டவும்:",
+            "courses_input_placeholder": "எ.கா. பி.டெக், எம்.பி.பி.எஸ், பி.பி.ஏ...",
+            "next_quiz_button": "அடுத்தது: சிந்தனை முறை வினாடி வினா",
+            "question_number_prefix": "கேள்வி ",
+            "question_number_suffix": "இன் 5",
+            "find_college_heading": "கல்லூரி கண்டுபிடி",
+            "find_college_description": "புதிய தாவலில் முழு கல்லூரி கண்டுபிடிப்பு கருவியைத் திறக்க கீழே கிளிக் செய்யவும்:",
+            "open_college_finder_button": "📚 கல்லூரி கண்டுபிடிப்பைத் திற",
+            "footer_text": "© 2025 சாய் பிரணவ், 10D - IIS",
+            "quiz_result_heading": "உங்கள் சிந்தனை முறை முடிவு",
+            "quiz_primary_thinker_prefix": "நீங்கள் முதன்மையாக ஒரு ",
+            "quiz_primary_thinker_suffix": " சிந்தனையாளர்.",
+            "quiz_recommendation_heading": "சிறந்த பொருத்தமான படிப்பு பரிந்துரை:",
+            "quiz_why_match_heading": "இது ஏன் ஒரு சிறந்த பொருத்தம்:",
+            "general_studies_course": "பொது ஆய்வுகள்",
+            "general_studies_reason": "உங்கள் சிந்தனை முறை பல்துறைத்திறன் கொண்டது, இது பல்வேறு துறைகளில் உங்களைத் தழுவிக்கொள்ள உதவுகிறது."
+        },
+        "bn": {
+            "page_title": "এআই ক্যারিয়ার গাইড - পেশাদার সংস্করণ",
+            "header_title": "এআই ক্যারিয়ার গাইড 🌟",
+            "about_tab": "📘 সম্পর্কে",
+            "how_it_works_tab": "⚙️ কিভাবে কাজ করে",
+            "main_tool_tab": "🧠 প্রধান টুল",
+            "best_fit_tab": "🧪 সেরা ফিট",
+            "find_college_tab": "🎓 কলেজ খুঁজুন",
+            "about_heading": "সম্পর্কে",
+            "about_welcome_para1": "<strong>এআই ক্যারিয়ার গাইড</strong>-এ স্বাগতম – সংযুক্ত আরব আমিরাতের 9-12 শ্রেণির স্কুল শিক্ষার্থীদের জন্য তাদের আদর্শ ক্যারিয়ার পথ খুঁজে বের করার জন্য তৈরি একটি স্মার্ট টুল!",
+            "about_welcome_para2": "🎯 আমাদের লক্ষ্য হল আপনার নম্বর, আগ্রহ এবং শখগুলি বুঝে আপনাকে শীর্ষ ক্যারিয়ারগুলি অন্বেষণ করতে সহায়তা করা।",
+            "about_list_item1": "🎓 বিশেষভাবে সংযুক্ত আরব আমিরাতের স্কুল শিক্ষার্থীদের জন্য ডিজাইন করা হয়েছে",
+            "about_list_item2": "🧠 সেরা ক্যারিয়ার বিকল্পগুলির জন্য এআই-চালিত নির্দেশনা ব্যবহার করে",
+            "about_list_item3": "💼 উচ্চ মানের কোর্সগুলির উপর মনোযোগ কেন্দ্রীভূত করে যা শীর্ষস্থানীয় চাকরিতে নিয়ে যায়",
+            "about_list_item4": "📚 বিজ্ঞান, কমার্স, আর্টস এবং টেকনোলজি-এর মতো স্ট্রিম অন্তর্ভুক্ত",
+            "about_list_item5": "🗂️ বি.টেক, এম.বি.বি.এস, বি.বি.এ, ডিজাইন এবং আরও অনেক জনপ্রিয় কোর্স অন্তর্ভুক্ত",
+            "about_list_item6": "🌐 একাধিক ভাষা সমর্থন করে",
+            "about_list_item7": "📱 মোবাইল-বান্ধব এবং দৃশ্যত ব্যবহার করা সহজ",
+            "how_it_works_heading": "কিভাবে কাজ করে",
+            "how_list_item1": "✏️ আপনার নাম, গ্রেড এবং স্ট্রিম (যদি 12 শ্রেনীতে হন) লিখুন",
+            "how_list_item2": "📊 আপনার বিষয় নম্বর ইনপুট করুন",
+            "how_list_item3": "❤️ আপনার প্রিয় বিষয় এবং শখ নির্বাচন করুন",
+            "how_list_item4": "🎯 আপনার স্বপ্নের কাজের ধরণ নির্বাচন করুন",
+            "how_list_item5": "📈 এআই-কে বিশ্লেষণ করে ব্যক্তিগতকৃত ক্যারিয়ার পরামর্শ তৈরি করতে দিন",
+            "how_list_item6": "📥 আপনার রিপোর্ট PDF হিসাবে ডাউনলোড করুন",
+            "main_tool_heading": "প্রধান টুল",
+            "main_tool_description": "একটি নতুন ট্যাবে এআই ক্যারিয়ার গাইড খুলতে নিচে ক্লিক করুন:",
+            "open_tool_button": "🚀 টুল খুলুন",
+            "personalized_best_fit_heading": "ব্যক্তিগতকৃত সেরা ফিট",
+            "courses_input_label": "এআই টুল দ্বারা প্রস্তাবিত কোর্সগুলি পেস্ট করুন:",
+            "courses_input_placeholder": "উদাহরণ: বি.টেক, এম.বি.বি.এস, বি.বি.এ...",
+            "next_quiz_button": "পরবর্তী: থিঙ্কিং স্টাইল কুইজ",
+            "question_number_prefix": "প্রশ্ন ",
+            "question_number_suffix": "এর 5",
+            "find_college_heading": "কলেজ খুঁজুন",
+            "find_college_description": "একটি নতুন ট্যাবে সম্পূর্ণ কলেজ ফাইন্ডার টুল খুলতে নিচে ক্লিক করুন:",
+            "open_college_finder_button": "📚 কলেজ ফাইন্ডার খুলুন",
+            "footer_text": "© 2025 সাই প্রনব, 10D - IIS",
+            "quiz_result_heading": "আপনার চিন্তাভাবনার স্টাইলের ফলাফল",
+            "quiz_primary_thinker_prefix": "আপনি প্রধানত একজন ",
+            "quiz_primary_thinker_suffix": " চিন্তাবিদ।",
+            "quiz_recommendation_heading": "সেরা ফিট কোর্স সুপারিশ:",
+            "quiz_why_match_heading": "এটি কেন একটি দুর্দান্ত ফিট:",
+            "general_studies_course": "সাধারণ অধ্যয়ন",
+            "general_studies_reason": "আপনার চিন্তাভাবনার স্টাইল বহুমুখী, যা আপনাকে বিভিন্ন ক্ষেত্রে অভিযোজিত হতে সাহায্য করে।"
+        },
+        "ps": {
+            "page_title": "د AI مسلک لارښود - مسلکي نسخه",
+            "header_title": "د AI مسلک لارښود 🌟",
+            "about_tab": "📘 په اړه",
+            "how_it_works_tab": "⚙️ څنګه کار کوي",
+            "main_tool_tab": "🧠 اصلي وسیله",
+            "best_fit_tab": "🧪 غوره سمون",
+            "find_college_tab": "🎓 پوهنتون ومومئ",
+            "about_heading": "په اړه",
+            "about_welcome_para1": "د <strong>AI مسلک لارښود</strong> ته ښه راغلاست – د متحده عربي اماراتو د 9-12 ټولګیو د ښوونځیو زده کونکو لپاره د دوی مثالي مسلکي لارو موندلو لپاره یوه هوښیاره وسیله!",
+            "about_welcome_para2": "🎯 زموږ هدف د دې هدف دی چې ستاسو نښې، ګټې او شوقونه په پام کې نیولو سره د غوره مسلکونو په لټه کې مرسته وکړي.",
+            "about_list_item1": "🎓 په ځانګړي ډول د متحده عربي اماراتو د ښوونځیو زده کونکو لپاره ډیزاین شوی",
+            "about_list_item2": "🧠 د غوره مسلکي اختیارونو لپاره د AI لخوا پرمخ وړل شوی لارښود کاروي",
+            "about_list_item3": "💼 د لوړ کیفیت کورسونو باندې تمرکز کوي چې غوره دندو ته لار هواروي",
+            "about_list_item4": "📚 لکه ساینس، تجارت، هنر او ټیکنالوژي شامل دي",
+            "about_list_item5": "🗂️ مشهور کورسونه لکه B.Tech، MBBS، BBA، ډیزاین، او نور ډیر څه پوښي",
+            "about_list_item6": "🌐 ډیری ژبو ملاتړ کوي",
+            "about_list_item7": "📱 ګرځنده دوستانه او په بصري توګه کارول اسانه دي",
+            "how_it_works_heading": "څنګه کار کوي",
+            "how_list_item1": "✏️ خپل نوم، ټولګی او څانګه (که په 12 ټولګي کې یاست) ولیکئ",
+            "how_list_item2": "📊 خپل د مضامینو نمرې ولیکئ",
+            "how_list_item3": "❤️ خپل غوره مضامین او شوقونه وټاکئ",
+            "how_list_item4": "🎯 خپل د خوب د کار ډول وټاکئ",
+            "how_list_item5": "📈 AI ته اجازه ورکړئ چې شخصي مسلکي وړاندیزونه تحلیل او تولید کړي",
+            "how_list_item6": "📥 خپل راپور په PDF بڼه ډاونلوډ کړئ",
+            "main_tool_heading": "اصلي وسیله",
+            "main_tool_description": "په نوې ټاب کې د AI مسلک لارښود پرانیستلو لپاره لاندې کلیک وکړئ:",
+            "open_tool_button": "🚀 وسیله پرانیزئ",
+            "personalized_best_fit_heading": "شخصي غوره سمون",
+            "courses_input_label": "د AI وسیلې لخوا وړاندیز شوي کورسونه ولیکئ:",
+            "courses_input_placeholder": "د مثال په توګه: B.Tech, MBBS, BBA...",
+            "next_quiz_button": "بل: د فکر کولو سټایل پوښتنه",
+            "question_number_prefix": "پوښتنه ",
+            "question_number_suffix": "د 5 څخه",
+            "find_college_heading": "پوهنتون ومومئ",
+            "find_college_description": "په نوې ټاب کې د پوهنتون موندلو بشپړ وسیله پرانیستلو لپاره لاندې کلیک وکړئ:",
+            "open_college_finder_button": "📚 پوهنتون موندونکی پرانیزئ",
+            "footer_text": "© 2025 ساي پرانوف، 10D - IIS",
+            "quiz_result_heading": "ستاسو د فکر کولو سټایل پایله",
+            "quiz_primary_thinker_prefix": "تاسو په ابتدايي توګه یو ",
+            "quiz_primary_thinker_suffix": " فکری کوونکی یاست.",
+            "quiz_recommendation_heading": "د غوره سمون کورس وړاندیز:",
+            "quiz_why_match_heading": "دا ولې یو لوی سمون دی:",
+            "general_studies_course": "عمومي زده کړې",
+            "general_studies_reason": "ستاسو د فکر کولو سټایل پراخه ده، چې تاسو په مختلفو برخو کې د تطبیق وړ ګرځوي."
+        },
+        "fa": {
+            "page_title": "راهنمای شغلی هوش مصنوعی - نسخه حرفه‌ای",
+            "header_title": "راهنمای شغلی هوش مصنوعی 🌟",
+            "about_tab": "📘 درباره",
+            "how_it_works_tab": "⚙️ نحوه کار",
+            "main_tool_tab": "🧠 ابزار اصلی",
+            "best_fit_tab": "🧪 بهترین تناسب",
+            "find_college_tab": "🎓 یافتن دانشگاه",
+            "about_heading": "درباره",
+            "about_welcome_para1": "به <strong>راهنمای شغلی هوش مصنوعی</strong> خوش آمدید – ابزاری هوشمند که برای دانش‌آموزان مدارس امارات متحده عربی از پایه ۹ تا ۱۲ طراحی شده تا مسیرهای شغلی ایده‌آل خود را کشف کنند!",
+            "about_welcome_para2": "🎯 هدف ما این است که با درک نمرات، علایق و سرگرمی‌های شما، به شما در کشف مشاغل برتر کمک کنیم.",
+            "about_list_item1": "🎓 به طور خاص برای دانش‌آموزان مدارس امارات متحده عربی طراحی شده است",
+            "about_list_item2": "🧠 از هوش مصنوعی برای راهنمایی شما به سمت بهترین گزینه‌های شغلی استفاده می‌کند",
+            "about_list_item3": "💼 بر دوره‌های با کیفیت بالا که منجر به مشاغل برتر می‌شوند، تمرکز دارد",
+            "about_list_item4": "📚 شامل رشته‌هایی مانند علوم، بازرگانی، هنر و فناوری است",
+            "about_list_item5": "🗂️ دوره‌های محبوبی مانند B.Tech، MBBS، BBA، طراحی و موارد دیگر را پوشش می‌دهد",
+            "about_list_item6": "🌐 از چندین زبان پشتیبانی می‌کند",
+            "about_list_item7": "📱 سازگار با موبایل و دارای رابط کاربری بصری آسان",
+            "how_it_works_heading": "نحوه کار",
+            "how_list_item1": "✏️ نام، پایه و رشته تحصیلی خود (اگر پایه ۱۲ هستید) را وارد کنید",
+            "how_list_item2": "📊 نمرات درسی خود را وارد کنید",
+            "how_list_item3": "❤️ دروس و سرگرمی‌های مورد علاقه خود را انتخاب کنید",
+            "how_list_item4": "🎯 نوع شغل مورد نظر خود را انتخاب کنید",
+            "how_list_item5": "📈 به هوش مصنوعی اجازه دهید پیشنهادات شغلی شخصی‌سازی شده را تحلیل و تولید کند",
+            "how_list_item6": "📥 گزارش خود را به صورت PDF دانلود کنید",
+            "main_tool_heading": "ابزار اصلی",
+            "main_tool_description": "برای باز کردن راهنمای شغلی هوش مصنوعی در یک تب جدید، روی دکمه زیر کلیک کنید:",
+            "open_tool_button": "🚀 باز کردن ابزار",
+            "personalized_best_fit_heading": "بهترین تناسب شخصی‌سازی شده",
+            "courses_input_label": "دوره‌های پیشنهادی ابزار هوش مصنوعی را جایگذاری کنید:",
+            "courses_input_placeholder": "مثلاً: B.Tech، MBBS، BBA...",
+            "next_quiz_button": "بعدی: آزمون سبک تفکر",
+            "question_number_prefix": "سوال ",
+            "question_number_suffix": "از 5",
+            "find_college_heading": "یافتن دانشگاه",
+            "find_college_description": "برای باز کردن ابزار کامل یافتن دانشگاه در یک تب جدید، روی دکمه زیر کلیک کنید:",
+            "open_college_finder_button": "📚 باز کردن ابزار یافتن دانشگاه",
+            "footer_text": "© 2025 سای پرناو، 10D - IIS",
+            "quiz_result_heading": "نتیجه سبک تفکر شما",
+            "quiz_primary_thinker_prefix": "شما عمدتاً یک ",
+            "quiz_primary_thinker_suffix": " متفکر هستید.",
+            "quiz_recommendation_heading": "پیشنهاد بهترین دوره متناسب:",
+            "quiz_why_match_heading": "چرا این یک تطابق عالی است:",
+            "general_studies_course": "مطالعات عمومی",
+            "general_studies_reason": "سبک تفکر شما جامع است و شما را برای زمینه‌های مختلف سازگار می‌سازد."
+        }
+    };
+
+    const allQuestions = {
+        "en": [
+            {
+                q: "What do you enjoy more?",
+                a: [
+                    { text: "Solving logic puzzles", type: "analytical" },
+                    { text: "Coming up with original stories", type: "creative" },
+                    { text: "Arguing your point clearly", type: "critical" },
+                    { text: "Thinking big picture concepts", type: "abstract" }
+                ]
+            },
+            {
+                q: "How do you usually make decisions?",
+                a: [
+                    { text: "Using facts and data", type: "analytical" },
+                    { text: "Following gut feeling and ideas", type: "creative" },
+                    { text: "Based on experience and reality", type: "concrete" },
+                    { text: "Evaluating all sides logically", type: "critical" }
+                ]
+            },
+            {
+                q: "How do you solve a problem?",
+                a: [
+                    { text: "Try different ideas until one works", type: "divergent" },
+                    { text: "Look for one correct answer", type: "convergent" },
+                    { text: "Use detailed analysis", type: "analytical" },
+                    { text: "Imagine creative alternatives", type: "creative" }
+                ]
+            },
+            {
+                q: "What do you value more in work?",
+                a: [
+                    { text: "Clear rules and tasks", type: "concrete" },
+                    { text: "Freedom to express new ideas", type: "creative" },
+                    { text: "Thinking deeply about theory", type: "abstract" },
+                    { text: "Finding patterns and logic", type: "analytical" }
+                ]
+            },
+            {
+                q: "Which best describes your style?",
+                a: [
+                    { text: "I break problems into parts", type: "analytical" },
+                    { text: "I seek practical outcomes", type: "concrete" },
+                    { text: "I connect unrelated ideas", "type": "divergent" },
+                    { text: "I choose the best option fast", type: "convergent" }
+                ]
+            }
+        ],
+        "ar": [
+            {
+                q: "ماذا تستمتع به أكثر؟",
+                a: [
+                    { text: "حل الألغاز المنطقية", type: "analytical" },
+                    { text: "ابتكار قصص أصلية", type: "creative" },
+                    { text: "توضيح وجهة نظرك بوضوح", type: "critical" },
+                    { text: "التفكير في المفاهيم الكبيرة", type: "abstract" }
+                ]
+            },
+            {
+                q: "كيف تتخذ القرارات عادة؟",
+                a: [
+                    { text: "باستخدام الحقائق والبيانات", type: "analytical" },
+                    { text: "باتباع الشعور البديهي والأفكار", type: "creative" },
+                    { text: "بناءً على الخبرة والواقع", type: "concrete" },
+                    { text: "بتقييم جميع الجوانب منطقياً", type: "critical" }
+                ]
+            },
+            {
+                q: "كيف تحل مشكلة؟",
+                a: [
+                    { text: "جرب أفكارًا مختلفة حتى ينجح أحدها", type: "divergent" },
+                    { text: "ابحث عن إجابة واحدة صحيحة", type: "convergent" },
+                    { text: "استخدم تحليلاً مفصلاً", type: "analytical" },
+                    { text: "تخيل بدائل إبداعية", type: "creative" }
+                ]
+            },
+            {
+                q: "ما الذي تقدره أكثر في العمل؟",
+                a: [
+                    { text: "قواعد ومهام واضحة", type: "concrete" },
+                    { text: "حرية التعبير عن أفكار جديدة", type: "creative" },
+                    { text: "التفكير بعمق في النظرية", type: "abstract" },
+                    { text: "إيجاد الأنماط والمنطق", type: "analytical" }
+                ]
+            },
+            {
+                q: "أي وصف يناسب أسلوبك بشكل أفضل؟",
+                a: [
+                    { text: "أقسم المشاكل إلى أجزاء", type: "analytical" },
+                    { text: "أسعى لتحقيق نتائج عملية", type: "concrete" },
+                    { text: "أربط الأفكار غير المترابطة", "type": "divergent" },
+                    { text: "أختار الخيار الأفضل بسرعة", type: "convergent" }
+                ]
+            }
+        ],
+        "hi": [
+            {
+                q: "आपको क्या अधिक पसंद है?",
+                a: [
+                    { text: "तर्क पहेलियाँ सुलझाना", type: "analytical" },
+                    { text: "मौलिक कहानियाँ बनाना", type: "creative" },
+                    { text: "अपनी बात स्पष्ट रूप से तर्क देना", type: "critical" },
+                    { text: "बड़ी तस्वीर के कॉन्सेप्ट्स सोचना", type: "abstract" }
+                ]
+            },
+            {
+                q: "आप आमतौर पर निर्णय कैसे लेते हैं?",
+                a: [
+                    { text: "तथ्यों और डेटा का उपयोग करना", type: "analytical" },
+                    { text: "अंतर्ज्ञान और विचारों का पालन करना", type: "creative" },
+                    { text: "अनुभव और वास्तविकता के आधार पर", type: "concrete" },
+                    { text: "सभी पक्षों का तार्किक रूप से मूल्यांकन करना", type: "critical" }
+                ]
+            },
+            {
+                q: "आप समस्या कैसे हल करते हैं?",
+                a: [
+                    { text: "विभिन्न विचारों को तब तक आज़माएं जब तक एक काम न करे", type: "divergent" },
+                    { text: "एक सही उत्तर खोजें", type: "convergent" },
+                    { text: "विस्तृत विश्लेषण का उपयोग करें", type: "analytical" },
+                    { text: "रचनात्मक विकल्पों की कल्पना करें", type: "creative" }
+                ]
+            },
+            {
+                q: "आप काम में क्या अधिक महत्व देते हैं?",
+                a: [
+                    { text: "स्पष्ट नियम और कार्य", type: "concrete" },
+                    { text: "नए विचारों को व्यक्त करने की स्वतंत्रता", type: "creative" },
+                    { text: "सिद्धांत के बारे में गहराई से सोचना", type: "abstract" },
+                    { text: "पैटर्न और तर्क खोजना", type: "analytical" }
+                ]
+            },
+            {
+                q: "आपकी शैली का सबसे अच्छा वर्णन कौन सा है?",
+                a: [
+                    { text: "मैं समस्याओं को भागों में तोड़ता हूँ", type: "analytical" },
+                    { text: "मैं व्यावहारिक परिणाम चाहता हूँ", type: "concrete" },
+                    { text: "मैं असंबंधित विचारों को जोड़ता हूँ", "type": "divergent" },
+                    { text: "मैं सबसे अच्छा विकल्प तेज़ी से चुनता हूँ", type: "convergent" }
+                ]
+            }
+        ],
+        "ur": [
+            {
+                q: "آپ کو کیا زیادہ پسند ہے؟",
+                a: [
+                    { text: "منطقی پہیلیاں حل کرنا", type: "analytical" },
+                    { text: "نئی کہانیاں بنانا", type: "creative" },
+                    { text: "اپنا نقطہ واضح طور پر دلیل دینا", type: "critical" },
+                    { text: "بڑے تصورات کے بارے میں سوچنا", type: "abstract" }
+                ]
+            },
+            {
+                q: "آپ عام طور پر فیصلے کیسے کرتے ہیں؟",
+                a: [
+                    { text: "حقائق اور ڈیٹا کا استعمال کرتے ہوئے", type: "analytical" },
+                    { text: "باطنی احساس اور خیالات کی پیروی کرتے ہوئے", type: "creative" },
+                    { text: "تجربے اور حقیقت کی بنیاد پر", type: "concrete" },
+                    { text: "تمام پہلوؤں کا منطقی جائزہ لینا", type: "critical" }
+                ]
+            },
+            {
+                q: "آپ مسئلہ کیسے حل کرتے ہیں؟",
+                a: [
+                    { text: "مختلف خیالات کو آزمائیں جب تک ایک کام نہ کرے", type: "divergent" },
+                    { text: "ایک صحیح جواب تلاش کریں", type: "convergent" },
+                    { text: "تفصیلی تجزیہ استعمال کریں", type: "analytical" },
+                    { text: "تخلیقی متبادل تصور کریں", type: "creative" }
+                ]
+            },
+            {
+                q: "آپ کام میں کیا زیادہ اہمیت دیتے ہیں؟",
+                a: [
+                    { text: "واضح قواعد و فرائض", type: "concrete" },
+                    { text: "نئے خیالات کا اظہار کرنے کی آزادی", type: "creative" },
+                    { text: "نظریے کے بارے میں گہرائی سے سوچنا", type: "abstract" },
+                    { text: "نمونے اور منطق تلاش کرنا", type: "analytical" }
+                ]
+            },
+            {
+                q: "آپ کے انداز کی بہترین وضاحت کون سی ہے؟",
+                a: [
+                    { text: "میں مسائل کو حصوں میں تقسیم کرتا ہوں", type: "analytical" },
+                    { text: "میں عملی نتائج چاہتا ہوں", type: "concrete" },
+                    { text: "میں غیر متعلقہ خیالات کو جوڑتا ہوں", "type": "divergent" },
+                    { text: "میں تیزی سے بہترین آپشن منتخب کرتا ہوں", type: "convergent" }
+                ]
+            }
+        ],
+        "ml": [
+            {
+                q: "നിങ്ങൾക്ക് കൂടുതൽ ഇഷ്ടമുള്ളത് എന്താണ്?",
+                a: [
+                    { text: "ലോജിക് പസിലുകൾ പരിഹരിക്കുന്നത്", type: "analytical" },
+                    { text: "ഒറിജിനൽ കഥകൾ ഉണ്ടാക്കുന്നത്", type: "creative" },
+                    { text: "നിങ്ങളുടെ അഭിപ്രായം വ്യക്തമായി വാദിക്കുന്നത്", type: "critical" },
+                    { text: "വലിയ ചിത്രത്തിന്റെ ആശയങ്ങൾ ചിന്തിക്കുന്നത്", type: "abstract" }
+                ]
+            },
+            {
+                q: "നിങ്ങൾ സാധാരണയായി എങ്ങനെയാണ് തീരുമാനങ്ങൾ എടുക്കുന്നത്?",
+                a: [
+                    { text: "വസ്തുതകളും ഡാറ്റയും ഉപയോഗിച്ച്", type: "analytical" },
+                    { text: "ഉള്ളിലെ തോന്നലുകളും ആശയങ്ങളും പിന്തുടർന്ന്", type: "creative" },
+                    { text: "അനുഭവത്തിന്റെയും യാഥാർത്ഥ്യത്തിന്റെയും അടിസ്ഥാനത്തിൽ", type: "concrete" },
+                    { text: "എല്ലാ വശങ്ങളും യുക്തിപരമായി വിലയിരുത്തി", type: "critical" }
+                ]
+            },
+            {
+                q: "നിങ്ങൾ എങ്ങനെയാണ് ഒരു പ്രശ്നം പരിഹരിക്കുന്നത്?",
+                a: [
+                    { text: "ഒന്ന് ശരിയാകുന്നത് വരെ വ്യത്യസ്ത ആശയങ്ങൾ പരീക്ഷിക്കുക", type: "divergent" },
+                    { text: "ഒരു ശരിയായ ഉത്തരം കണ്ടെത്തുക", type: "convergent" },
+                    { text: "വിശദമായ വിശകലനം ഉപയോഗിക്കുക", type: "analytical" },
+                    { text: "സൃഷ്ടിപരമായ ബദലുകൾ സങ്കൽപ്പിക്കുക", type: "creative" }
+                ]
+            },
+            {
+                q: "ജോലിയിൽ നിങ്ങൾ കൂടുതൽ വിലമതിക്കുന്നത് എന്താണ്?",
+                a: [
+                    { text: "വ്യക്തമായ നിയമങ്ങളും ജോലികളും", type: "concrete" },
+                    { text: "പുതിയ ആശയങ്ങൾ പ്രകടിപ്പിക്കാനുള്ള സ്വാതന്ത്ര്യം", type: "creative" },
+                    { text: "സിദ്ധാന്തത്തെക്കുറിച്ച് ആഴത്തിൽ ചിന്തിക്കുന്നത്", type: "abstract" },
+                    { text: "പാറ്റേണുകളും യുക്തിയും കണ്ടെത്തുന്നത്", type: "analytical" }
+                ]
+            },
+            {
+                q: "നിങ്ങളുടെ ശൈലി ഏറ്റവും നന്നായി വിവരിക്കുന്നത് ഏതാണ്?",
+                a: [
+                    { text: "ഞാൻ പ്രശ്നങ്ങളെ ഭാഗങ്ങളായി വിഭജിക്കുന്നു", type: "analytical" },
+                    { text: "ഞാൻ പ്രായോഗിക ഫലങ്ങൾ തേടുന്നു", type: "concrete" },
+                    { text: "ഞാൻ ബന്ധമില്ലാത്ത ആശയങ്ങളെ ബന്ധിപ്പിക്കുന്നു", "type": "divergent" },
+                    { text: "ഞാൻ വേഗത്തിൽ മികച്ച ഓപ്ഷൻ തിരഞ്ഞെടുക്കുന്നു", type: "convergent" }
+                ]
+            }
+        ],
+        "tl": [
+            {
+                q: "Ano ang mas gusto mong gawin?",
+                a: [
+                    { text: "Paglutas ng logic puzzle", type: "analytical" },
+                    { text: "Paglikha ng mga orihinal na kuwento", type: "creative" },
+                    { text: "Pagpapahayag ng iyong punto nang malinaw", type: "critical" },
+                    { text: "Pag-iisip ng malalaking konsepto", type: "abstract" }
+                ]
+            },
+            {
+                q: "Paano ka kadalasang gumagawa ng mga desisyon?",
+                a: [
+                    { text: "Gamit ang mga katotohanan at datos", type: "analytical" },
+                    { text: "Pagsunod sa kutob at ideya", type: "creative" },
+                    { text: "Batay sa karanasan at realidad", type: "concrete" },
+                    { text: "Pagsusuri sa lahat ng panig nang lohikal", type: "critical" }
+                ]
+            },
+            {
+                q: "Paano mo lulutasin ang isang problema?",
+                a: [
+                    { text: "Sumubok ng iba't ibang ideya hanggang may gumana", type: "divergent" },
+                    { text: "Maghanap ng isang tamang sagot", type: "convergent" },
+                    { text: "Gumamit ng detalyadong pagsusuri", type: "analytical" },
+                    { text: "Mag-isip ng mga malikhaing alternatibo", type: "creative" }
+                ]
+            },
+            {
+                q: "Ano ang mas pinahahalagahan mo sa trabaho?",
+                a: [
+                    { text: "Malinaw na mga patakaran at gawain", type: "concrete" },
+                    { text: "Kalayaang ipahayag ang mga bagong ideya", type: "creative" },
+                    { text: "Malalim na pag-iisip tungkol sa teorya", type: "abstract" },
+                    { text: "Paghahanap ng mga pattern at lohika", type: "analytical" }
+                ]
+            },
+            {
+                q: "Alin ang pinakamahusay na naglalarawan sa iyong estilo?",
+                a: [
+                    { text: "Pinaghihiwalay ko ang mga problema sa mga bahagi", type: "analytical" },
+                    { text: "Naghahanap ako ng mga praktikal na resulta", type: "concrete" },
+                    { text: "Ikinokonekta ko ang mga hindi magkakaugnay na ideya", "type": "divergent" },
+                    { text: "Pinipili ko ang pinakamahusay na opsyon nang mabilis", type: "convergent" }
+                ]
+            }
+        ],
+        "ta": [
+            {
+                q: "நீங்கள் எதை அதிகம் ரசிக்கிறீர்கள்?",
+                a: [
+                    { text: "தர்க்க புதிர்களைத் தீர்ப்பது", type: "analytical" },
+                    { text: "அசல் கதைகளை உருவாக்குவது", type: "creative" },
+                    { text: "உங்கள் கருத்தை தெளிவாக வாதிடுவது", type: "critical" },
+                    { text: "பெரிய படக் கருத்துக்களைச் சிந்திப்பது", type: "abstract" }
+                ]
+            },
+            {
+                q: "நீங்கள் வழக்கமாக எப்படி முடிவுகளை எடுக்கிறீர்கள்?",
+                a: [
+                    { text: "உண்மைகள் மற்றும் தரவுகளைப் பயன்படுத்தி", type: "analytical" },
+                    { text: "உள்ளுணர்வு மற்றும் யோசனைகளைப் பின்பற்றி", type: "creative" },
+                    { text: "அனுபவம் மற்றும் யதார்த்தத்தின் அடிப்படையில்", type: "concrete" },
+                    { text: "அனைத்து அம்சங்களையும் தர்க்கரீதியாக மதிப்பீடு செய்வது", type: "critical" }
+                ]
+            },
+            {
+                q: "ஒரு சிக்கலை நீங்கள் எப்படி தீர்ப்பீர்கள்?",
+                a: [
+                    { text: "ஒன்று வேலை செய்யும் வரை வெவ்வேறு யோசனைகளை முயற்சிக்கவும்", type: "divergent" },
+                    { text: "ஒரு சரியான பதிலைத் தேடுங்கள்", type: "convergent" },
+                    { text: "விரிவான பகுப்பாய்வைப் பயன்படுத்தவும்", type: "analytical" },
+                    { text: "படைப்பு மாற்றுகளை கற்பனை செய்யுங்கள்", type: "creative" }
+                ]
+            },
+            {
+                q: "வேலையில் நீங்கள் எதற்கு அதிக முக்கியத்துவம் கொடுக்கிறீர்கள்?",
+                a: [
+                    { text: "தெளிவான விதிகள் மற்றும் பணிகள்", type: "concrete" },
+                    { text: "புதிய யோசனைகளை வெளிப்படுத்தும் சுதந்திரம்", type: "creative" },
+                    { text: "கோட்பாட்டைப் பற்றி ஆழமாகச் சிந்திப்பது", type: "abstract" },
+                    { text: "வடிவங்கள் மற்றும் தர்க்கத்தைக் கண்டறிவது", type: "analytical" }
+                ]
+            },
+            {
+                q: "உங்கள் பாணியை சிறந்த முறையில் எது விவரிக்கிறது?",
+                a: [
+                    { text: "நான் சிக்கல்களைப் பகுதிகளாகப் பிரிக்கிறேன்", type: "analytical" },
+                    { text: "நான் நடைமுறை விளைவுகளை நாடுகிறேன்", type: "concrete" },
+                    { text: "நான் தொடர்பில்லாத யோசனைகளை இணைக்கிறேன்", "type": "divergent" },
+                    { text: "நான் சிறந்த விருப்பத்தை விரைவாகத் தேர்வு செய்கிறேன்", type: "convergent" }
+                ]
+            }
+        ],
+        "bn": [
+            {
+                q: "আপনি কি বেশি উপভোগ করেন?",
+                a: [
+                    { text: "লজিক পাজল সমাধান করা", type: "analytical" },
+                    { text: "মৌলিক গল্প তৈরি করা", type: "creative" },
+                    { text: "আপনার বক্তব্য স্পষ্টভাবে যুক্তিযুক্ত করা", type: "critical" },
+                    { text: "বড় ছবির ধারণা নিয়ে চিন্তা করা", type: "abstract" }
+                ]
+            },
+            {
+                q: "আপনি সাধারণত কিভাবে সিদ্ধান্ত নেন?",
+                a: [
+                    { text: "তথ্য এবং ডেটা ব্যবহার করে", type: "analytical" },
+                    { text: "স্বতঃস্ফূর্ত অনুভূতি এবং ধারণা অনুসরণ করে", type: "creative" },
+                    { text: "স্বতঃস্ফূর্ত অনুভূতি এবং ধারণা অনুসরণ করে", type: "concrete" },
+                    { text: "সমস্ত দিক যৌক্তিকভাবে মূল্যায়ন করে", type: "critical" }
+                ]
+            },
+            {
+                q: "আপনি কিভাবে একটি সমস্যা সমাধান করেন?",
+                a: [
+                    { text: "একটি কাজ না করা পর্যন্ত বিভিন্ন ধারণা চেষ্টা করুন", type: "divergent" },
+                    { text: "একটি সঠিক উত্তর খুঁজুন", type: "convergent" },
+                    { text: "বিস্তারিত বিশ্লেষণ ব্যবহার করুন", type: "analytical" },
+                    { text: "সৃজনশীল বিকল্পগুলি কল্পনা করুন", type: "creative" }
+                ]
+            },
+            {
+                q: "কাজে আপনি কি বেশি মূল্যবান মনে করেন?",
+                a: [
+                    { text: "স্পষ্ট নিয়মাবলী এবং কাজ", type: "concrete" },
+                    { text: "নতুন ধারণা প্রকাশের স্বাধীনতা", type: "creative" },
+                    { text: "তত্ত্ব সম্পর্কে গভীরভাবে চিন্তা করা", type: "abstract" },
+                    { text: "প্যাটার্ন এবং যুক্তি খুঁজে বের করা", type: "analytical" }
+                ]
+            },
+            {
+                q: "আপনার শৈলী সবচেয়ে ভালভাবে কোনটি বর্ণনা করে?",
+                a: [
+                    { text: "আমি সমস্যাগুলিকে অংশে বিভক্ত করি", type: "analytical" },
+                    { text: "আমি ব্যবহারিক ফলাফল চাই", type: "concrete" },
+                    { text: "আমি সম্পর্কহীন ধারণাগুলি সংযুক্ত করি", "type": "divergent" },
+                    { text: "আমি দ্রুত সেরা বিকল্পটি বেছে নিই", type: "convergent" }
+                ]
+            }
+        ],
+        "ps": [
+            {
+                q: "تاسو څه شی ډیر خوښوئ؟",
+                a: [
+                    { text: "منطقي پزلونه حل کول", type: "analytical" },
+                    { text: "اصلي کیسې جوړول", type: "creative" },
+                    { text: "خپله نقطه په واضح ډول استدلال کول", type: "critical" },
+                    { text: "د لوی عکس مفهومونو په اړه فکر کول", type: "abstract" }
+                ]
+            },
+            {
+                q: "تاسو معمولا څنګه پریکړې کوئ؟",
+                a: [
+                    { text: "د حقایقو او معلوماتو په کارولو سره", type: "analytical" },
+                    { text: "د احساس او نظریاتو په تعقیب", type: "creative" },
+                    { text: "د تجربې او واقعیت پر بنسټ", type: "concrete" },
+                    { text: "د ټولو اړخونو منطقي ارزونه", type: "critical" }
+                ]
+            },
+            {
+                q: "تاسو څنګه یوه ستونزه حل کوئ؟",
+                a: [
+                    { text: "مختلف نظریات هڅه وکړئ ترڅو یو کار وکړي", type: "divergent" },
+                    { text: "یوه سمه ځواب ومومئ", type: "convergent" },
+                    { text: "تفصیلي تحلیل وکاروئ", type: "analytical" },
+                    { text: "تخلیقي بدیلونه تصور کړئ", type: "creative" }
+                ]
+            },
+            {
+                q: "تاسو په کار کې څه ته ډیر اهمیت ورکوئ؟",
+                a: [
+                    { text: "واضح مقررات او دندې", type: "concrete" },
+                    { text: "د نویو نظریاتو د څرګندولو آزادي", type: "creative" },
+                    { text: "د تیوري په اړه ژور فکر کول", type: "abstract" },
+                    { text: "د نمونو او منطق موندل", type: "analytical" }
+                ]
+            },
+            {
+                q: "کوم یو ستاسو سټایل غوره بیانوي؟",
+                a: [
+                    { text: "زه ستونزې په برخو ویشم", type: "analytical" },
+                    { text: "زه عملي پایلې غواړم", type: "concrete" },
+                    { text: "زه غیر اړونده نظریات وصلوم", "type": "divergent" },
+                    { text: "زه په چټکۍ سره غوره انتخاب کوم", type: "convergent" }
+                ]
+            }
+        ],
+        "fa": [
+            {
+                q: "چه چیزی را بیشتر دوست دارید؟",
+                a: [
+                    { text: "حل پازل‌های منطقی", type: "analytical" },
+                    { text: "خلق داستان‌های اورجینال", type: "creative" },
+                    { text: "بحث کردن درباره دیدگاه خود به وضوح", type: "critical" },
+                    { text: "فکر کردن به مفاهیم کلان", type: "abstract" }
+                ]
+            },
+            {
+                q: "معمولاً چگونه تصمیم می‌گیرید؟",
+                a: [
+                    { text: "با استفاده از حقایق و داده‌ها", type: "analytical" },
+                    { text: "پیروی از حس درونی و ایده‌ها", type: "creative" },
+                    { text: "بر اساس تجربه و واقعیت", type: "concrete" },
+                    { text: "ارزیابی منطقی همه جوانب", type: "critical" }
+                ]
+            },
+            {
+                q: "چگونه یک مشکل را حل می‌کنید؟",
+                a: [
+                    { text: "ایده‌های مختلف را امتحان کنید تا یکی کار کند", type: "divergent" },
+                    { text: "دنبال یک پاسخ صحیح باشید", type: "convergent" },
+                    { text: "از تحلیل دقیق استفاده کنید", type: "analytical" },
+                    { text: "جایگزین‌های خلاقانه تصور کنید", type: "creative" }
+                ]
+            },
+            {
+                q: "چه چیزی را در کار بیشتر ارزش قائل هستید؟",
+                a: [
+                    { text: "قوانین و وظایف روشن", type: "concrete" },
+                    { text: "آزادی بیان ایده‌های جدید", type: "creative" },
+                    { text: "تفکر عمیق درباره نظریه", type: "abstract" },
+                    { text: "یافتن الگوها و منطق", type: "analytical" }
+                ]
+            },
+            {
+                q: "کدام یک بهترین توصیف سبک شماست؟",
+                a: [
+                    { text: "مشکلات را به بخش‌ها تقسیم می‌کنم", type: "analytical" },
+                    { text: "به دنبال نتایج عملی هستم", type: "concrete" },
+                    { text: "ایده‌های بی‌ربط را به هم وصل می‌کنم", "type": "divergent" },
+                    { text: "بهترین گزینه را سریع انتخاب می‌کنم", type: "convergent" }
+                ]
+            }
+        ]
+    };
+
+    const allMatches = {
+        "en": {
+            analytical: { course: "B.Tech in CS / Data Science", reason: "Your analytical thinking makes you perfect for technology, coding, and analytics fields." },
+            creative: { course: "Design / Animation / Media", reason: "Your creativity shines in design, film, and digital media careers." },
+            critical: { course: "Law / Journalism / Psychology", reason: "Your critical thinking excels in reasoning-based professions." },
+            abstract: { course: "B.Sc Research / Philosophy / AI", reason: "Your abstract thinking suits advanced sciences and theoretical fields." },
+            concrete: { course: "Nursing / B.Ed / Hotel Management", reason: "Your practical approach fits hands-on professions." },
+            divergent: { course: "Entrepreneurship / Innovation", reason: "Your divergent thinking is ideal for startups and innovation." },
+            convergent: { course: "Finance / Engineering", reason: "Your convergent thinking excels in solution-focused careers." }
+        },
+        "ar": {
+            analytical: { course: "بكالوريوس في علوم الحاسوب / علم البيانات", reason: "تفكيرك التحليلي يجعلك مثالياً لمجالات التكنولوجيا والبرمجة والتحليل." },
+            creative: { course: "تصميم / رسوم متحركة / إعلام", reason: "إبداعك يتألق في وظائف التصميم والأفلام والإعلام الرقمي." },
+            critical: { course: "قانون / صحافة / علم نفس", reason: "تفكيرك النقدي يتفوق في المهن القائمة على الاستدلال." },
+            abstract: { course: "بكالوريوس بحث علمي / فلسفة / ذكاء اصطناعي", reason: "تفكيرك المجرد يناسب العلوم المتقدمة والمجالات النظرية." },
+            concrete: { course: "تمريض / بكالوريوس تربية / إدارة فنادق", reason: "نهجك العملي يناسب المهن العملية." },
+            divergent: { course: "ريادة أعمال / ابتكار", reason: "تفكيرك التباعدي مثالي للشركات الناشئة والابتكار." },
+            convergent: { course: "مالية / هندسة", reason: "تفكيرك التقاربي يتفوق في المهن التي تركز على الحلول." }
+        },
+        "hi": {
+            analytical: { course: "बी.टेक (कंप्यूटर विज्ञान) / डेटा साइंस", reason: "आपकी विश्लेषणात्मक सोच आपको प्रौद्योगिकी, कोडिंग और एनालिटिक्स क्षेत्रों के लिए एकदम सही बनाती है।" },
+            creative: { course: "डिजाइन / एनिमेशन / मीडिया", reason: "आपकी रचनात्मकता डिजाइन, फिल्म और डिजिटल मीडिया करियर में चमकती है।" },
+            critical: { course: "कानून / पत्रकारिता / मनोविज्ञान", reason: "आपकी आलोचनात्मक सोच तर्क-आधारित व्यवसायों में उत्कृष्ट है।" },
+            abstract: { course: "बी.एससी रिसर्च / दर्शनशास्त्र / एआई", reason: "आपकी अमूर्त सोच उन्नत विज्ञान और सैद्धांतिक क्षेत्रों के लिए उपयुक्त है।" },
+            concrete: { course: "नर्सिंग / बी.एड / होटल प्रबंधन", reason: "आपका व्यावहारिक दृष्टिकोण हाथ से काम करने वाले व्यवसायों में फिट बैठता है।" },
+            divergent: { course: "उद्यमिता / नवाचार", reason: "आपकी अपसारी सोच स्टार्टअप और नवाचार के लिए आदर्श है।" },
+            convergent: { course: "वित्त / इंजीनियरिंग", reason: "आपकी अभिसारी सोच समाधान-केंद्रित करियर में उत्कृष्ट है।" }
+        },
+        "ur": {
+            analytical: { course: "بی ٹیک (کمپیوٹر سائنس) / ڈیٹا سائنس", reason: "آپ کی تجزیاتی سوچ آپ کو ٹیکنالوجی، کوڈنگ اور تجزیاتی شعبوں کے لیے بہترین بناتی ہے۔" },
+            creative: { course: "ڈیزائن / اینیمیشن / میڈیا", reason: "آپ کی تخلیقی صلاحیت ڈیزائن، فلم اور ڈیجیٹل میڈیا کیریئر میں چمکتی ہے۔" },
+            critical: { course: "قانون / صحافت / نفسیات", reason: "آپ کی تنقیدی سوچ استدلال پر مبنی پیشوں میں بہترین ہے۔" },
+            abstract: { course: "بی ایس سی ریسرچ / فلسفہ / اے آئی", reason: "آپ کی تجریدی سوچ جدید سائنس اور نظریاتی شعبوں کے لیے موزوں ہے۔" },
+            concrete: { course: "نرسنگ / بی ایڈ / ہوٹل مینجمنٹ", reason: "آپ کا عملی نقطہ نظر ہینڈ آن پیشوں کے لیے موزوں ہے۔" },
+            divergent: { course: "انٹرپرینیورشپ / جدت", reason: "آپ کی مختلف سوچ اسٹارٹ اپ اور جدت کے لیے مثالی ہے۔" },
+            convergent: { course: "فنانس / انجینئرنگ", reason: "آپ کی ہم آہنگ سوچ حل پر مبنی کیریئر میں بہترین ہے۔" }
+        },
+        "ml": {
+            analytical: { course: "കമ്പ്യൂട്ടർ സയൻസിൽ ബി.ടെക് / ഡാറ്റാ സയൻസ്", reason: "നിങ്ങളുടെ വിശകലന ചിന്ത നിങ്ങളെ സാങ്കേതികവിദ്യ, കോഡിംഗ്, അനലിറ്റിക്സ് മേഖലകളിൽ മികച്ചതാക്കുന്നു." },
+            creative: { course: "ഡിസൈൻ / ആനിമേഷൻ / മീഡിയ", reason: "നിങ്ങളുടെ സർഗ്ഗാത്മകത ഡിസൈൻ, സിനിമ, ഡിജിറ്റൽ മീഡിയ കരിയറിൽ തിളങ്ങുന്നു." },
+            critical: { course: "നിയമം / പത്രപ്രവർത്തനം / മനശാസ്ത്രം", reason: "നിങ്ങളുടെ വിമർശനാത്മക ചിന്താശേഷി യുക്തി അടിസ്ഥാനമാക്കിയുള്ള തൊഴിലുകളിൽ മികവ് പുലർത്തുന്നു." },
+            abstract: { course: "ബി.എസ്.സി റിസർച്ച് / ഫിലോസഫി / എഐ", reason: "നിങ്ങളുടെ അമൂർത്ത ചിന്താശേഷി അഡ്വാൻസ്ഡ് സയൻസസിനും സൈദ്ധാന്തിക മേഖലകൾക്കും അനുയോജ്യമാണ്." },
+            concrete: { course: "നഴ്സിംഗ് / ബി.എഡ് / ഹോട്ടൽ മാനേജ്മെന്റ്", reason: "നിങ്ങളുടെ പ്രായോഗിക സമീപനം പ്രായോഗിക തൊഴിലുകൾക്ക് അനുയോജ്യമാണ്." },
+            divergent: { course: "സംരംഭകത്വം / ഇന്നൊവേഷൻ", reason: "നിങ്ങളുടെ വ്യതിരിക്ത ചിന്താശേഷി സ്റ്റാർട്ടപ്പുകൾക്കും ഇന്നൊവേഷനും അനുയോജ്യമാണ്." },
+            convergent: { course: "ധനകാര്യം / എഞ്ചിനീയറിംഗ്", reason: "നിങ്ങളുടെ സംയോജിത ചിന്താശേഷി പരിഹാര കേന്ദ്രീകൃത തൊഴിലുകളിൽ മികവ് പുലർത്തുന്നു." }
+        },
+        "tl": {
+            analytical: { course: "B.Tech sa CS / Data Science", reason: "Ang iyong analytical thinking ay nagiging perpekto sa iyo para sa teknolohiya, coding, at analytics fields." },
+            creative: { course: "Disenyo / Animation / Media", reason: "Ang iyong pagkamalikhain ay nagniningning sa disenyo, pelikula, at digital media careers." },
+            critical: { course: "Batas / Journalism / Psychology", reason: "Ang iyong kritikal na pag-iisip ay mahusay sa mga propesyong nakabatay sa pangangatwiran." },
+            abstract: { course: "B.Sc Research / Philosophy / AI", reason: "Ang iyong abstract thinking ay akma sa mga advanced na agham at teoretikal na larangan." },
+            concrete: { course: "Nursing / B.Ed / Hotel Management", reason: "Ang iyong praktikal na diskarte ay akma sa mga hands-on na propesyon." },
+            divergent: { course: "Entrepreneurship / Innovation", reason: "Ang iyong divergent thinking ay perpekto para sa mga startup at inobasyon." },
+            convergent: { course: "Pananalapi / Engineering", reason: "Ang iyong convergent thinking ay mahusay sa mga karera na nakatuon sa solusyon." }
+        },
+        "ta": {
+            analytical: { course: "சி.எஸ் / தரவு அறிவியலில் பி.டெக்", reason: "உங்கள் பகுப்பாய்வு சிந்தனை உங்களை தொழில்நுட்பம், கோடிங் மற்றும் பகுப்பாய்வுத் துறைகளுக்கு ஏற்றதாக்குகிறது." },
+            creative: { course: "வடிவமைப்பு / அனிமேஷன் / ஊடகம்", reason: "உங்கள் படைப்பாற்றல் வடிவமைப்பு, திரைப்படம் மற்றும் டிஜிட்டல் ஊடகத் தொழில்களில் பிரகாசிக்கிறது." },
+            critical: { course: "சட்டம் / பத்திரிகை / உளவியல்", reason: "உங்கள் விமர்சன சிந்தனை பகுத்தறிவு சார்ந்த தொழில்களில் சிறந்து விளங்குகிறது." },
+            abstract: { course: "பி.எஸ்.சி ஆராய்ச்சி / தத்துவம் / AI", reason: "உங்கள் அருவமான சிந்தனை மேம்பட்ட அறிவியல் மற்றும் கோட்பாட்டுத் துறைகளுக்குப் பொருந்துகிறது." },
+            concrete: { course: "செவிலியர் / பி.எட் / ஹோட்டல் மேலாண்மை", reason: "உங்கள் நடைமுறை அணுகுமுறை செயல்முறை சார்ந்த தொழில்களுக்குப் பொருந்துகிறது." },
+            divergent: { course: "தொழில்முனைவு / புத்தாக்கம்", reason: "உங்கள் பிரிந்து செல்லும் சிந்தனை ஸ்டார்ட்அப்கள் மற்றும் புத்தாக்கத்திற்கு ஏற்றது." },
+            convergent: { course: "நிதி / பொறியியல்", reason: "உங்கள் ஒருங்கினைந்த சிந்தனை தீர்வு சார்ந்த தொழில்களில் சிறந்து விளங்குகிறது." }
+        },
+        "bn": {
+            analytical: { course: "সিএস / ডেটা সায়েন্সে বি.টেক", reason: "আপনার বিশ্লেষণাত্মক চিন্তাভাবনা আপনাকে প্রযুক্তি, কোডিং এবং বিশ্লেষণ ক্ষেত্রগুলির জন্য নিখুঁত করে তোলে।" },
+            creative: { course: "ডিজাইন / অ্যানিমেশন / মিডিয়া", reason: "আপনার সৃজনশীলতা ডিজাইন, চলচ্চিত্র এবং ডিজিটাল মিডিয়া ক্যারিয়ারে উজ্জ্বল হয়।" },
+            critical: { course: "আইন / সাংবাদিকতা / মনোবিজ্ঞান", reason: "আপনার সমালোচনামূলক চিন্তাভাবনা যুক্তি-ভিত্তিক পেশাগুলিতে excel করে।" },
+            abstract: { course: "বিমূর্ত / দর্শন / এআই", reason: "আপনার বিমূর্ত চিন্তাভাবনা উন্নত বিজ্ঞান এবং তাত্ত্বিক ক্ষেত্রগুলির জন্য উপযুক্ত।" },
+            concrete: { course: "নার্সিং / বি.এড / হোটেল ম্যানেজমেন্ট", reason: "আপনার বাস্তববাদী পদ্ধতি হ্যান্ডস-অন পেশাগুলির সাথে ফিট করে।" },
+            divergent: { course: "উদ্যোক্তা / উদ্ভাবন", reason: "আপনার ভিন্নমুখী চিন্তাভাবনা স্টার্টআপ এবং উদ্ভাবনের জন্য আদর্শ।" },
+            convergent: { course: "অর্থনীতি / প্রকৌশল", reason: "আপনার অভিসারী চিন্তাভাবনা সমাধান-কেন্দ্রিক ক্যারিয়ারে excel করে।" }
+        },
+        "ps": {
+            analytical: { course: "B.Tech په CS / ډاټا ساینس کې", reason: "ستاسو تحلیلي فکر تاسو د ټیکنالوژۍ، کوډینګ او تحلیل برخو لپاره مناسب جوړوي." },
+            creative: { course: "ډیزاین / انیمیشن / رسنۍ", reason: "ستاسو تخلیقيت په ډیزاین، فلم او ډیجیټل میډیا مسلکونو کې روښانه کیږي." },
+            critical: { course: "قانون / ژورنالیزم / ارواپوهنه", reason: "ستاسو انتقادي فکر په دلیل پر بنسټ مسلکونو کې غوره دی." },
+            abstract: { course: "B.Sc څیړنه / فلسفه / AI", reason: "ستاسو ابستراکت فکر پرمختللو علومو او نظري برخو ته مناسب دی." },
+            concrete: { course: "نرسینګ / B.Ed / هوټل مدیریت", reason: "ستاسو عملي چلند د لاسونو په کار کې مناسب دی." },
+            divergent: { course: "تشبث / نوښت", reason: "ستاسو متفاوت فکر د پیل کونکو او نوښت لپاره مثالی دی." },
+            convergent: { course: "مالي / انجینري", reason: "ستاسو متمرکز فکر د حل پر بنسټ مسلکونو کې غوره دی." }
+        },
+        "fa": {
+            analytical: { course: "B.Tech در علوم کامپیوتر / علم داده", reason: "تفکر تحلیلی شما را برای حوزه‌های فناوری، برنامه‌نویسی و تحلیل بی‌نقص می‌سازد." },
+            creative: { course: "طراحی / انیمیشن / رسانه", reason: "خلاقیت شما در مشاغل طراحی، فیلم و رسانه‌های دیجیتال می‌درخشد." },
+            critical: { course: "حقوق / روزنامه‌نگاری / روانشناسی", reason: "تفکر انتقادی شما در مشاغل مبتنی بر استدلال عالی است." },
+            abstract: { course: "B.Sc تحقیق / فلسفه / هوش مصنوعی", reason: "تفکر انتزاعی شما مناسب علوم پیشرفته و حوزه‌های نظری است." },
+            concrete: { course: "پرستاری / B.Ed / مدیریت هتل", reason: "رویکرد عملی شما برای مشاغل عملی مناسب است." },
+            divergent: { course: "کارآفرینی / نوآوری", reason: "تفکر واگرا شما برای استارت‌آپ‌ها و نوآوری ایده‌آل است." },
+            convergent: { course: "مالی / مهندسی", reason: "تفکر همگرا شما در مشاغل متمرکز بر راه‌حل عالی است." }
+        }
+    };
+
+    let currentLanguage = 'en';
+    let questions;
+    let matches;
+
+    function changeLanguage(lang) {
+        currentLanguage = lang;
+        questions = allQuestions[lang] || allQuestions['en'];
+        matches = allMatches[lang] || allMatches['en']; 
+
+ 
+        document.body.style.direction = (lang === 'ar' || lang === 'ur' || lang === 'ps' || lang === 'fa') ? 'rtl' : 'ltr';
+     
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.style.textAlign = (lang === 'ar' || lang === 'ur' || lang === 'ps' || lang === 'fa') ? 'right' : 'center';
+        });
+
+     
+        document.querySelectorAll('[data-key]').forEach(element => {
+            const key = element.getAttribute('data-key');
+            let translatedText = translations[lang] && translations[lang][key] ? translations[lang][key] : translations['en'][key];
+            
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = translatedText;
+            } else if (element.hasAttribute('data-html')) { 
+                element.innerHTML = translatedText;
+            } else {
+                element.textContent = translatedText;
+            }
+        });
+
+
+        if (document.getElementById('quiz').style.display === 'block') {
+            showQuestion(); 
+        } else if (document.getElementById('result').style.display === 'block') {
+            showResult();
+        }
+    }
+
+
+    let currentQ = 0;
+    let thinkerScores = {};
+    let userCourses = [];
+
+    function startQuiz() {
+      currentQ = 0;
+      thinkerScores = {};
+      userCourses = document.getElementById("coursesInput").value.split(",").map(c => c.trim().toLowerCase()).filter(c => c);
+      document.getElementById("result").style.display = "none";
+      document.getElementById("quiz").style.display = "block";
+      showQuestion();
+    }
+
+    function showQuestion() {
+      if (questions && questions[currentQ]) { 
+        document.getElementById("qNum").innerText = currentQ + 1;
+     
+        document.querySelector('[data-key="question_number_prefix"]').textContent = translations[currentLanguage]["question_number_prefix"];
+        document.querySelector('[data-key="question_number_suffix"]').textContent = translations[currentLanguage]["question_number_suffix"];
+
+        const questionText = document.getElementById("questionText");
+        const optionsDiv = document.getElementById("options");
+
+        questionText.innerText = questions[currentQ].q;
+        optionsDiv.innerHTML = "";
+        
+        questions[currentQ].a.forEach((opt) => {
+          const btn = document.createElement("button");
+          btn.textContent = opt.text;
+          btn.className = "btn"; 
+          btn.onclick = () => selectOption(opt.type);
+          optionsDiv.appendChild(btn);
+        });
+      } else {
+          console.error("Questions not loaded for current language:", currentLanguage);
+      }
+    }
+
+    function selectOption(type) {
+      thinkerScores[type] = (thinkerScores[type] || 0) + 1;
+      currentQ++;
+      
+      if (currentQ < questions.length) {
+        showQuestion();
+      } else {
+        document.getElementById("quiz").style.display = "none";
+        showResult();
+      }
+    }
+
+    function showResult() {
+      const resultDiv = document.getElementById("result");
+      const sortedThinkers = Object.entries(thinkerScores).sort((a, b) => b[1] - a[1]);
+      const topScore = sortedThinkers[0][1];
+      const topThinkerTypes = sortedThinkers.filter(entry => entry[1] === topScore).map(entry => entry[0]);
+
+      let match = { 
+          course: translations[currentLanguage]["general_studies_course"], 
+          reason: translations[currentLanguage]["general_studies_reason"] 
+      };
+
+      for(const type of topThinkerTypes) {
+        const potentialMatch = getCourseMatch(type);
+        if (userCourses.length > 0) {
+            const courseFound = userCourses.some(uc => potentialMatch.course.toLowerCase().includes(uc.toLowerCase()) || uc.toLowerCase().includes(potentialMatch.course.toLowerCase()));
+            if(courseFound) {
+                match = potentialMatch;
+                break;
+            }
+        }
+        if(match.course === translations[currentLanguage]["general_studies_course"] || !match.course) { // Check against translated default or if no match found yet
+            match = potentialMatch;
+        }
+      }
+
+      resultDiv.style.display = "block";
+      resultDiv.innerHTML = `
+        <h3>${translations[currentLanguage]["quiz_result_heading"]}</h3>
+        <p>${translations[currentLanguage]["quiz_primary_thinker_prefix"]}<strong>${topThinkerTypes.map(t => capitalize(t)).join(', ')}</strong>${translations[currentLanguage]["quiz_primary_thinker_suffix"]}</p>
+        <h4>${translations[currentLanguage]["quiz_recommendation_heading"]}</h4>
+        <p><strong>${match.course}</strong></p>
+        <h4>${translations[currentLanguage]["quiz_why_match_heading"]}</h4>
+        <p>${match.reason}</p>
+      `;
+    }
+
+    function getCourseMatch(type) {
+        return matches[type];
+    }
+    
+    function capitalize(str) {
+     
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        changeLanguage('en'); 
+        document.getElementById('languageSelect').value = 'en'; 
+        showSection('about', { currentTarget: document.querySelector('.nav-tab.active') });
+    });
+  </script>
+</body>
+</html>
