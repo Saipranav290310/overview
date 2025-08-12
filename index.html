@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,30 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title data-key="page_title">AI Career Guide - Professional Edition</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
- 
-    :root {
-      
-      --bg-dark: #0f172a;
-      --surface-dark: #1e293b;  
-      --text-dark: #cbd5e1;       
-      --primary-dark: #00e0ff;   
-      --secondary-dark: #9333ea;  
-      --accent-dark: #00ff9d;     
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-     
-      --bg-light: #f8fafc;        
-      --surface-light: #ffffff;  
+  <style>
+    :root {
+      --bg-dark: #0f172a;          
+      --surface-dark: #1e293b;   
+      --text-dark: #cbd5e1;       
+      --primary-dark: #00e0ff;    
+      --secondary-dark: #9333ea;   
+      --accent-dark: #00ff9d;      
+
+      --bg-light: #f8fafc;         
+      --surface-light: #ffffff;   
       --text-light: #0f172a;      
       --primary-light: #0066cc;    
-      --secondary-light: #7c3aed;  
+      --secondary-light: #7c3aed; 
       --accent-light: #00a86b;     
 
-     
       --border-radius: 8px;
       --transition-speed: 0.3s;
     }
-
 
     body {
       margin: 0;
@@ -38,7 +36,6 @@
       transition: background-color var(--transition-speed), color var(--transition-speed);
       line-height: 1.6;
     }
-
 
     .light-mode {
       --bg-dark: var(--bg-light);
@@ -66,22 +63,20 @@
     .light-mode .language-select:hover {
         background: rgba(0, 0, 0, 0.2);
     }
-
-    .light-mode .language-select option {
-        background-color: var(--surface-light); 
-        color: var(--text-light); 
+    .light-mode .language-select option { 
+        background-color: var(--surface-light);
+        color: var(--text-light);
     }
     .light-mode .section h2 {
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
     .light-mode .btn {
-        color: white; 
+        color: white;
     }
     .light-mode .footer {
       border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
 
-    /* Header */
     .header {
       background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
       padding: 1.5rem;
@@ -143,7 +138,6 @@
       background: rgba(255, 255, 255, 0.2);
     }
 
-    /* Navigation */
     .nav {
       background-color: var(--surface-dark);
       padding: 0.75rem;
@@ -185,7 +179,6 @@
       box-shadow: 0 0 0 1px var(--primary-dark);
     }
     
-    /* Content */
     .content {
       max-width: 1000px;
       margin: 2rem auto;
@@ -212,11 +205,19 @@
       padding-bottom: 0.5rem;
       font-family: 'Orbitron', sans-serif; 
       font-weight: 600;
+      font-size: 2rem; 
+    }
+
+    .content p, .content ul li {
+        font-size: 1.1rem; 
+        line-height: 1.8;
+    }
+    .content ul {
+        padding-left: 1.5rem;
     }
     
-    /* Buttons */
     .btn {
-      display: inline-block;
+      display: inline-block; 
       padding: 0.75rem 1.5rem;
       background-color: var(--primary-dark);
       color: var(--bg-dark); 
@@ -229,7 +230,7 @@
       text-decoration: none;
       text-align: center;
       width: auto; 
-      margin: 0; 
+      margin: 0.5rem 0.25rem; 
     }
 
     .btn:hover {
@@ -238,17 +239,17 @@
       box-shadow: 0 4px 8px rgba(0, 255, 157, 0.3);
     }
     
-    #options .btn {
-        width: 100%;
+    #options .btn { 
+        width: 100%; 
         margin-bottom: 0.5rem;
+        box-sizing: border-box; 
     }
     
-    .section > .btn {
+    .section > .btn { 
         width: auto;
         display: inline-block;
     }
 
-    /* Forms */
     .form-group {
       margin-bottom: 1.5rem;
     }
@@ -268,7 +269,7 @@
       color: var(--text-dark);
       font-family: 'Roboto', sans-serif;
       transition: all var(--transition-speed);
-      box-sizing: border-box; /* To ensure padding is included in width */
+      box-sizing: border-box; 
     }
 
     .form-control:focus {
@@ -277,7 +278,86 @@
       box-shadow: 0 0 0 2px rgba(0, 224, 255, 0.3);
     }
 
-  
+    #quiz h3 {
+        color: var(--primary-dark); 
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    #questionText {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+    }
+    #result {
+        font-size: 1.2rem;
+        color: var(--text-dark);
+    }
+    #result h3 {
+        color: var(--secondary-dark); 
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 600;
+        font-size: 1.8rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    #result h4 {
+        color: var(--primary-dark); 
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    
+    .college-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      font-size: 0.95rem; 
+    }
+    .college-table th,
+    .college-table td {
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1); 
+      text-align: left;
+      color: var(--text-dark); 
+    }
+    .college-table th {
+      background-color: var(--surface-dark); 
+      color: var(--primary-dark); 
+      font-weight: 700;
+    }
+    .college-table tr:nth-child(even){
+      background-color: var(--surface-dark); 
+    }
+    .college-table tr:hover{
+      background-color: rgba(0, 224, 255, 0.1); 
+    }
+    
+    #college h3 {
+      color: var(--secondary-dark); 
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 0.5rem;
+      margin-top: 2rem; 
+    }
+
+    
+    #searchInput {
+      background-color: var(--surface-dark);
+      color: var(--text-dark);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    #searchInput:focus {
+      outline: none;
+      border-color: var(--primary-dark);
+      box-shadow: 0 0 0 2px rgba(0, 224, 255, 0.3);
+    }
+
     .footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -286,7 +366,58 @@
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    
+    .light-mode .header {
+      background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+    }
+    .light-mode .theme-toggle {
+      background: rgba(0, 0, 0, 0.1);
+      color: var(--text-light);
+    }
+    .light-mode .theme-toggle:hover {
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .light-mode .language-select {
+        background: rgba(0, 0, 0, 0.1);
+        color: var(--text-light);
+    }
+    .light-mode .language-select:hover {
+        background: rgba(0, 0, 0, 0.2);
+    }
+    .light-mode .language-select option { 
+        background-color: var(--surface-light);
+        color: var(--text-light);
+    }
+    .light-mode .section h2 {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .light-mode .btn {
+        color: white;
+    }
+    .light-mode .footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .light-mode .college-table th {
+        background-color: var(--surface-light);
+        color: var(--primary-light);
+    }
+    .light-mode .college-table tr:nth-child(even) {
+        background-color: var(--surface-light);
+    }
+    .light-mode .college-table tr:hover {
+        background-color: rgba(0, 102, 204, 0.1); /* Primary light with opacity */
+    }
+    .light-mode #searchInput {
+        background-color: var(--surface-light);
+        color: var(--text-light);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .light-mode #searchInput:focus {
+        border-color: var(--primary-light);
+        box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.3);
+    }
+
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       .nav-tabs {
         flex-direction: column;
@@ -303,6 +434,57 @@
         right: 0.5rem;
         gap: 0.25rem;
       }
+      .content {
+          padding: 0 0.5rem;
+      }
+      .section h2 {
+          font-size: 1.8rem;
+      }
+      .content p, .content ul li {
+          font-size: 1rem;
+      }
+      #quiz h3 {
+          font-size: 1.3rem;
+      }
+      #questionText {
+          font-size: 1.1rem;
+      }
+      #result {
+          font-size: 1.1rem;
+      }
+      #result h3 {
+          font-size: 1.6rem;
+      }
+      #result h4 {
+          font-size: 1.2rem;
+      }
+    }
+
+    /* Animation */
+    @keyframes pulse-highlight {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 5px 0 var(--primary-dark); 
+        color: var(--primary-dark); 
+        text-shadow: 0 0 5px var(--primary-dark); 
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px 8px var(--primary-dark), 
+                    0 0 30px 10px rgba(0, 224, 255, 0.5);
+        color: var(--accent-dark);
+        text-shadow: 0 0 10px var(--accent-dark), 0 0 20px rgba(0, 255, 157, 0.7); 
+      }
+    }
+
+    .pulse-highlight {
+      display: inline-block; /* Essential for transform and box-shadow */
+      animation: pulse-highlight 1.5s infinite alternate ease-in-out; /* Energetic, alternates directions */
+      padding: 2px 5px; /* Padding to make glow visible around text */
+      border-radius: 4px; /* Soften edges */
+      /* Initial state, ensures consistency */
+      color: var(--primary-dark);
+      text-shadow: 0 0 5px var(--primary-dark);
     }
   </style>
 </head>
@@ -338,12 +520,12 @@
 
   <main class="content">
     <div id="about" class="section active">
-      <h2 style="font-size: 2rem;" data-key="about_heading">About</h2>
-      <p style="font-size: 1.3rem; line-height: 1.8;">
+      <h2 data-key="about_heading">About</h2>
+      <p>
         <span data-key="about_welcome_para1" data-html="true"></span>
         <br><br><span data-key="about_welcome_para2"></span>
       </p>
-      <ul style="font-size: 1.1rem; padding-left: 1.5rem;">
+      <ul>
         <li data-key="about_list_item1">🎓 Designed especially for UAE school students</li>
         <li data-key="about_list_item2">🧠 Uses AI to guide you to the best career options</li>
         <li data-key="about_list_item3">💼 Focuses on high-quality courses that lead to top jobs</li>
@@ -355,8 +537,8 @@
     </div>
 
     <div id="how" class="section">
-      <h2 style="font-size: 2rem;" data-key="how_it_works_heading">How It Works</h2>
-      <ul style="font-size: 1.1rem; padding-left: 1.5rem;">
+      <h2 data-key="how_it_works_heading">How It Works</h2>
+      <ul>
         <li data-key="how_list_item1">✏️ Enter your name, grade, and stream (if in 12th)</li>
         <li data-key="how_list_item2">📊 Input your subject marks</li>
         <li data-key="how_list_item3">❤️ Select your favorite subjects and hobbies</li>
@@ -367,13 +549,13 @@
     </div>
 
     <div id="tool" class="section">
-      <h2 style="font-size: 2rem;" data-key="main_tool_heading">Main Tool</h2>
+      <h2 data-key="main_tool_heading">Main Tool</h2>
       <p data-key="main_tool_description">Click below to open the AI Career Guide in a new tab:</p>
       <a href="https://saipranav290310.github.io/AI-Career-Guide/" target="_blank" class="btn" data-key="open_tool_button">🚀 Open Tool</a>
     </div>
 
     <div id="filters" class="section">
-      <h2 style="font-size: 2rem;" data-key="personalized_best_fit_heading">Personalized Best Fit</h2>
+      <h2 data-key="personalized_best_fit_heading">Personalized Best Fit</h2>
       <div class="form-group">
         <label for="coursesInput" class="form-label" data-key="courses_input_label">Paste the Courses Suggested by AI Tool:</label>
         <textarea id="coursesInput" class="form-control" rows="4" data-key="courses_input_placeholder" placeholder="E.g. B.Tech, MBBS, BBA..."></textarea>
@@ -381,19 +563,138 @@
       <button class="btn" onclick="startQuiz()" data-key="next_quiz_button">Next: Thinking Style Quiz</button>
 
       <div id="quiz" style="margin-top: 2rem; display: none;">
-        <!-- Removed data-key="question_number_full" from h3 to prevent child spans from being overwritten -->
         <h3><span data-key="question_number_prefix">Question </span><span id="qNum"></span> <span data-key="question_number_suffix">of 5</span></h3>
         <div id="questionText" style="margin: 1rem 0;"></div>
         <div id="options"></div>
       </div>
 
-      <div id="result" style="margin-top: 2rem; display:none; font-size:1.2rem;"></div>
+      <div id="result" style="margin-top: 2rem; display:none;"></div>
     </div>
 
     <div id="college" class="section">
-      <h2 style="font-size: 2rem;" data-key="find_college_heading">Find College</h2>
-      <p data-key="find_college_description">Click below to open the full College Finder tool in a new tab:</p>
-      <a href="https://saipranav290310.github.io/-UAE_Top_Universities_by_Program" target="_blank" class="btn" data-key="open_college_finder_button">📚 Open College Finder</a>
+      <h2 data-key="find_college_heading">Find College</h2>
+      
+      <!-- College Finder Content -->
+      <input type="text" id="searchInput" class="form-control" placeholder="Search program, university, stream, % or fee...">
+
+      <!-- B.Tech in Computer Science Engineering -->
+      <div class="program-section">
+        <h3 data-key="btech_cse_heading">B.Tech in Computer Science Engineering</h3>
+        <table class="college-table">
+          <thead>
+            <tr><th data-key="university_col">University</th><th data-key="stream_col">12⁺¹⁰ Stream</th><th data-key="min_perc_col">Min %</th><th data-key="annual_fee_col">Annual Fee (AED)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>UAE University</td><td>Science (Maths)</td><td>70‑75</td><td>~80,000</td></tr>
+            <tr><td>Khalifa University</td><td>Science (Maths, Physics, Chem)</td><td>70‑75</td><td>~60,000</td></tr>
+            <tr><td>University of Sharjah</td><td>Science (Maths)</td><td>65‑70</td><td>~45,000</td></tr>
+            <tr><td>American University of Sharjah</td><td>Science (Maths)</td><td>~65</td><td>~90,000</td></tr>
+            <tr><td>Zayed University</td><td>Science (Maths)</td><td>~65</td><td>~64,000</td></tr>
+            <tr><td>NYU Abu Dhabi</td><td>Science (Maths)</td><td>~70</td><td>~70,000+</td></tr>
+            <tr><td>Abu Dhabi University</td><td>Science (Maths)</td><td>~65</td><td>~50,000</td></tr>
+            <tr><td>Higher Colleges of Technology</td><td>Science (Maths)</td><td>~60</td><td>~35,000</td></tr>
+            <tr><td>Ajman University</td><td>Science (Maths)</td><td>60‑65</td><td>~37,000</td></tr>
+            <tr><td>British University in Dubai</td><td>Science (Maths)</td><td>~65</td><td>~58,000</td></tr>
+            <!-- More B.Tech CSE -->
+            <tr><td>Rochester Institute of Technology Dubai</td><td>Science (Maths)</td><td>~70</td><td>~68,000</td></tr>
+            <tr><td>University of Wollongong in Dubai</td><td>Science (Maths)</td><td>~65</td><td>~55,000</td></tr>
+            <tr><td>Amity University Dubai</td><td>Science (Maths)</td><td>60‑65</td><td>~40,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- B.Sc in Artificial Intelligence -->
+      <div class="program-section">
+        <h3 data-key="bsc_ai_heading">Bachelor of Science in Artificial Intelligence</h3>
+        <table class="college-table">
+          <thead><tr><th data-key="university_col">University</th><th data-key="stream_col">12⁺¹⁰ Stream</th><th data-key="min_perc_col">Min %</th><th data-key="annual_fee_col">Annual Fee (AED)</th></tr></thead>
+          <tbody>
+            <tr><td>MBZUAI (Abu Dhabi)</td><td>Science (Maths)</td><td>~75</td><td>165,000(merit scholarship available)</td></tr>
+            <tr><td>Khalifa University</td><td>Science (Maths)</td><td>70‑75</td><td>~60,000</td></tr>
+            <tr><td>University of Sharjah</td><td>Science (Maths)</td><td>70‑75</td><td>~50,000</td></tr>
+            <tr><td>University of Birmingham Dubai</td><td>Science (Maths)</td><td>~75</td><td>~60,000</td></tr>
+            <tr><td>Heriot‑Watt University Dubai</td><td>Science (Maths)</td><td>~75</td><td>~48,000</td></tr>
+            <tr><td>Abu Dhabi University</td><td>Science (Maths)</td><td>~70</td><td>~63,000</td></tr>
+            <tr><td>BITSP Dubai (AI & Robotics)</td><td>Science (PCM)</td><td>~75</td><td>~50,000</td></tr>
+            <tr><td>Murdoch University Dubai (AI & Autonomous Systems)</td><td>Science (Maths)</td><td>~70</td><td>~45,000</td></tr>
+            <tr><td>Middlesex University Dubai</td><td>Science (Maths/CS)</td><td>~75</td><td>~47,000</td></tr>
+            <tr><td>Canadian University Dubai</td><td>Science (Maths)</td><td>~70</td><td>~52,000</td></tr>
+            <!-- More B.Sc AI -->
+            <tr><td>University of Dubai</td><td>Science (Maths)</td><td>~70</td><td>~58,000</td></tr>
+            <tr><td>American University in Dubai</td><td>Science (Maths)</td><td>~70</td><td>~65,000</td></tr>
+            <tr><td>Canadian University Dubai</td><td>Science (Maths)</td><td>~70</td><td>~52,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- B.Arch -->
+      <div class="program-section">
+        <h3 data-key="b_arch_heading">Bachelor of Architecture (B.Arch)</h3>
+        <table class="college-table">
+          <thead><tr><th data-key="university_col">University</th><th data-key="stream_col">12⁺¹⁰ Stream</th><th data-key="min_perc_col">Min %</th><th data-key="annual_fee_col">Annual Fee (AED)</th></tr></thead>
+          <tbody>
+            <tr><td>Abu Dhabi University</td><td>Science or Arts + Portfolio</td><td>~70</td><td>~58,930</td></tr>
+            <tr><td>American University of Sharjah</td><td>Any + Portfolio</td><td>70‑75</td><td>~90,000</td></tr>
+            <tr><td>University of Sharjah</td><td>Science/Arts + Portfolio</td><td>~70</td><td>~56,700</td></tr>
+            <tr><td>Ajman University</td><td>Science/Arts + Portfolio</td><td>~70</td><td>~40,000</td></tr>
+            <tr><td>Zayed University</td><td>Science/Arts + Portfolio</td><td>~65</td><td>~64,000</td></tr>
+            <tr><td>HCT</td><td>Science/Arts</td><td>~60</td><td>~40,000</td></tr>
+            <tr><td>Canadian University Dubai</td><td>Science/Arts</td><td>~65</td><td>~48,000</td></tr>
+            <tr><td>Amity University Dubai</td><td>Any + Portfolio</td><td>~60</td><td>~33,500</td></tr>
+            <tr><td>University of Dubai</td><td>Any + Portfolio</td><td>~65</td><td>~45,000</td></tr>
+            <tr><td>MOHESR-affiliated College</td><td>Any + Portfolio</td><td>~65</td><td>~50,000</td></tr>
+            <!-- More B.Arch -->
+            <tr><td>Manipal Academy of Higher Education Dubai</td><td>Any + Portfolio</td><td>~60</td><td>~42,000</td></tr>
+            <tr><td>Curtin University Dubai</td><td>Any + Portfolio</td><td>~65</td><td>~55,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- MBBS / MD -->
+      <div class="program-section">
+        <h3 data-key="mbbs_md_heading">Doctor of Medicine (MD) / MBBS</h3>
+        <table class="college-table">
+          <thead><tr><th data-key="university_col">University</th><th data-key="stream_col">12⁺¹⁰ Stream</th><th data-key="min_perc_col">Min %</th><th data-key="annual_fee_col">Annual Fee (AED)</th></tr></thead>
+          <tbody>
+            <tr><td>UA Emir. University (MD – public)</td><td>Science (PCB: Biology, Chem ≥90%)</td><td>~85–90</td><td>~275,000</td></tr>
+            <tr><td>University of Sharjah</td><td>Science (PCB)</td><td>~90</td><td>~118,300</td></tr>
+            <tr><td>Khalifa University (MD scholarship)</td><td>Science (PCB)</td><td>≥90</td><td>Full scholarship (no tuition*)</td></tr>
+            <tr><td>Gulf Medical University</td><td>Science (PCB)</td><td>~85–90</td><td>~147,000</td></tr>
+            <tr><td>Ajman University – College of Medicine</td><td>Science (PCB)</td><td>~85</td><td>~121,000</td></tr>
+            <tr><td>RAK Medical & Health Sci. University</td><td>Science (PCB)</td><td>~85</td><td>~134,000</td></tr>
+            <tr><td>Dubai Medical College for Girls</td><td>Science (PCB)</td><td>~85</td><td>~126,000</td></tr>
+            <tr><td>MBRU – Md. Bin Rashid Univ. of Med.</td><td>Science (PCB)</td><td>~90</td><td>~160,000</td></tr>
+            <tr><td>UAE University (private medicine seat)</td><td>Science (PCB)</td><td>~85</td><td>~75,000</td></tr>
+            <tr><td>Sharjah University (private seat)</td><td>Science (PCB)</td><td>~90</td><td>~120,000</td></tr>
+            <!-- More MBBS / MD -->
+            <tr><td>GMU (Thumbay)</td><td>Science (PCB)</td><td>~80</td><td>~130,000</td></tr>
+            <tr><td>Dubai Medical College (Private)</td><td>Science (PCB)</td><td>~85</td><td>~125,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- B.Sc in Nursing -->
+      <div class="program-section">
+        <h3 data-key="bsn_heading">Bachelor of Science in Nursing (BSN)</h3>
+        <table class="college-table">
+          <thead><tr><th data-key="university_col">University</th><th data-key="stream_col">12⁺¹⁰ Stream</th><th data-key="min_perc_col">Min %</th><th data-key="annual_fee_col">Annual Fee (AED)</th></tr></thead>
+          <tbody>
+            <tr><td>Gulf Medical University</td><td>Science (PCB)</td><td>~75</td><td>44,400</td></tr>
+            <tr><td>UAE University</td><td>Science (PCB)</td><td>~75</td><td>~75,000</td></tr>
+            <tr><td>UAEU (private seat)</td><td>Science (PCB)</td><td>~75</td><td>~56,000</td></tr>
+            <tr><td>Khalifa University</td><td>Science (PCB)</td><td>~75</td><td>~60,000</td></tr>
+            <tr><td>Abu Dhabi University</td><td>Science (PCB)</td><td>~70</td><td>~52,500</td></tr>
+            <tr><td>HCT</td><td>Science (PCB)</td><td>~60</td><td>~40,000</td></tr>
+            <tr><td>Ajman University</td><td>Science (PCB)</td><td>~65</td><td>~48,000</td></tr>
+            <tr><td>American University in Dubai</td><td>Science (PCB)</td><td>~70</td><td>~50,000</td></tr>
+            <tr><td>Canadian University Dubai</td><td>Science (PCB)</td><td>~65</td><td>~42,000</td></tr>
+            <tr><td>University of Dubai</td><td>Science (PCB)</td><td>~65</td><td>~45,000</td></tr>
+            <!-- More BSN -->
+            <tr><td>Higher Colleges of Technology (Dubai)</td><td>Science (PCB)</td><td>~60</td><td>~38,000</td></tr>
+            <tr><td>University of Sharjah (BSN)</td><td>Science (PCB)</td><td>~70</td><td>~48,000</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </main>
 
@@ -405,9 +706,21 @@
     // Theme Toggle
     function toggleTheme() {
       document.body.classList.toggle('light-mode');
+      const themeToggle = document.querySelector('.theme-toggle');
+      if (document.body.classList.contains('light-mode')) {
+        themeToggle.textContent = '☀️ / 🌙';
+      } else {
+        themeToggle.textContent = '🌙 / ☀️';
+      }
+      // Re-apply search filter in case theme affects visibility of rows
+      // or to ensure the table styling updates correctly (e.g. text colors on hover)
+      if (document.getElementById('college').classList.contains('active')) {
+        applyCollegeSearchFilter(); 
+      }
     }
 
     // Tab Navigation
+    let currentSectionId = 'about'; // Keep track of the active section
     function showSection(id, event) {
       document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('active');
@@ -417,7 +730,23 @@
       document.querySelectorAll('.nav-tab').forEach(tab => {
         tab.classList.remove('active');
       });
-      event.currentTarget.classList.add('active');
+      // Ensure event.currentTarget exists, especially if called directly without an event
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+      } else {
+        // If called without event, find the tab by data-key
+        // This is a fallback and assumes the data-key matches the section ID + "_tab"
+        const targetTab = document.querySelector(`.nav-tab[data-key="${id}_tab"]`);
+        if (targetTab) {
+          targetTab.classList.add('active');
+        }
+      }
+      currentSectionId = id; // Update current section tracker
+      
+      // If navigating to college finder, apply search filter initially
+      if (id === 'college') {
+          applyCollegeSearchFilter(); 
+      }
     }
 
     // --- Translation Data ---
@@ -457,8 +786,6 @@
             "question_number_prefix": "Question ",
             "question_number_suffix": "of 5",
             "find_college_heading": "Find College",
-            "find_college_description": "Click below to open the full College Finder tool in a new tab:",
-            "open_college_finder_button": "📚 Open College Finder",
             "footer_text": "© 2025 Sai Pranav, 10D - IIS",
             "quiz_result_heading": "Your Thinking Style Result",
             "quiz_primary_thinker_prefix": "You are primarily a ",
@@ -466,7 +793,17 @@
             "quiz_recommendation_heading": "Best Fit Course Recommendation:",
             "quiz_why_match_heading": "Why it's a great match:",
             "general_studies_course": "General Studies",
-            "general_studies_reason": "Your thinking style is well-rounded, making you adaptable to various fields."
+            "general_studies_reason": "Your thinking style is well-rounded, making you adaptable to various fields.",
+            "college_guide_main_title": "🎓 UAE Top Universities by Program", 
+            "btech_cse_heading": "B.Tech in Computer Science Engineering", 
+            "bsc_ai_heading": "Bachelor of Science in Artificial Intelligence", 
+            "b_arch_heading": "Bachelor of Architecture (B.Arch)", 
+            "mbbs_md_heading": "Doctor of Medicine (MD) / MBBS", 
+            "bsn_heading": "Bachelor of Science in Nursing (BSN)", 
+            "university_col": "University", 
+            "stream_col": "12⁺¹⁰ Stream", 
+            "min_perc_col": "Min %", 
+            "annual_fee_col": "Annual Fee (AED)"
         },
         "ar": {
             "page_title": "دليل المسار المهني بالذكاء الاصطناعي - الإصدار الاحترافي",
@@ -503,8 +840,6 @@
             "question_number_prefix": "سؤال ",
             "question_number_suffix": "من 5",
             "find_college_heading": "البحث عن كلية",
-            "find_college_description": "انقر أدناه لفتح أداة البحث عن الكليات كاملة في علامة تبويب جديدة:",
-            "open_college_finder_button": "📚 فتح أداة البحث عن الكليات",
             "footer_text": "© 2025 ساي براناف، 10D - IIS",
             "quiz_result_heading": "نتيجة نمط تفكيرك",
             "quiz_primary_thinker_prefix": "أنت في الأساس مفكر من نوع ",
@@ -512,7 +847,17 @@
             "quiz_recommendation_heading": "توصية الدورة الأنسب:",
             "quiz_why_match_heading": "لماذا هي مطابقة رائعة:",
             "general_studies_course": "دراسات عامة",
-            "general_studies_reason": "نمط تفكيرك متوازن، مما يجعلك قابلاً للتكيف مع مختلف المجالات."
+            "general_studies_reason": "نمط تفكيرك متوازن، مما يجعلك قابلاً للتكيف مع مختلف المجالات.",
+            "college_guide_main_title": "🎓 دليل جامعات الإمارات العربية المتحدة حسب البرنامج", 
+            "btech_cse_heading": "بكالوريوس في هندسة علوم الحاسوب", 
+            "bsc_ai_heading": "بكالوريوس في الذكاء الاصطناعي", 
+            "b_arch_heading": "بكالوريوس في الهندسة المعمارية", 
+            "mbbs_md_heading": "دكتور في الطب / بكالوريوس الطب والجراحة", 
+            "bsn_heading": "بكالوريوس في علوم التمريض", 
+            "university_col": "الجامعة", 
+            "stream_col": "مسار 12⁺¹⁰", 
+            "min_perc_col": "الحد الأدنى %", 
+            "annual_fee_col": "الرسوم السنوية (درهم)"
         },
         "hi": {
             "page_title": "एआई करियर गाइड - प्रोफेशनल एडिशन",
@@ -549,8 +894,6 @@
             "question_number_prefix": "प्रश्न ",
             "question_number_suffix": "का 5",
             "find_college_heading": "कॉलेज खोजें",
-            "find_college_description": "पूर्ण कॉलेज फाइंडर टूल को एक नए टैब में खोलने के लिए नीचे क्लिक करें:",
-            "open_college_finder_button": "📚 कॉलेज फाइंडर खोलें",
             "footer_text": "© 2025 साई प्रणव, 10D - IIS",
             "quiz_result_heading": "आपकी सोचने की शैली का परिणाम",
             "quiz_primary_thinker_prefix": "आप मुख्य रूप से एक ",
@@ -558,7 +901,17 @@
             "quiz_recommendation_heading": "सबसे उपयुक्त पाठ्यक्रम सिफारिश:",
             "quiz_why_match_heading": "यह एक बेहतरीन मैच क्यों है:",
             "general_studies_course": "सामान्य अध्ययन",
-            "general_studies_reason": "आपकी सोचने की शैली बहुमुखी है, जो आपको विभिन्न क्षेत्रों में अनुकूलनीय बनाती है।"
+            "general_studies_reason": "आपकी सोचने की शैली बहुमुखी है, जो आपको विभिन्न क्षेत्रों में अनुकूलनीय बनाती है।",
+            "college_guide_main_title": "🎓 यूएई शीर्ष विश्वविद्यालय कार्यक्रम के अनुसार", 
+            "btech_cse_heading": "कंप्यूटर विज्ञान इंजीनियरिंग में बी.टेक", 
+            "bsc_ai_heading": "आर्टिफिशियल इंटेलिजेंस में बैचलर ऑफ साइंस", 
+            "b_arch_heading": "बैचलर ऑफ आर्किटेक्चर (बी.आर्क)", 
+            "mbbs_md_heading": "डॉक्टर ऑफ मेडिसिन (एमडी) / एमबीबीएस", 
+            "bsn_heading": "बैचलर ऑफ साइंस इन नर्सिंग (बीएसएन)", 
+            "university_col": "विश्वविद्यालय", 
+            "stream_col": "12⁺¹⁰ स्ट्रीम", 
+            "min_perc_col": "न्यूनतम %", 
+            "annual_fee_col": "वार्षिक शुल्क (AED)"
         },
         "ur": {
             "page_title": "اے آئی کیریئر گائیڈ - پروفیشنل ایڈیشن",
@@ -595,8 +948,6 @@
             "question_number_prefix": "سوال ",
             "question_number_suffix": "میں سے 5",
             "find_college_heading": "کالج تلاش کریں",
-            "find_college_description": "کالج فائنڈر ٹول کو ایک نئے ٹیب میں کھولنے کے لیے نیچے کلک کریں:",
-            "open_college_finder_button": "📚 کالج فائنڈر کھولیں",
             "footer_text": "© 2025 سائی پراناو، 10D - IIS",
             "quiz_result_heading": "آپ کے سوچنے کے انداز کا نتیجہ",
             "quiz_primary_thinker_prefix": "آپ بنیادی طور پر ایک ",
@@ -641,16 +992,14 @@
             "question_number_prefix": "ചോദ്യം ",
             "question_number_suffix": "ൽ 5",
             "find_college_heading": "കോളേജ് കണ്ടെത്തുക",
-            "find_college_description": "ഒരു പുതിയ ടാബിൽ പൂർണ്ണ കോളേജ് ഫൈൻഡർ ടൂൾ തുറക്കാൻ താഴെ ക്ലിക്ക് ചെയ്യുക:",
-            "open_college_finder_button": "📚 കോളേജ് ഫൈൻഡർ തുറക്കുക",
-            "footer_text": "© 2025 സായി പ്രണവ്, 10D - IIS",
+            "footer_text": "© 2025 സായി പ്രണവ്، 10D - IIS",
             "quiz_result_heading": "നിങ്ങളുടെ ചിന്താ രീതി ഫലം",
             "quiz_primary_thinker_prefix": "നിങ്ങൾ പ്രധാനമായും ഒരു ",
             "quiz_primary_thinker_suffix": " ചിന്തകനാണ്.",
             "quiz_recommendation_heading": "ഏറ്റവും അനുയോജ്യമായ കോഴ്സ് ശുപാർശ:",
             "quiz_why_match_heading": "ഇത് എന്തുകൊണ്ടാണ് മികച്ച അനുയോജ്യമായത്:",
             "general_studies_course": "ജനറൽ സ്റ്റഡീസ്",
-            "general_studies_reason": "നിങ്ങളുടെ ചിന്താ രീതി നന്നായി വികസിപ്പിച്ചതാണ്, ഇത് നിങ്ങളെ വിവിധ മേഖലകളുമായി പൊരുത്തപ്പെടുത്താൻ സഹായിക്കുന്നു."
+            "general_studies_reason": "നിങ്ങളുടെ ചിന്താ രീതി നന്നായി വികസിപ്പിച്ചതാണ്، ഇത് നിങ്ങളെ വിവിധ മേഖലകളുമായി പൊരുത്തപ്പെടുത്താൻ സഹായിക്കുന്നു."
         },
         "tl": {
             "page_title": "AI Career Guide - Propesyonal na Edisyon",
@@ -675,11 +1024,6 @@
             "how_list_item2": "📊 Ilagay ang iyong mga marka sa asignatura",
             "how_list_item3": "❤️ Pumili ng paboritong asignatura at libangan",
             "how_list_item4": "🎯 Piliin ang iyong gustong uri ng trabaho",
-            "how_it_works_heading": "Paano Gumagana",
-            "how_list_item1": "✏️ Ilagay ang iyong pangalan, grado, at stream (kung Grade 12)",
-            "how_list_item2": "📊 Ilagay ang iyong mga marka sa asignatura",
-            "how_list_item3": "❤️ Pumili ng paboritong asignatura at libangan",
-            "how_list_item4": "🎯 Piliin ang iyong gustong uri ng trabaho",
             "how_list_item5": "📈 Hayaan ang AI na suriin at bumuo ng personalized na mga mungkahi sa karera",
             "how_list_item6": "📥 I-download ang iyong ulat bilang PDF",
             "main_tool_heading": "Pangunahing Tool",
@@ -692,16 +1036,7 @@
             "question_number_prefix": "Tanong ",
             "question_number_suffix": "ng 5",
             "find_college_heading": "Maghanap ng Kolehiyo",
-            "find_college_description": "Mag-click sa ibaba upang buksan ang buong College Finder tool sa isang bagong tab:",
-            "open_college_finder_button": "📚 Buksan ang College Finder",
-            "footer_text": "© 2025 Sai Pranav, 10D - IIS",
-            "quiz_result_heading": "Resulta ng Iyong Thinking Style",
-            "quiz_primary_thinker_prefix": "Ikaw ay pangunahing isang ",
-            "quiz_primary_thinker_suffix": " Thinker.",
-            "quiz_recommendation_heading": "Pinakaakmang Rekomendasyon ng Kurso:",
-            "quiz_why_match_heading": "Bakit ito isang magandang tugma:",
-            "general_studies_course": "Pangkalahatang Pag-aaral",
-            "general_studies_reason": "Ang iyong estilo ng pag-iisip ay mahusay, na nagpapahintulot sa iyo na maging adaptable sa iba't ibang larangan."
+            "footer_text": "© 2025 Sai Pranav, 10D - IIS"
         },
         "ta": {
             "page_title": "AI தொழில் வழிகாட்டி - நிபுணத்துவப் பதிப்பு",
@@ -713,7 +1048,7 @@
             "find_college_tab": "🎓 கல்லூரி கண்டுபிடி",
             "about_heading": "பற்றி",
             "about_welcome_para1": "<strong>AI தொழில் வழிகாட்டி</strong>க்கு வரவேற்கிறோம் – ஐக்கிய அரபு எமிரேட்ஸின் 9-12 ஆம் வகுப்பு பள்ளி மாணவர்களுக்கு அவர்களின் சிறந்த தொழில் பாதைகளைக் கண்டறிய உருவாக்கப்பட்ட ஒரு ஸ்மார்ட் கருவி!",
-            "about_welcome_para2": "🎯 உங்கள் மதிப்பெண்கள், ஆர்வங்கள் மற்றும் பொழுதுபோக்குகளைப் புரிந்துகொள்வதன் மூலம் சிறந்த தொழில்களை ஆராய உங்களுக்கு உதவுவதே எங்கள் குறிக்கோள்.",
+            "about_welcome_para2": "🎯 எங்கள் குறிக்கோள் உங்கள் மதிப்பெண்கள், ஆர்வங்கள் மற்றும் பொழுதுபோக்குகளைப் புரிந்துகொள்வதன் மூலம் சிறந்த தொழில்களை ஆராய உங்களுக்கு உதவுவதே ஆகும்.",
             "about_list_item1": "🎓 ஐக்கிய அரபு எமிரேட்ஸின் பள்ளி மாணவர்களுக்காக சிறப்பாக வடிவமைக்கப்பட்டது",
             "about_list_item2": "🧠 சிறந்த தொழில் விருப்பங்களுக்கு வழிகாட்ட AI ஐப் பயன்படுத்துகிறது",
             "about_list_item3": "💼 சிறந்த வேலைகளுக்கு வழிவகுக்கும் உயர்தரப் படிப்புகளில் கவனம் செலுத்துகிறது",
@@ -738,8 +1073,6 @@
             "question_number_prefix": "கேள்வி ",
             "question_number_suffix": "இன் 5",
             "find_college_heading": "கல்லூரி கண்டுபிடி",
-            "find_college_description": "புதிய தாவலில் முழு கல்லூரி கண்டுபிடிப்பு கருவியைத் திறக்க கீழே கிளிக் செய்யவும்:",
-            "open_college_finder_button": "📚 கல்லூரி கண்டுபிடிப்பைத் திற",
             "footer_text": "© 2025 சாய் பிரணவ், 10D - IIS",
             "quiz_result_heading": "உங்கள் சிந்தனை முறை முடிவு",
             "quiz_primary_thinker_prefix": "நீங்கள் முதன்மையாக ஒரு ",
@@ -773,7 +1106,7 @@
             "how_list_item3": "❤️ আপনার প্রিয় বিষয় এবং শখ নির্বাচন করুন",
             "how_list_item4": "🎯 আপনার স্বপ্নের কাজের ধরণ নির্বাচন করুন",
             "how_list_item5": "📈 এআই-কে বিশ্লেষণ করে ব্যক্তিগতকৃত ক্যারিয়ার পরামর্শ তৈরি করতে দিন",
-            "how_list_item6": "📥 আপনার রিপোর্ট PDF হিসাবে ডাউনলোড করুন",
+            "how_list_item6": "📥 আপনার রিপোর্ট পিডিএফ হিসাবে ডাউনলোড করুন",
             "main_tool_heading": "প্রধান টুল",
             "main_tool_description": "একটি নতুন ট্যাবে এআই ক্যারিয়ার গাইড খুলতে নিচে ক্লিক করুন:",
             "open_tool_button": "🚀 টুল খুলুন",
@@ -784,8 +1117,6 @@
             "question_number_prefix": "প্রশ্ন ",
             "question_number_suffix": "এর 5",
             "find_college_heading": "কলেজ খুঁজুন",
-            "find_college_description": "একটি নতুন ট্যাবে সম্পূর্ণ কলেজ ফাইন্ডার টুল খুলতে নিচে ক্লিক করুন:",
-            "open_college_finder_button": "📚 কলেজ ফাইন্ডার খুলুন",
             "footer_text": "© 2025 সাই প্রনব, 10D - IIS",
             "quiz_result_heading": "আপনার চিন্তাভাবনার স্টাইলের ফলাফল",
             "quiz_primary_thinker_prefix": "আপনি প্রধানত একজন ",
@@ -830,8 +1161,6 @@
             "question_number_prefix": "پوښتنه ",
             "question_number_suffix": "د 5 څخه",
             "find_college_heading": "پوهنتون ومومئ",
-            "find_college_description": "په نوې ټاب کې د پوهنتون موندلو بشپړ وسیله پرانیستلو لپاره لاندې کلیک وکړئ:",
-            "open_college_finder_button": "📚 پوهنتون موندونکی پرانیزئ",
             "footer_text": "© 2025 ساي پرانوف، 10D - IIS",
             "quiz_result_heading": "ستاسو د فکر کولو سټایل پایله",
             "quiz_primary_thinker_prefix": "تاسو په ابتدايي توګه یو ",
@@ -842,7 +1171,7 @@
             "general_studies_reason": "ستاسو د فکر کولو سټایل پراخه ده، چې تاسو په مختلفو برخو کې د تطبیق وړ ګرځوي."
         },
         "fa": {
-            "page_title": "راهنمای شغلی هوش مصنوعی - نسخه حرفه‌ای",
+            "page_title": "راهنمای شغلی هوش مصنوعی",
             "header_title": "راهنمای شغلی هوش مصنوعی 🌟",
             "about_tab": "📘 درباره",
             "how_it_works_tab": "⚙️ نحوه کار",
@@ -876,8 +1205,6 @@
             "question_number_prefix": "سوال ",
             "question_number_suffix": "از 5",
             "find_college_heading": "یافتن دانشگاه",
-            "find_college_description": "برای باز کردن ابزار کامل یافتن دانشگاه در یک تب جدید، روی دکمه زیر کلیک کنید:",
-            "open_college_finder_button": "📚 باز کردن ابزار یافتن دانشگاه",
             "footer_text": "© 2025 سای پرناو، 10D - IIS",
             "quiz_result_heading": "نتیجه سبک تفکر شما",
             "quiz_primary_thinker_prefix": "شما عمدتاً یک ",
@@ -885,7 +1212,7 @@
             "quiz_recommendation_heading": "پیشنهاد بهترین دوره متناسب:",
             "quiz_why_match_heading": "چرا این یک تطابق عالی است:",
             "general_studies_course": "مطالعات عمومی",
-            "general_studies_reason": "سبک تفکر شما جامع است و شما را برای زمینه‌های مختلف سازگار می‌سازد."
+            "general_studies_reason": "سبک تفکر شما جامع است، که شما را برای زمینه‌های مختلف سازگار می‌سازد."
         }
     };
 
@@ -1131,7 +1458,7 @@
                 a: [
                     { text: "Paglutas ng logic puzzle", type: "analytical" },
                     { text: "Paglikha ng mga orihinal na kuwento", type: "creative" },
-                    { text: "Pagpapahayag ng iyong punto nang malinaw", type: "critical" },
+                    { text: "Pagpapahayayag ng iyong punto nang malinaw", type: "critical" },
                     { text: "Pag-iisip ng malalaking konsepto", type: "abstract" }
                 ]
             },
@@ -1252,7 +1579,7 @@
                 a: [
                     { text: "স্পষ্ট নিয়মাবলী এবং কাজ", type: "concrete" },
                     { text: "নতুন ধারণা প্রকাশের স্বাধীনতা", type: "creative" },
-                    { text: "তত্ত্ব সম্পর্কে গভীরভাবে চিন্তা করা", type: "abstract" },
+                    { text: "তত্ত্ব সম্পর্কে গভীরভাবে চিন্তা করা", "type": "abstract" },
                     { text: "প্যাটার্ন এবং যুক্তি খুঁজে বের করা", type: "analytical" }
                 ]
             },
@@ -1424,7 +1751,176 @@
             abstract: { course: "பி.எஸ்.சி ஆராய்ச்சி / தத்துவம் / AI", reason: "உங்கள் அருவமான சிந்தனை மேம்பட்ட அறிவியல் மற்றும் கோட்பாட்டுத் துறைகளுக்குப் பொருந்துகிறது." },
             concrete: { course: "செவிலியர் / பி.எட் / ஹோட்டல் மேலாண்மை", reason: "உங்கள் நடைமுறை அணுகுமுறை செயல்முறை சார்ந்த தொழில்களுக்குப் பொருந்துகிறது." },
             divergent: { course: "தொழில்முனைவு / புத்தாக்கம்", reason: "உங்கள் பிரிந்து செல்லும் சிந்தனை ஸ்டார்ட்அப்கள் மற்றும் புத்தாக்கத்திற்கு ஏற்றது." },
-            convergent: { course: "நிதி / பொறியியல்", reason: "உங்கள் ஒருங்கினைந்த சிந்தனை தீர்வு சார்ந்த தொழில்களில் சிறந்து விளங்குகிறது." }
+            convergent: { course: "நிதி / பொறியியல்", reason: "உங்கள் ஒருங்கினைந்த சிந்தனை தீர்வு சார்ந்த தொழில்களில் சிறந்து விளங்குகிறது।" }
+        },
+        "bn": {
+            analytical: { course: "সিএস / ডেটা সায়েন্সে বি.টেক", reason: "আপনার বিশ্লেষণাত্মক চিন্তাভাবনা আপনাকে প্রযুক্তি, কোডিং এবং বিশ্লেষণ ক্ষেত্রগুলির জন্য নিখুঁত করে তোলে।" },
+            creative: { course: "ডিজাইন / অ্যানিমেশন / মিডিয়া", reason: "আপনার সৃজনশীলতা ডিজাইন, চলচ্চিত্র এবং ডিজিটাল মিডিয়া ক্যারিয়ারে উজ্জ্বল হয়।" },
+            critical: { course: "আইন / সাংবাদিকতা / মনোবিজ্ঞান", reason: "আপনার সমালোচনামূলক চিন্তাভাবনা যুক্তি-ভিত্তিক পেশাগুলিতে excel করে।" },
+            abstract: { course: "বিমূর্ত / দর্শন / এআই", reason: "আপনার বিমূর্ত চিন্তাভাবনা উন্নত বিজ্ঞান এবং তাত্ত্বিক ক্ষেত্রগুলির জন্য উপযুক্ত।" },
+            concrete: { course: "নার্সিং / বি.এড / হোটেল ম্যানেজমেন্ট", reason: "আপনার বাস্তববাদী পদ্ধতি হ্যান্ডস-অন পেশাগুলির সাথে ফিট করে।" },
+            divergent: { course: "উদ্যোক্তা / উদ্ভাবন", reason: "আপনার ভিন্নমুখী চিন্তাভাবনা স্টার্টআপ এবং উদ্ভাবনের জন্য আদর্শ।" },
+            convergent: { course: "অর্থনীতি / প্রকৌশল", reason: "আপনার অভিসারী চিন্তাভাবনা সমাধান-কেন্দ্রিক ক্যারিয়ারে excel করে।" }
+        },
+        "ps": [
+            {
+                q: "تاسو څه شی ډیر خوښوئ؟",
+                a: [
+                    { text: "منطقي پزلونه حل کول", type: "analytical" },
+                    { text: "اصلي کیسې جوړول", type: "creative" },
+                    { text: "خپله نقطه په واضح ډول استدلال کول", type: "critical" },
+                    { text: "د لوی عکس مفهومونو په اړه فکر کول", type: "abstract" }
+                ]
+            },
+            {
+                q: "تاسو معمولا څنګه پریکړې کوئ؟",
+                a: [
+                    { text: "د حقایقو او معلوماتو په کارولو سره", type: "analytical" },
+                    { text: "د احساس او نظریاتو په تعقیب", type: "creative" },
+                    { text: "د تجربې او واقعیت پر بنسټ", type: "concrete" },
+                    { text: "د ټولو اړخونو منطقي ارزونه", type: "critical" }
+                ]
+            },
+            {
+                q: "تاسو څنګه یوه ستونزه حل کوئ؟",
+                a: [
+                    { text: "مختلف نظریات هڅه وکړئ ترڅو یو کار وکړي", type: "divergent" },
+                    { text: "یوه سمه ځواب ومومئ", type: "convergent" },
+                    { text: "تفصیلي تحلیل وکاروئ", type: "analytical" },
+                    { text: "تخلیقي بدیلونه تصور کړئ", type: "creative" }
+                ]
+            },
+            {
+                q: "تاسو په کار کې څه ته ډیر اهمیت ورکوئ؟",
+                a: [
+                    { text: "واضح مقررات او دندې", type: "concrete" },
+                    { text: "د نویو نظریاتو د څرګندولو آزادي", type: "creative" },
+                    { text: "د تیوري په اړه ژور فکر کول", type: "abstract" },
+                    { text: "د نمونو او منطق موندل", type: "analytical" }
+                ]
+            },
+            {
+                q: "کوم یو ستاسو سټایل غوره بیانوي؟",
+                a: [
+                    { text: "زه ستونزې په برخو ویشم", type: "analytical" },
+                    { text: "زه عملي پایلې غواړم", type: "concrete" },
+                    { text: "زه غیر اړونده نظریات وصلوم", "type": "divergent" },
+                    { text: "زه په چټکۍ سره غوره انتخاب کوم", type: "convergent" }
+                ]
+            }
+        ],
+        "fa": [
+            {
+                q: "چه چیزی را بیشتر دوست دارید؟",
+                a: [
+                    { text: "حل پازل‌های منطقی", type: "analytical" },
+                    { text: "خلق داستان‌های اورجینال", type: "creative" },
+                    { text: "بحث کردن درباره دیدگاه خود به وضوح", type: "critical" },
+                    { text: "فکر کردن به مفاهیم کلان", type: "abstract" }
+                ]
+            },
+            {
+                q: "معمولاً چگونه تصمیم می‌گیرید؟",
+                a: [
+                    { text: "با استفاده از حقایق و داده‌ها", type: "analytical" },
+                    { text: "پیروی از حس درونی و ایده‌ها", type: "creative" },
+                    { text: "بر اساس تجربه و واقعیت", type: "concrete" },
+                    { text: "ارزیابی منطقی همه جوانب", type: "critical" }
+                ]
+            },
+            {
+                q: "چگونه یک مشکل را حل می‌کنید؟",
+                a: [
+                    { text: "ایده‌های مختلف را امتحان کنید تا یکی کار کند", type: "divergent" },
+                    { text: "دنبال یک پاسخ صحیح باشید", type: "convergent" },
+                    { text: "از تحلیل دقیق استفاده کنید", type: "analytical" },
+                    { text: "جایگزین‌های خلاقانه تصور کنید", type: "creative" }
+                ]
+            },
+            {
+                q: "چه چیزی را در کار بیشتر ارزش قائل هستید؟",
+                a: [
+                    { text: "قوانین و وظایف روشن", type: "concrete" },
+                    { text: "آزادی بیان ایده‌های جدید", type: "creative" },
+                    { text: "تفکر عمیق درباره نظریه", type: "abstract" },
+                    { text: "یافتن الگوها و منطق", type: "analytical" }
+                ]
+            },
+            {
+                q: "کدام یک بهترین توصیف سبک شماست؟",
+                a: [
+                    { text: "مشکلات را به بخش‌ها تقسیم می‌کنم", type: "analytical" },
+                    { text: "به دنبال نتایج عملی هستم", type: "concrete" },
+                    { text: "ایده‌های بی‌ربط را به هم وصل می‌کنم", "type": "divergent" },
+                    { text: "بهترین گزینه را سریع انتخاب می‌کنم", type: "convergent" }
+                ]
+            }
+        ]
+    };
+
+    const allMatches = {
+        "en": {
+            analytical: { course: "B.Tech in CS / Data Science", reason: "Your analytical thinking makes you perfect for technology, coding, and analytics fields." },
+            creative: { course: "Design / Animation / Media", reason: "Your creativity shines in design, film, and digital media careers." },
+            critical: { course: "Law / Journalism / Psychology", reason: "Your critical thinking excels in reasoning-based professions." },
+            abstract: { course: "B.Sc Research / Philosophy / AI", reason: "Your abstract thinking suits advanced sciences and theoretical fields." },
+            concrete: { course: "Nursing / B.Ed / Hotel Management", reason: "Your practical approach fits hands-on professions." },
+            divergent: { course: "Entrepreneurship / Innovation", reason: "Your divergent thinking is ideal for startups and innovation." },
+            convergent: { course: "Finance / Engineering", reason: "Your convergent thinking excels in solution-focused careers." }
+        },
+        "ar": {
+            analytical: { course: "بكالوريوس في علوم الحاسوب / علم البيانات", reason: "تفكيرك التحليلي يجعلك مثالياً لمجالات التكنولوجيا والبرمجة والتحليل." },
+            creative: { course: "تصميم / رسوم متحركة / إعلام", reason: "إبداعك يتألق في وظائف التصميم والأفلام والإعلام الرقمي." },
+            critical: { course: "قانون / صحافة / علم نفس", reason: "تفكيرك النقدي يتفوق في المهن القائمة على الاستدلال." },
+            abstract: { course: "بكالوريوس بحث علمي / فلسفة / ذكاء اصطناعي", reason: "تفكيرك المجرد يناسب العلوم المتقدمة والمجالات النظرية." },
+            concrete: { course: "تمريض / بكالوريوس تربية / إدارة فنادق", reason: "نهجك العملي يناسب المهن العملية." },
+            divergent: { course: "ريادة أعمال / ابتكار", reason: "تفكيرك التباعدي مثالي للشركات الناشئة والابتكار." },
+            convergent: { course: "مالية / هندسة", reason: "تفكيرك التقاربي يتفوق في المهن التي تركز على الحلول." }
+        },
+        "hi": {
+            analytical: { course: "बी.टेक (कंप्यूटर विज्ञान) / डेटा साइंस", reason: "आपकी विश्लेषणात्मक सोच आपको प्रौद्योगिकी, कोडिंग और एनालिटिक्स क्षेत्रों के लिए एकदम सही बनाती है।" },
+            creative: { course: "डिजाइन / एनिमेशन / मीडिया", reason: "आपकी रचनात्मकता डिजाइन, फिल्म और डिजिटल मीडिया करियर में चमकती है।" },
+            critical: { course: "कानून / पत्रकारिता / मनोविज्ञान", reason: "आपकी आलोचनात्मक सोच तर्क-आधारित व्यवसायों में उत्कृष्ट है।" },
+            abstract: { course: "बी.एससी रिसर्च / दर्शनशास्त्र / एआई", reason: "आपकी अमूर्त सोच उन्नत विज्ञान और सैद्धांतिक क्षेत्रों के लिए उपयुक्त है।" },
+            concrete: { course: "नर्सिंग / बी.एड / होटल प्रबंधन", reason: "आपका व्यावहारिक दृष्टिकोण हाथ से काम करने वाले व्यवसायों में फिट बैठता है।" },
+            divergent: { course: "उद्यमिता / नवाचार", reason: "आपकी अपसारी सोच स्टार्टअप और नवाचार के लिए आदर्श है।" },
+            convergent: { course: "वित्त / इंजीनियरिंग", reason: "आपकी अभिसारी सोच समाधान-केंद्रित करियर में उत्कृष्ट है।" }
+        },
+        "ur": {
+            analytical: { course: "بی ٹیک (کمپیوٹر سائنس) / ڈیٹا سائنس", reason: "آپ کی تجزیاتی سوچ آپ کو ٹیکنالوجی، کوڈنگ اور تجزیاتی شعبوں کے لیے بہترین بناتی ہے۔" },
+            creative: { course: "ڈیزائن / اینیمیشن / میڈیا", reason: "آپ کی تخلیقی صلاحیت ڈیزائن، فلم اور ڈیجیٹل میڈیا کیریئر میں چمکتی ہے۔" },
+            critical: { course: "قانون / صحافت / نفسیات", reason: "آپ کی تنقیدی سوچ استدلال پر مبنی پیشوں میں بہترین ہے۔" },
+            abstract: { course: "بی ایس سی ریسرچ / فلسفہ / اے آئی", reason: "آپ کی تجریدی سوچ جدید سائنس اور نظریاتی شعبوں کے لیے موزوں ہے۔" },
+            concrete: { course: "نرسنگ / بی ایڈ / ہوٹل مینجمنٹ", reason: "آپ کا عملی نقطہ نظر ہینڈ آن پیشوں کے لیے موزوں ہے۔" },
+            divergent: { course: "انٹرپرینیورشپ / جدت", reason: "آپ کی مختلف سوچ اسٹارٹ اپ اور جدت کے لیے مثالی ہے۔" },
+            convergent: { course: "فنانس / انجینئرنگ", reason: "آپ کی ہم آہنگ سوچ حل پر مبنی کیریئر میں بہترین ہے۔" }
+        },
+        "ml": {
+            analytical: { course: "കമ്പ്യൂട്ടർ സയൻസിൽ ബി.ടെക് / ഡാറ്റാ സയൻസ്", reason: "നിങ്ങളുടെ വിശകലന ചിന്ത നിങ്ങളെ സാങ്കേതികവിദ്യ, കോഡിംഗ്, അനലിറ്റിക്സ് മേഖലകളിൽ മികച്ചതാക്കുന്നു." },
+            creative: { course: "ഡിസൈൻ / ആനിമേഷൻ / മീഡിയ", reason: "നിങ്ങളുടെ സർഗ്ഗാത്മകത ഡിസൈൻ, സിനിമ, ഡിജിറ്റൽ മീഡിയ കരിയറിൽ തിളങ്ങുന്നു." },
+            critical: { course: "നിയമം / പത്രപ്രവർത്തനം / മനശാസ്ത്രം", reason: "നിങ്ങളുടെ വിമർശനാത്മക ചിന്താശേഷി യുക്തി അടിസ്ഥാനമാക്കിയുള്ള തൊഴിലുകളിൽ മികവ് പുലർത്തുന്നു." },
+            abstract: { course: "ബി.എസ്.സി റിസർച്ച് / ഫിലോസഫി / എഐ", reason: "നിങ്ങളുടെ അമൂർത്ത ചിന്താശേഷി അഡ്വാൻസ്ഡ് സയൻസസിനും സൈദ്ധാന്തിക മേഖലകൾക്കും അനുയോജ്യമാണ്." },
+            concrete: { course: "നഴ്സിംഗ് / ബി.എഡ് / ഹോട്ടൽ മാനേജ്മെന്റ്", reason: "നിങ്ങളുടെ പ്രായോഗിക സമീപനം പ്രായോഗിക തൊഴിലുകൾക്ക് അനുയോജ്യമാണ്." },
+            divergent: { course: "സംരംഭകത്വം / ഇന്നൊവേഷൻ", reason: "നിങ്ങളുടെ വ്യതിരിക്ത ചിന്താശേഷി സ്റ്റാർട്ടപ്പുകൾക്കും ഇന്നൊവേഷനും അനുയോജ്യമാണ്." },
+            convergent: { course: "ധനകാര്യം / എഞ്ചിനീയറിംഗ്", reason: "നിങ്ങളുടെ സംയോജിത ചിന്താശേഷി പരിഹാര കേന്ദ്രീകൃത തൊഴിലുകളിൽ മികവ് പുലർത്തുന്നു." }
+        },
+        "tl": {
+            analytical: { course: "B.Tech sa CS / Data Science", reason: "Ang iyong analytical thinking ay nagiging perpekto sa iyo para sa teknolohiya, coding, at analytics fields." },
+            creative: { course: "Disenyo / Animation / Media", reason: "Ang iyong pagkamalikhain ay nagniningning sa disenyo, pelikula, at digital media careers." },
+            critical: { course: "Batas / Journalism / Psychology", reason: "Ang iyong kritikal na pag-iisip ay mahusay sa mga propesyong nakabatay sa pangangatwiran." },
+            abstract: { course: "B.Sc Research / Philosophy / AI", reason: "Ang iyong abstract thinking ay akma sa mga advanced na agham at teoretikal na larangan." },
+            concrete: { course: "Nursing / B.Ed / Hotel Management", reason: "Ang iyong praktikal na diskarte ay akma sa mga hands-on na propesyon." },
+            divergent: { course: "Entrepreneurship / Innovation", reason: "Ang iyong divergent thinking ay perpekto para sa mga startup at inobasyon." },
+            convergent: { course: "Pananalapi / Engineering", reason: "Ang iyong convergent thinking ay mahusay sa mga karera na nakatuon sa solusyon." }
+        },
+        "ta": {
+            analytical: { course: "சி.எஸ் / தரவு அறிவியலில் பி.டெக்", reason: "உங்கள் பகுப்பாய்வு சிந்தனை உங்களை தொழில்நுட்பம், கோடிங் மற்றும் பகுப்பாய்வுத் துறைகளுக்கு ஏற்றதாக்குகிறது." },
+            creative: { course: "வடிவமைப்பு / அனிமேஷன் / ஊடகம்", reason: "உங்கள் படைப்பாற்றல் வடிவமைப்பு, திரைப்படம் மற்றும் டிஜிட்டல் ஊடகத் தொழில்களில் பிரகாசிக்கிறது." },
+            critical: { course: "சட்டம் / பத்திரிகை / உளவியல்", reason: "உங்கள் விமர்சன சிந்தனை பகுத்தறிவு சார்ந்த தொழில்களில் சிறந்து விளங்குகிறது." },
+            abstract: { course: "பி.எஸ்.சி ஆராய்ச்சி / தத்துவம் / AI", reason: "உங்கள் அருவமான சிந்தனை மேம்பட்ட அறிவியல் மற்றும் கோட்பாட்டுத் துறைகளுக்குப் பொருந்துகிறது." },
+            concrete: { course: "செவிலியர் / பி.எட் / ஹோட்டல் மேலாண்மை", reason: "உங்கள் நடைமுறை அணுகுமுறை செயல்முறை சார்ந்த தொழில்களுக்குப் பொருந்துகிறது." },
+            divergent: { course: "தொழில்முனைவு / புத்தாக்கம்", reason: "உங்கள் பிரிந்து செல்லும் சிந்தனை ஸ்டார்ட்அப்கள் மற்றும் புத்தாக்கத்திற்கு ஏற்றது." },
+            convergent: { course: "நிதி / பொறியியல்", reason: "உங்கள் ஒருங்கினைந்த சிந்தனை தீர்வு சார்ந்த தொழில்களில் சிறந்து விளங்குகிறது।" }
         },
         "bn": {
             analytical: { course: "সিএস / ডেটা সায়েন্সে বি.টেক", reason: "আপনার বিশ্লেষণাত্মক চিন্তাভাবনা আপনাকে প্রযুক্তি, কোডিং এবং বিশ্লেষণ ক্ষেত্রগুলির জন্য নিখুঁত করে তোলে।" },
@@ -1464,32 +1960,50 @@
         questions = allQuestions[lang] || allQuestions['en'];
         matches = allMatches[lang] || allMatches['en']; 
 
- 
+        // Set text direction based on language
         document.body.style.direction = (lang === 'ar' || lang === 'ur' || lang === 'ps' || lang === 'fa') ? 'rtl' : 'ltr';
      
         document.querySelectorAll('.nav-tab').forEach(tab => {
+            // Adjust text alignment for tabs based on LTR/RTL
             tab.style.textAlign = (lang === 'ar' || lang === 'ur' || lang === 'ps' || lang === 'fa') ? 'right' : 'center';
         });
 
-     
+        // Apply translations to data-key elements
         document.querySelectorAll('[data-key]').forEach(element => {
             const key = element.getAttribute('data-key');
             let translatedText = translations[lang] && translations[lang][key] ? translations[lang][key] : translations['en'][key];
             
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
                 element.placeholder = translatedText;
-            } else if (element.hasAttribute('data-html')) { 
+            } else if (element.tagName === 'TEXTAREA' && element.hasAttribute('placeholder')) {
+                element.placeholder = translatedText;
+            }
+            else if (element.hasAttribute('data-html')) { 
                 element.innerHTML = translatedText;
             } else {
                 element.textContent = translatedText;
             }
         });
 
+        // Update theme toggle icon dynamically on language change for light mode
+        const themeToggle = document.querySelector('.theme-toggle');
+        if (document.body.classList.contains('light-mode')) {
+          themeToggle.textContent = '☀️ / 🌙';
+        } else {
+          themeToggle.textContent = '🌙 / ☀️';
+        }
 
+
+        // Re-render quiz if active to apply new language
         if (document.getElementById('quiz').style.display === 'block') {
             showQuestion(); 
         } else if (document.getElementById('result').style.display === 'block') {
-            showResult();
+            showResult(); // Re-render result with new language
+        }
+        
+        // If on college finder section, re-apply filter to update column headers
+        if (document.getElementById('college').classList.contains('active')) {
+            applyCollegeSearchFilter();
         }
     }
 
@@ -1501,16 +2015,25 @@
     function startQuiz() {
       currentQ = 0;
       thinkerScores = {};
-      userCourses = document.getElementById("coursesInput").value.split(",").map(c => c.trim().toLowerCase()).filter(c => c);
+      // Ensure coursesInput is not null before accessing its value
+      const coursesInputElem = document.getElementById("coursesInput");
+      userCourses = coursesInputElem ? coursesInputElem.value.split(",").map(c => c.trim().toLowerCase()).filter(c => c) : [];
+
       document.getElementById("result").style.display = "none";
-      document.getElementById("quiz").style.display = "block";
+      document.getElementById("quiz").style.display = "block"; // Changed from .add('active')
       showQuestion();
     }
 
     function showQuestion() {
+      // Ensure `questions` is initialized for the current language
+      if (!questions) {
+        questions = allQuestions[currentLanguage] || allQuestions['en'];
+      }
+
       if (questions && questions[currentQ]) { 
         document.getElementById("qNum").innerText = currentQ + 1;
      
+        // Ensure question_number_prefix and suffix are translated on each question load
         document.querySelector('[data-key="question_number_prefix"]').textContent = translations[currentLanguage]["question_number_prefix"];
         document.querySelector('[data-key="question_number_suffix"]').textContent = translations[currentLanguage]["question_number_suffix"];
 
@@ -1528,7 +2051,7 @@
           optionsDiv.appendChild(btn);
         });
       } else {
-          console.error("Questions not loaded for current language:", currentLanguage);
+          console.error("Questions not loaded for current language or currentQ is out of bounds:", currentLanguage, currentQ);
       }
     }
 
@@ -1547,7 +2070,7 @@
     function showResult() {
       const resultDiv = document.getElementById("result");
       const sortedThinkers = Object.entries(thinkerScores).sort((a, b) => b[1] - a[1]);
-      const topScore = sortedThinkers[0][1];
+      const topScore = sortedThinkers.length > 0 ? sortedThinkers[0][1] : 0;
       const topThinkerTypes = sortedThinkers.filter(entry => entry[1] === topScore).map(entry => entry[0]);
 
       let match = { 
@@ -1557,42 +2080,128 @@
 
       for(const type of topThinkerTypes) {
         const potentialMatch = getCourseMatch(type);
-        if (userCourses.length > 0) {
+        if (userCourses.length > 0 && potentialMatch) { // Check if potentialMatch is not undefined
+            // Check if any of the suggested courses from AI Tool match the potentialMatch course
             const courseFound = userCourses.some(uc => potentialMatch.course.toLowerCase().includes(uc.toLowerCase()) || uc.toLowerCase().includes(potentialMatch.course.toLowerCase()));
             if(courseFound) {
                 match = potentialMatch;
-                break;
+                break; // Found a matching course from user input, use this one
             }
         }
-        if(match.course === translations[currentLanguage]["general_studies_course"] || !match.course) { // Check against translated default or if no match found yet
-            match = potentialMatch;
+        // If no user courses or no match found yet, take the first potentialMatch
+        // Also ensures match is not undefined if getCourseMatch returns nothing
+        if (!match || match.course === translations[currentLanguage]["general_studies_course"]) {
+             if (potentialMatch) { // Only assign if potentialMatch is valid
+                 match = potentialMatch;
+             }
         }
       }
 
       resultDiv.style.display = "block";
       resultDiv.innerHTML = `
-        <h3>${translations[currentLanguage]["quiz_result_heading"]}</h3>
-        <p>${translations[currentLanguage]["quiz_primary_thinker_prefix"]}<strong>${topThinkerTypes.map(t => capitalize(t)).join(', ')}</strong>${translations[currentLanguage]["quiz_primary_thinker_suffix"]}</p>
-        <h4>${translations[currentLanguage]["quiz_recommendation_heading"]}</h4>
+        <h3 data-key="quiz_result_heading">${translations[currentLanguage]["quiz_result_heading"]}</h3>
+        <p><span data-key="quiz_primary_thinker_prefix">${translations[currentLanguage]["quiz_primary_thinker_prefix"]}</span><strong class="pulse-highlight">${topThinkerTypes.map(t => capitalize(t)).join(', ')}</strong><span data-key="quiz_primary_thinker_suffix">${translations[currentLanguage]["quiz_primary_thinker_suffix"]}</span></p>
+        <h4><span data-key="quiz_recommendation_heading">${translations[currentLanguage]["quiz_recommendation_heading"]}</span></h4>
         <p><strong>${match.course}</strong></p>
-        <h4>${translations[currentLanguage]["quiz_why_match_heading"]}</h4>
+        <h4><span data-key="quiz_why_match_heading">${translations[currentLanguage]["quiz_why_match_heading"]}</span></h4>
         <p>${match.reason}</p>
       `;
     }
 
     function getCourseMatch(type) {
-        return matches[type];
+        return allMatches[type];
     }
     
     function capitalize(str) {
-     
       return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
+    // --- College Finder Search Functionality ---
+    function applyCollegeSearchFilter() {
+      const searchInput = document.getElementById('searchInput');
+      // Ensure the searchInput exists before trying to access its value
+      if (!searchInput) return; 
+      
+      const q = searchInput.value.toLowerCase().trim(); // Trim whitespace
+
+      // Select all program sections within the college section
+      const programSections = document.querySelectorAll('#college .program-section');
+
+      programSections.forEach(programSection => {
+          const programTitleElement = programSection.querySelector('h3');
+          const programTitleText = programTitleElement ? programTitleElement.textContent.toLowerCase() : '';
+          const tableRows = programSection.querySelectorAll('.college-table tbody tr');
+
+          let showProgramSection = false; // Flag to determine if this whole section should be visible
+
+          // Scenario 1: Search query is empty (show all)
+          if (q === '') {
+              programSection.style.display = '';
+              tableRows.forEach(row => { row.style.display = ''; }); // Show all rows
+              showProgramSection = true; // Section is shown
+              return; // Move to next program section
+          }
+
+          // Scenario 2: Program Title matches the search query (e.g., search "B.Tech" shows whole B.Tech section)
+          if (programTitleText.includes(q)) {
+              programSection.style.display = '';
+              tableRows.forEach(row => { row.style.display = ''; }); // Show all rows in this program
+              showProgramSection = true; // Section is shown
+          } else {
+              // Scenario 3: Program Title does not match, so search within rows
+              let anyRowMatchesContent = false; 
+              tableRows.forEach(row => {
+                  if (row.innerText.toLowerCase().includes(q)) {
+                      row.style.display = ''; // Show row if its content matches
+                      anyRowMatchesContent = true;
+                  } else {
+                      row.style.display = 'none'; // Hide row
+                  }
+              });
+
+              // If title didn't match, but a row did, show the program section. Otherwise, hide.
+              if (anyRowMatchesContent) {
+                  programSection.style.display = '';
+                  showProgramSection = true; // Section is shown due to row match
+              } else {
+                  programSection.style.display = 'none';
+              }
+          }
+      });
+
+
+      // Update table headers for current language when filter applied/re-applied
+      document.querySelectorAll('#college .college-table thead th').forEach(th => {
+          const key = th.getAttribute('data-key');
+          if (key && translations[currentLanguage] && translations[currentLanguage][key]) {
+              th.textContent = translations[currentLanguage][key];
+          }
+      });
+    }
+
+    // Add event listener for the search input
     document.addEventListener('DOMContentLoaded', () => {
-        changeLanguage('en'); 
-        document.getElementById('languageSelect').value = 'en'; 
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) { // Check if searchInput exists on the page
+        searchInput.addEventListener('input', applyCollegeSearchFilter);
+      }
+    });
+
+
+    // Initialize on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
+        // Set default language for initial load
+        document.getElementById('languageSelect').value = 'en';
+        changeLanguage('en');
+        // Ensure the correct tab is active on load
         showSection('about', { currentTarget: document.querySelector('.nav-tab.active') });
+        // Initial theme toggle text
+        const themeToggle = document.querySelector('.theme-toggle');
+        if (document.body.classList.contains('light-mode')) {
+          themeToggle.textContent = '☀️ / 🌙';
+        } else {
+          themeToggle.textContent = '🌙 / ☀️';
+        }
     });
   </script>
 </body>
