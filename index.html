@@ -1,50 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Career Guide - UAE Professional Edition</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-
-
-    <link rel="preload" href="images/uae-bg.jpg" as="image">
-    <link rel="preload" href="images/solar.jpg" as="image">
-
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0f172a 100%);
-            min-height: 100vh;
-            color: #e2e8f0;
-            overflow-x: hidden;
-        }
-
-        body.dark {
-            background: linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #16213e 100%);
-        }
-
-        .glass {
-            background: rgba(23, 31, 51, 0.5);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .gradient-text {
+<style>
+.gradient-text {
             background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -66,47 +22,7 @@
             background: rgba(255, 255, 255, 0.1);
             transform: translateX(4px);
         }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-            }
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% {
-                box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
-            }
-            50% {
-                box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInMessage {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+        
         @keyframes gradientShift {
             0% {
                 background-position: 0% 50%;
@@ -462,7 +378,7 @@
             color: #ef4444;
         }
 
-        /* RTL specific styles */
+        
         [dir="rtl"] .language-dropdown {
             left: 0;
             right: auto;
@@ -507,8 +423,7 @@
 
 
         .hero-bg {
-            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(88, 28, 135, 0.7)), 
-                            url('images/hero-bg.jpg');
+            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(88, 28, 135, 0.7));
             background-size: cover;
             background-position: center;
         }
@@ -552,6 +467,113 @@
                 padding-top: 1rem !important; 
             }
         }
+
+        
+        @media (max-width: 1023px) {
+            
+            .desktop-sidebar {
+                display: none !important;
+            }
+
+            
+            .mobile-header {
+                display: flex !important;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 60;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .main-content {
+                margin-left: 0 !important;
+                padding-top: 4.5rem; 
+            }
+
+       
+            .p-8 { padding: 1rem !important; }
+            .glass { border-radius: 12px; }
+            .hero-card { padding: 1rem !important; }
+            .hero-card h1 { font-size: 1.4rem !important; line-height: 1.6 !important; }
+            .hero-card p { font-size: 1rem !important; }
+
+            .grid { gap: 0.5rem !important; }
+
+       
+            .btn-primary { padding: 10px 12px; border-radius: 10px; font-size: 0.95rem; }
+
+
+            footer { position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; }
+        }
+
+        @media (max-width: 640px) {
+           
+            .text-4xl { font-size: 1.25rem !important; }
+            .text-3xl { font-size: 1.05rem !important; }
+            .text-xl { font-size: 0.95rem !important; }
+
+            .marks-grid { grid-template-columns: 1fr !important; }
+            .career-icon { width: 48px; height: 48px; }
+
+     
+            input, select, textarea, button { font-size: 0.95rem !important; }
+
+
+            .video-container { padding-bottom: 75% !important; }
+        }
+
+        @media (max-width: 420px) {
+  
+            .hero-card h1 { font-size: 1.1rem !important; }
+            .hero-card p { font-size: 0.95rem !important; }
+
+            .btn-primary { padding: 8px 10px !important; font-size: 0.9rem !important; }
+        }
+
+  
+        @media (orientation: portrait) and (max-width: 900px) {
+            body { font-size: 15px; }
+            .main-content { padding-top: 5rem; }
+        }
+
+        @media (orientation: landscape) and (max-width: 900px) {
+            
+            .hero-card h1 { font-size: 1.25rem !important; }
+            .hero-card p { font-size: 0.95rem !important; }
+            .hero-icon { display: none !important; }
+            .main-content { padding-top: 1.25rem; }
+        }
+
+       
+        #mobile-shell {
+            background: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0f172a 100%);
+            color: #e2e8f0;
+            overflow: hidden;
+            position: relative;
+        }
+
+      
+        #mobile-shell .main-content, #mobile-shell .h-screen {
+            height: 100%;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        
+        #mobile-shell .mobile-header {
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 40 !important;
+            border-radius: 24px 24px 0 0;
+        }
+
+        footer { position: static; }
+        #mobile-shell footer { position: sticky; bottom: 0; background: rgba(23,31,51,0.6); }
+
+       
+        .fixed.inset-0 { display: none !important; }
     </style>
 </head>
 <body>
@@ -678,7 +700,10 @@
         </div>
     </div>
 
-    <div class="flex">
+    <!-- Mobile shell: force viewport to 412x915 for mobile-only preview -->
+    <div id="mobile-shell-wrapper" style="width:100%;display:flex;justify-content:center;">
+        <div id="mobile-shell" style="width:412px;height:915px;overflow:hidden;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,0.6);background:transparent;">
+            <div class="flex" style="height:100%;overflow:hidden;flex-direction:column;">
         <!-- Desktop Sidebar Navigation -->
         <nav class="desktop-sidebar relative z-40 w-72 glass border-r border-white/10 h-screen sticky top-0 flex flex-col">
             <div class="flex items-center justify-between p-6 border-b border-white/10 flex-shrink-0">
@@ -711,7 +736,7 @@
                             <img src="https://flagcdn.com/gb.svg" class="language-flag" alt="English"> English
                         </div>
                         <div class="language-option" onclick="changeLanguage('ar')">
-                            <img src="images/ae.png" class="language-flag" alt="Arabic"> العربية
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='15'><rect width='20' height='15' fill='%23fff'/><rect x='0' y='0' width='20' height='7' fill='%23007bff'/></svg>" class="language-flag" alt="Arabic"> العربية
                         </div>
                         <div class="language-option" onclick="changeLanguage('hi')">
                             <img src="https://flagcdn.com/in.svg" class="language-flag" alt="Hindi"> हिंदी
@@ -1254,7 +1279,7 @@
 
                                 <div class="glass rounded-2xl p-6 card-hover cursor-pointer" onclick="showCareerDetails('Software Engineer')">
                                     <div class="flex flex-col items-center text-center">
-                                        <img src="images/software.png" alt="Software Engineer" class="career-icon">
+                                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><rect width='60' height='60' rx='8' fill='%23e6eefc'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='14' fill='%233b82f6' font-family='Arial,Helvetica,sans-serif'>SE</text></svg>" alt="Software Engineer" class="career-icon">
                                         <h3 class="text-xl font-bold text-white mb-2">Software Engineer</h3>
                                         <p class="text-white/70 capitalize">Technology</p>
                                     </div>
@@ -1276,7 +1301,7 @@
 
                                 <div class="glass rounded-2xl p-6 card-hover cursor-pointer" onclick="showCareerDetails('Data Scientist')">
                                     <div class="flex flex-col items-center text-center">
-                                        <img src="images/software.png" alt="Software Engineer" class="career-icon">
+                                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><rect width='60' height='60' rx='8' fill='%23e6eefc'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='14' fill='%233b82f6' font-family='Arial,Helvetica,sans-serif'>SE</text></svg>" alt="Software Engineer" class="career-icon">
                                         <h3 class="text-xl font-bold text-white mb-2">Data Scientist</h3>
                                         <p class="text-white/70 capitalize">Technology</p>
                                     </div>
@@ -1550,8 +1575,8 @@
                                 <div class="mt-8">
                                     <h3 class="text-xl font-bold text-white mb-4">App Overview</h3>
                                     <div class="video-container">
-                                        <video controls poster="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80">
-                                            <source src="your-video-file.mp4" type="video/mp4">
+                                        <video controls>
+                                            <source src="veed-overview.mp4" type="video/mp4">
                                             Your browser does not support the video tag.
                                         </video>
                                     </div>
@@ -1598,8 +1623,8 @@
                                 <h2 class="text-2xl font-bold text-white mb-6">Demo Videos</h2>
 
                                 <div class="video-container">
-                                    <video controls poster="https://images.unsplash.com/photo-1596558450268-91724d209149?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80">
-                                        <source src="your-ai-assistant-demo.mp4" type="video/mp4">
+                                    <video controls>
+                                        <source src="AI Career Guide - UAE Professional Edition.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -1621,6 +1646,8 @@
 
             </div>
         </main>
+            </div>
+        </div>
     </div>
     <footer class="p-4 text-center text-white/60 text-xs fixed bottom-0 w-full glass z-30">
         © 2025 AI Career Guide - UAE Professional Edition by Sai Pranav, Class 10, IIS.
@@ -1654,25 +1681,26 @@
 
     <script>
 
-        // Safety wrapper: only call lucide.createIcons if lucide is available
+
+
         function safeCreateIcons() {
             try {
                 if (window.lucide && typeof lucide.createIcons === 'function') {
                     lucide.createIcons();
                 }
             } catch (e) {
-                // Silent fail - icon rendering is non-critical
+    
                 console.warn('lucide.createIcons error:', e);
             }
         }
         safeCreateIcons();
 
-    // ---- App-wide constants & configuration (avoid magic numbers/strings) ----
-    const TOAST_DURATION_MS = 3000; // Duration for temporary toast messages
-    const MATCH_SCORE_MIN = 0;
-    const MATCH_SCORE_MAX = 100;
+   
 
-        // Icon mapping used by showToast — centralised to avoid repeated literals
+        const TOAST_DURATION_MS = 3000; 
+        const MATCH_SCORE_MIN = 0;
+        const MATCH_SCORE_MAX = 100;
+
         const ICON_MAP = {
             success: 'check-circle',
             error: 'x-circle',
@@ -1680,11 +1708,9 @@
             warning: 'alert-triangle'
         };
 
-        // Subject keys used across the scoring logic
         const SUBJECT_KEYS = ['math', 'physics', 'chemistry', 'biology', 'english', 'social'];
 
-        // Keyword map used to infer which academic subjects are relevant to a career
-        // Keep this centralized so it can be tuned easily (weights, synonyms etc.)
+
         const KEYWORD_MAP = {
             math: ['math', 'mathematics', 'statistics', 'quantitative', 'finance', 'economics', 'modeling'],
             physics: ['physics', 'mechanical', 'electrical', 'electronics'],
@@ -1698,7 +1724,7 @@
         let userProfile = {
             full_name: '',
             grade: '',
-            stream: '', // Added stream
+            stream: '',
             marks: {},
             interests: [],
             dreamJob: '',
@@ -1711,7 +1737,56 @@
             isActive: false
         };
 
-        const translations = {
+    // ------------------
+    // 3) Translations (multi-language strings)
+    //    Each language object maps data-key -> localized string
+    // ------------------
+    const translations = {
+            ur: {
+                appTitle: "اے آئی کیریئر گائیڈ",
+                appSubtitle: "یو اے ای پروفیشنل ایڈیشن",
+                welcomeTitle: "آپ کے اے آئی کیریئر گائیڈ میں خوش آمدید - یو اے ای پروفیشنل ایڈیشن",
+                welcomeSubtitle: "یو اے ای کے طلباء کے لیے ڈیزائن کردہ اے آئی سے چلنے والی بصیرت کے ساتھ اپنا مثالی کیریئر راستہ دریافت کریں",
+                aiPowered: "اے آئی سے چلنے والا تجزیہ",
+                uaeCertified: "یو اے ای مصدقہ پروگرامز",
+                multiLingual: "کثیر لسانی",
+                profileCompletion: "پروفائل کی تکمیل",
+                assessmentsTaken: "مکمل شدہ جائزے",
+                recommendations: "اے آئی کی سفارشات",
+                universitiesExplored: "دستیاب یونیورسٹیاں",
+                quickActions: "فوری اقدامات",
+                completeProfile: "پروفائل مکمل کریں",
+                takeAssessment: "اسیسمنٹ دیں",
+                exploreUniversities: "یونیورسٹیوں کو دریافت کریں",
+                askAI: "اے آئی اسسٹنٹ سے پوچھیں",
+                navDashboard: "ڈیش بورڈ",
+                navProfile: "پروفائل سیٹ اپ",
+                navAssessment: "اسیسمنٹ",
+                navRecommendations: "سفارشات",
+                navUniversities: "یونیورسٹیاں",
+                navCareers: "کیریئر",
+                navReports: "رپورٹس",
+                navAssistant: "اے آئی اسسٹنٹ",
+                navAbout: "کے بارے میں",
+                navScholarships: "اسکالرشپس",
+                navEmiratization: "اماراتائزیشن",
+                darkMode: "ڈارک موڈ",
+                profileSetupTitle: "اپنا پروفائل بنائیں",
+                profileSetupSubtitle: "ذاتی سفارشات کے لیے ہمارے اے آئی کو آپ کے بارے میں بہتر طور پر سمجھنے میں مدد کریں",
+                basicInfo: "بنیادی معلومات",
+                fullName: "پورا نام",
+                grade: "موجودہ گریڈ",
+                stream: "شعبہ",
+                academicPerformance: "تعلیمی کارکردگی",
+                interests: "دلچسپیاں اور مشغلے",
+                careerGoals: "کیریئر کے اہداف",
+                dreamJob: "خوابوں کا پیشہ/کردار",
+                saveProfile: "پروفائل محفوظ کریں",
+                assessmentTitle: "کیریئر اسیسمنٹ",
+                assessmentSubtitle: "اے آئی سے چلنے والی شخصیت اور اہلیت کا جائزہ",
+                readyToStart: "کیا آپ اپنا کیریئر راستہ دریافت کرنے کے لیے تیار ہیں؟",
+                startAssessment: "اسیسمنٹ شروع کریں",
+            },
             en: {
                 appTitle: "AI Career Guide",
                 appSubtitle: "UAE Professional Edition",
@@ -1940,51 +2015,7 @@
                 readyToStart: "നിങ്ങളുടെ കരിയർ പാത കണ്ടെത്താൻ തയ്യാറാണോ?",
                 startAssessment: "വിലയിരുത്തൽ ആരംഭിക്കുക",
             },
-            ur: {
-                appTitle: "اے آئی کیریئر گائیڈ",
-                appSubtitle: "یو اے ای پروفیشنل ایڈیشن",
-                welcomeTitle: "آپ کے اے آئی کیریئر گائیڈ میں خوش آمدید - یو اے ای پروفیشنل ایڈیشن",
-                welcomeSubtitle: "یو اے ای کے طلباء کے لیے تیار کی گئی اے آئی سے چلنے والی بصیرت کے ساتھ اپنا بہترین کیریئر کا راستہ دریافت کریں",
-                aiPowered: "اے آئی سے چلنے والا تجزیہ",
-                uaeCertified: "یو اے ای مصدقہ پروگرامز",
-                multiLingual: "کثیر لسانی",
-                profileCompletion: "پروفائل کی تکمیل",
-                assessmentsTaken: "کیے گئے جائزے",
-                recommendations: "اے آئی کی سفارشات",
-                universitiesExplored: "دستیاب یونیورسٹیاں",
-                quickActions: "فوری اقدامات",
-                completeProfile: "پروفائل مکمل کریں",
-                takeAssessment: "جائزہ لیں",
-                exploreUniversities: "یونیورسٹیوں کی تلاش کریں",
-                askAI: "اے آئی اسسٹنٹ سے پوچھیں",
-                navDashboard: "ڈیش بورڈ",
-                navProfile: "پروفائل سیٹ اپ",
-                navAssessment: "جائزہ",
-                navRecommendations: "سفارشات",
-                navUniversities: "یونیورسٹیاں",
-                navCareers: "کیریئرز",
-                navReports: "رپورٹس",
-                navAssistant: "اے آئی اسسٹنٹ",
-                navAbout: "کے بارے میں",
-                navScholarships: "اسکالرشپس",
-                navEmiratization: "اماراتائزیشن",
-                darkMode: "ڈارک موڈ",
-                profileSetupTitle: "اپنی پروفائل بنائیں",
-                profileSetupSubtitle: "व्यक्तिगत सिफारिशों के लिए हमारे एआई को आपको बेहतर ढंग से समझने में मदद करें",
-                basicInfo: "बुनियादी जानकारी",
-                fullName: "پورا نام",
-                grade: "वर्तमान ग्रेड",
-                stream: "स्ट्रीम",
-                academicPerformance: "शैक्षणिक प्रदर्शन",
-                interests: "रुचियां और शौक",
-                careerGoals: "کیریئر کے اہداف",
-                dreamJob: "ڈریم جاب/رول",
-                saveProfile: "پروفائل سहेजें",
-                assessmentTitle: "کیریئر کی تشخیص",
-                assessmentSubtitle: "اے آئی سے چلنے والی شخصیت اور قابلیت کی تشخیص",
-                readyToStart: "کیا آپ اپنا کیریئر کا راستہ تلاش کرنے کے لیے تیار ہیں؟",
-                startAssessment: "تشخیص شروع کریں",
-            },
+            
             bn: {
                 appTitle: "এআই ক্যারিয়ার গাইড",
                 appSubtitle: "ইউএই পেশাদার সংস্করণ",
@@ -2167,8 +2198,13 @@
             }
         };
         
-        // Interests data
-        const INTERESTS_DATA = {
+    // ------------------
+    // 4) Static datasets
+    //    - INTERESTS_DATA: localized interest lists used to populate UI
+    //    - UNIVERSITIES_DATA, CAREER_RECOMMENDATIONS, etc. live below
+    // ------------------
+    // Interests data
+    const INTERESTS_DATA = {
             en: [
                 "Technology", "Programming", "Artificial Intelligence", "Cybersecurity", "Data Science",
                 "Medicine", "Nursing", "Psychology", "Public Health", "Pharmacy",
@@ -2271,9 +2307,10 @@
                 type: "public",
                 programs: ["Engineering", "Medicine", "Business", "IT", "Arts", "Sciences"],
                 description: "UAE's flagship university established in 1976.",
-                website: "https://www.uaeu.ac.ae",
-                requirementsLink: "https://www.uaeu.ac.ae/en/admission/undergraduate.shtml",
-                imageUrl: "./images/uaeu.jpg" // Updated path
+                website: "https://www.uaeu.ac.ae/",
+                requirementsLink: "https://www.uaeu.ac.ae/en/admission/undergraduate_admissions.shtml",
+                eligibility: ["Secondary school certificate (or equivalent)", "Program-specific minimum grades (varies)", "English proficiency (IELTS/TOEFL where required)"],
+                imageUrl: "./images/uaeu.jpg"
             },
             {
                 name: "American University of Dubai",
@@ -2282,9 +2319,10 @@
                 type: "private",
                 programs: ["Business Administration", "Engineering", "Architecture", "Communication", "Arts"],
                 description: "American-style education in Dubai, accredited in the USA and UAE.",
-                website: "https://www.aud.edu",
-                requirementsLink: "https://www.aud.edu/admissions/",
-                imageUrl: "./images/american_university_dubai.png" // Updated path
+                website: "https://www.aud.edu/",
+                requirementsLink: "https://www.aud.edu/admissions/undergraduate/undergraduate-admissions/",
+                eligibility: ["High school diploma or equivalent", "Minimum GPA (varies by program)", "English proficiency (IELTS 6.0+ typical)"],
+                imageUrl: "./images/american_university_dubai.png"
             },
             {
                 name: "Khalifa University",
@@ -2293,9 +2331,10 @@
                 type: "public",
                 programs: ["Engineering", "Science", "Technology", "Medicine (MD Program)"],
                 description: "Leading research university specializing in STEM, ranked among the best in the region.",
-                website: "https://www.ku.ac.ae",
-                requirementsLink: "https://www.ku.ac.ae/admissions/",
-                imageUrl: "./images/khalifa_university.jpg" // Updated path
+                website: "https://www.ku.ac.ae/",
+                requirementsLink: "https://ku-ae.smartcatalogiq.com/en/2024-2025/undergraduate-catalog/undergraduate-admissions/undergraduate-admission-requirements/",
+                eligibility: ["Strong high-school results for undergraduate", "Relevant bachelor for graduate entry", "English proficiency (IELTS/TOEFL)", "Program-specific tests for some graduate programs"],
+                imageUrl: "./images/khalifa_university.jpg"
             },
             {
                 name: "American University of Sharjah",
@@ -2304,9 +2343,10 @@
                 type: "private",
                 programs: ["Architecture, Art and Design", "Arts and Sciences", "Business Administration", "Engineering"],
                 description: "A premier American liberal arts university located in University City, Sharjah.",
-                website: "https://www.aus.edu",
-                requirementsLink: "https://www.aus.edu/admissions",
-                imageUrl: "./images/american_university_sharjah.jpg" // Updated path
+                website: "https://www.aus.edu/",
+                requirementsLink: "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+                eligibility: ["Secondary school certificate (or equivalent)", "Minimum subject scores for program-specific entry", "English proficiency (IELTS 6.0+ or equivalent)"],
+                imageUrl: "./images/american_university_sharjah.jpg"
             },
             {
                 name: "University of Dubai",
@@ -2315,9 +2355,10 @@
                 type: "private",
                 programs: ["Business Administration", "Law", "Information Technology", "Engineering Management"],
                 description: "The first private university in Dubai, known for its business and IT programs.",
-                website: "https://www.ud.ac.ae",
-                requirementsLink: "https://www.ud.ac.ae/admissions/",
-                imageUrl: "./images/university_of_dubai.jpg" // Example: Add this image
+                website: "https://ud.ac.ae/",
+                requirementsLink: "https://ud.smartcatalogiq.com/en/2024-2025/undergraduate-catalog-2024-2025/undergraduate-program-admission-requirements-and-procedures-including-application-fees-admission-deadlines-policies-on-transfer-of-credit/",
+                eligibility: ["Secondary school completion for undergraduate", "Relevant bachelor for postgraduate", "English language proof (where required)"],
+                imageUrl: "./images/university_of_dubai.jpg"
             },
             {
                 name: "Zayed University",
@@ -2326,9 +2367,10 @@
                 type: "public",
                 programs: ["Arts and Humanities", "Business", "Communication and Media Sciences", "Education", "Natural and Health Sciences"],
                 description: "A national university for Emirati men and women, focusing on global education and national development.",
-                website: "https://www.zu.ac.ae",
-                requirementsLink: "https://www.zu.ac.ae/main/en/admission/admission-requirements",
-                imageUrl: "./images/zayed_university.jpg" // Example: Add this image
+                website: "https://www.zu.ac.ae/",
+                requirementsLink: "https://www.zu.ac.ae/main/en/undergraduate-programs/admission-criteria",
+                eligibility: ["UAE secondary certificate or equivalent", "Program-specific entry requirements", "English language requirement (often IELTS/TOEFL)"],
+                imageUrl: "./images/zayed_university.jpg"
             },
             {
                 name: "Higher Colleges of Technology",
@@ -2337,9 +2379,10 @@
                 type: "public",
                 programs: ["Applied Media", "Business", "Computer Information Science", "Engineering Technology & Sciences", "Health Sciences", "Education"],
                 description: "The largest higher education institution in the UAE, providing applied, career-focused programs.",
-                website: "https://www.hct.ac.ae",
-                requirementsLink: "https://www.hct.ac.ae/en/admissions/",
-                imageUrl: "./images/higher_colleges_of_technology.jpg" // Example: Add this image
+                website: "https://www.hct.ac.ae/",
+                requirementsLink: "https://hct.ac.ae/en/admissions/entry-requirements/",
+                eligibility: ["High-school completion (STEM/technical streams for some programs)", "Minimum GPA/grades (programme dependent)", "English proficiency where required"],
+                imageUrl: "./images/higher_colleges_of_technology.jpg"
             },
             {
                 name: "British University in Dubai",
@@ -2348,9 +2391,10 @@
                 type: "private",
                 programs: ["Business", "Education", "Engineering", "IT", "Law"],
                 description: "A research-based university offering British curriculum programs in Dubai.",
-                website: "https://www.buid.ac.ae",
-                requirementsLink: "https://www.buid.ac.ae/admissions/",
-                imageUrl: "./images/british_university_dubai.jpg" // Example: Add this image
+                website: "https://www.buid.ac.ae/",
+                requirementsLink: "https://www.buid.ac.ae/programmes/entry-requirements/",
+                eligibility: ["Secondary school certificate (or equivalent)", "Subject-specific entry requirements for some degrees", "IELTS/TOEFL as applicable"],
+                imageUrl: "./images/british_university_dubai.jpg"
             },
             {
                 name: "New York University Abu Dhabi",
@@ -2359,9 +2403,10 @@
                 type: "private",
                 programs: ["Arts and Humanities", "Engineering", "Sciences", "Social Sciences"],
                 description: "A comprehensive liberal arts and research university in the global NYU network.",
-                website: "https://nyuad.nyu.edu",
-                requirementsLink: "https://nyuad.nyu.edu/en/admissions/undergraduate.html",
-                imageUrl: "./images/nyu_abu_dhabi.jpg" // Example: Add this image
+                website: "https://nyuad.nyu.edu/",
+                requirementsLink: "https://nyuad.nyu.edu/en/apply/undergraduate/apply/entry-requirements.html",
+                eligibility: ["Exceptional secondary school grades (highly selective)", "Strong extracurricular profile", "English proficiency (high level)"],
+                imageUrl: "./images/nyu_abu_dhabi.jpg"
             },
             {
                 name: "Sorbonne University Abu Dhabi",
@@ -2370,9 +2415,10 @@
                 type: "private",
                 programs: ["Arts and Humanities", "Law", "Economics and Management", "Sciences"],
                 description: "A French-speaking university that upholds the academic excellence of Sorbonne University in Paris.",
-                website: "https://www.sorbonne.ae",
-                requirementsLink: "https://www.sorbonne.ae/admissions/",
-                imageUrl: "./images/sorbonne_university_abu_dhabi.jpg" // Example: Add this image
+                website: "https://www.sorbonne.ae/",
+                requirementsLink: "https://www.sorbonne.ae/en/admissions/undergraduate-admissions/",
+                eligibility: ["Secondary school diploma (baccalaureate or equivalent)", "French or English proficiency depending on program", "Program-specific entry requirements"],
+                imageUrl: "./images/sorbonne_university_abu_dhabi.jpg"
             },
             {
                 name: "Rochester Institute of Technology Dubai (RIT Dubai)",
@@ -2382,8 +2428,9 @@
                 programs: ["Business", "Computing", "Engineering", "Science"],
                 description: "A leading American university offering programs in technology, business, and computing.",
                 website: "https://www.rit.edu/dubai/",
-                requirementsLink: "https://www.rit.edu/dubai/admissions",
-                imageUrl: "./images/rit_dubai.jpg" // Example: Add this image
+                requirementsLink: "https://www.rit.edu/dubai/admissions/undergraduate-admissions",
+                eligibility: ["High school completion or equivalent for undergraduate", "Relevant bachelor for postgrad", "English proficiency (IELTS/TOEFL)"],
+                imageUrl: "./images/rit_dubai.jpg"
             },
             {
                 name: "Mohammed Bin Rashid School of Government",
@@ -2392,9 +2439,10 @@
                 type: "public",
                 programs: ["Public Administration", "Public Policy", "Innovation Management"],
                 description: "A research and teaching institution focusing on public policy and administration.",
-                website: "https://www.mbrsg.ae",
-                requirementsLink: "https://www.mbrsg.ae/admissions",
-                imageUrl: "./images/mbrsg.jpg" // Example: Add this image
+                website: "https://www.mbrsg.ae/",
+                requirementsLink: "https://www.mbrsg.ae/en/admissions/",
+                eligibility: ["Bachelor's degree for most postgraduate programs", "Relevant work experience for executive programs", "English proficiency as required"],
+                imageUrl: "./images/mbrsg.jpg"
             },
             {
                 name: "Gulf Medical University",
@@ -2403,9 +2451,10 @@
                 type: "private",
                 programs: ["Medicine", "Dentistry", "Pharmacy", "Physiotherapy", "Nursing", "Health Sciences"],
                 description: "A leading medical university in the UAE, offering a wide range of health sciences programs.",
-                website: "https://www.gmu.ac.ae",
-                requirementsLink: "https://www.gmu.ac.ae/admissions",
-                imageUrl: "./images/gulf_medical_university.jpg" // Example: Add this image
+                website: "https://www.gmu.ac.ae/",
+                requirementsLink: "https://gmu.ac.ae/policy-and-general-admission-requirements/",
+                eligibility: ["Strong secondary school results for MBBS and allied health programs", "Entry tests/interviews for medicine", "English proficiency and health clearances where required"],
+                imageUrl: "./images/gulf_medical_university.jpg"
             },
             {
                 name: "Ajman University",
@@ -2414,9 +2463,10 @@
                 type: "private",
                 programs: ["Architecture, Art and Design", "Business Administration", "Dentistry", "Engineering and IT", "Law", "Mass Communication", "Medicine", "Pharmacy and Health Sciences"],
                 description: "One of the first private universities in the UAE, known for its diverse programs.",
-                website: "https://www.ajman.ac.ae",
+                website: "https://www.ajman.ac.ae/",
                 requirementsLink: "https://www.ajman.ac.ae/en/admissions/admission-requirements",
-                imageUrl: "./images/ajman_university.jpg" // Example: Add this image
+                eligibility: ["Secondary school completion for undergrad", "Relevant bachelor for postgrad", "Program-specific minimum grades and English proficiency"],
+                imageUrl: "./images/ajman_university.jpg"
             },
             {
                 name: "American University of Ras Al Khaimah (AURAK)",
@@ -2425,9 +2475,10 @@
                 type: "private",
                 programs: ["Arts and Sciences", "Business Administration", "Engineering", "Education"],
                 description: "An independent, public, non-profit, co-educational institution of higher education.",
-                website: "https://www.aurak.ac.ae",
-                requirementsLink: "https://www.aurak.ac.ae/en/admissions",
-                imageUrl: "./images/aurak.jpg" // Example: Add this image
+                website: "https://www.aurak.ac.ae/",
+                requirementsLink: "https://www.aurak.ac.ae/en/admissions/undergraduate-admissions/",
+                eligibility: ["Secondary school completion (for undergraduate)", "Bachelors for postgraduate programs", "English proficiency (IELTS/TOEFL)"],
+                imageUrl: "./images/aurak.jpg"
             },
             {
                 name: "Mohamed Bin Zayed University of Artificial Intelligence (MBZUAI)",
@@ -2436,9 +2487,10 @@
                 type: "public",
                 programs: ["Machine Learning", "Computer Vision", "Natural Language Processing"],
                 description: "The world's first graduate-level, research-based AI university.",
-                website: "https://mbzuai.ac.ae",
+                website: "https://www.mbzuai.ac.ae/",
                 requirementsLink: "https://mbzuai.ac.ae/admissions/admission-requirements/",
-                imageUrl: "./images/mbzuai.jpg" // Updated path
+                eligibility: ["Relevant bachelor's degree (CS, EE, Math, etc.) for MSc/PhD", "Strong academic record and letters of recommendation", "English proficiency (IELTS 6.5+ typical)", "Research experience preferred"],
+                imageUrl: "./images/mbzuai.jpg"
             },
             {
                 name: "University of Sharjah",
@@ -2447,9 +2499,10 @@
                 type: "public",
                 programs: ["Arts, Humanities and Social Sciences", "Business Administration", "Communication", "Dentistry", "Engineering", "Health Sciences", "Law", "Medicine", "Science", "Sharia and Islamic Studies"],
                 description: "A comprehensive university offering a wide range of programs across various disciplines.",
-                website: "https://www.sharjah.ac.ae",
-                requirementsLink: "https://www.sharjah.ac.ae/en/Admissions/Pages/default.aspx",
-                imageUrl: "./images/university_of_sharjah.jpg" // Example: Add this image
+                website: "https://www.sharjah.ac.ae/",
+                requirementsLink: "https://www.sharjah.ac.ae/Admissions/Undergraduate",
+                eligibility: ["Secondary school certificate (or equivalent)", "Program-specific entry scores and interviews for some programs", "English proficiency where necessary"],
+                imageUrl: "./images/university_of_sharjah.jpg"
             },
             {
                 name: "Skyline University College",
@@ -2458,9 +2511,10 @@
                 type: "private",
                 programs: ["Business Administration", "Information Technology", "Travel and Tourism Management"],
                 description: "Offers undergraduate and postgraduate programs focusing on business and IT.",
-                website: "https://www.skylineuniversity.ac.ae",
-                requirementsLink: "https://www.skylineuniversity.ac.ae/admissions",
-                imageUrl: "./images/skyline_university_college.jpg" // Example: Add this image
+                website: "https://www.skylineuniversity.ac.ae/",
+                requirementsLink: "https://www.skylineuniversity.ac.ae/admissions/undergraduate-admissions",
+                eligibility: ["High school completion for undergrad", "Relevant degree for postgrad", "English language requirement as applicable"],
+                imageUrl: "./images/skyline_university_college.jpg"
             },
             {
                 name: "Manipal Academy of Higher Education, Dubai",
@@ -2469,9 +2523,10 @@
                 type: "private",
                 programs: ["Architecture and Design", "Business", "Engineering and IT", "Media and Communication", "Life Sciences"],
                 description: "An international branch campus offering diverse undergraduate and postgraduate programs.",
-                website: "https://www.manipaldubai.com",
-                requirementsLink: "https://www.manipaldubai.com/admissions/",
-                imageUrl: "./images/manipal_academy_dubai.jpg" // Example: Add this image
+                website: "https://www.manipaldubai.com/",
+                requirementsLink: "https://www.manipaldubai.com/admissions/undergraduate-admissions/",
+                eligibility: ["Secondary school diploma for undergrad", "Relevant degree for postgrad", "English proficiency (IELTS/TOEFL)"],
+                imageUrl: "./images/manipal_academy_dubai.jpg"
             },
             {
                 name: "Amity University Dubai",
@@ -2480,9 +2535,10 @@
                 type: "private",
                 programs: ["Architecture, Arts & Humanities", "Biotechnology", "Business", "Engineering & Technology", "Journalism & Mass Communication", "Law", "Fashion Design", "Hotel Management", "Applied Sciences"],
                 description: "Part of a leading global education group, offering a wide array of programs.",
-                website: "https://www.amityuniversity.ae",
-                requirementsLink: "https://www.amityuniversity.ae/admissions/",
-                imageUrl: "./images/amity_university_dubai.jpg" // Example: Add this image
+                website: "https://www.amityuniversity.ae/",
+                requirementsLink: "https://www.amityuniversity.ae/admissions/undergraduate-admissions/",
+                eligibility: ["Secondary school completion for undergraduate entry", "Minimum program-specific grades", "English proficiency as required"],
+                imageUrl: "./images/amity_university_dubai.jpg"
             },
             {
                 name: "Canadian University Dubai",
@@ -2491,9 +2547,10 @@
                 type: "private",
                 programs: ["Architecture and Interior Design", "Business Administration", "Communication", "Engineering, Applied Science and Technology", "Environmental Health Sciences"],
                 description: "Offers Canadian-based curriculum in Dubai, accredited by the UAE Ministry of Education.",
-                website: "https://www.cud.ac.ae",
-                requirementsLink: "https://www.cud.ac.ae/admissions/admissions-requirements",
-                imageUrl: "./images/canadian_university_dubai.jpg" // Example: Add this image
+                website: "https://www.cud.ac.ae/",
+                requirementsLink: "https://www.cud.ac.ae/admissions/undergraduate/admissions-requirements",
+                eligibility: ["High-school completion for undergraduate programs", "Relevant bachelor for postgraduate", "English proficiency (IELTS/TOEFL)"],
+                imageUrl: "./images/canadian_university_dubai.jpg"
             },
             {
                 name: "Middlesex University Dubai",
@@ -2502,9 +2559,10 @@
                 type: "private",
                 programs: ["Accounting and Finance", "Art and Design", "Business and Management", "Computer Science", "Education", "Law", "Media", "Psychology", "Science and Technology"],
                 description: "The first overseas campus of the Middlesex University in London, offering UK degrees.",
-                website: "https://www.mdx.ac.ae",
-                requirementsLink: "https://www.mdx.ac.ae/admissions/",
-                imageUrl: "./images/middlesex_university_dubai.jpg" // Example: Add this image
+                website: "https://www.mdx.ac.ae/",
+                requirementsLink: "https://www.mdx.ac.ae/admissions/undergraduate/",
+                eligibility: ["Secondary school certificate for undergraduate", "Relevant degree and transcripts for postgraduate", "English language requirement (IELTS/TOEFL)"],
+                imageUrl: "./images/middlesex_university_dubai.jpg"
             },
             {
                 name: "Heriot-Watt University Dubai",
@@ -2514,8 +2572,9 @@
                 programs: ["Business and Finance", "Computer Science", "Engineering", "Fashion and Textiles", "Psychology", "Built Environment"],
                 description: "A branch campus of the renowned UK university, offering a range of undergraduate and postgraduate programs.",
                 website: "https://www.hw.ac.uk/dubai/",
-                requirementsLink: "https://www.hw.ac.uk/dubai/study/admissions/",
-                imageUrl: "./images/heriot_watt_university_dubai.jpg" // Example: Add this image
+                requirementsLink: "https://www.hw.ac.uk/dubai/study/apply/undergraduate.htm",
+                eligibility: ["High-school completion for undergraduate entry", "Relevant bachelor's for postgraduate admissions", "English proficiency (IELTS/TOEFL)"],
+                imageUrl: "./images/heriot_watt_university_dubai.jpg"
             },
             {
                 name: "BITS Pilani, Dubai Campus",
@@ -2525,8 +2584,9 @@
                 programs: ["Chemical Engineering", "Civil Engineering", "Computer Science", "Electrical and Electronics Engineering", "Mechanical Engineering", "Biotechnology"],
                 description: "An international branch of the Birla Institute of Technology and Science, Pilani, India, focusing on engineering and technology.",
                 website: "https://www.bits-pilani.ac.in/dubai/",
-                requirementsLink: "https://www.bits-pilani.ac.in/dubai/admissions/",
-                imageUrl: "./images/bits_pilani_dubai.jpg" // Example: Add this image
+                requirementsLink: "https://www.bits-pilani.ac.in/dubai/admissions/first-degree/",
+                eligibility: ["Strong secondary-school math/science background for engineering", "Entrance criteria per campus (see admissions)", "English proficiency where required"],
+                imageUrl: "./images/bits_pilani_dubai.jpg"
             },
             {
                 name: "SP Jain School of Global Management, Dubai",
@@ -2536,8 +2596,9 @@
                 programs: ["Business Administration", "Economics", "Data Science", "Digital Marketing & Communication"],
                 description: "A global business school with campuses in Dubai, Mumbai, Singapore, and Sydney.",
                 website: "https://www.spjain.org/campuses/dubai",
-                requirementsLink: "https://www.spjain.org/admissions",
-                imageUrl: "./images/sp_jain_dubai.jpg" // Example: Add this image
+                requirementsLink: "https://www.spjain.org/programs/undergraduate/bachelor-of-business-administration/admissions",
+                eligibility: ["Bachelor's degree for postgraduate programs", "Work experience for some executive programs", "English proficiency (IELTS/TOEFL)"],
+                imageUrl: "./images/sp_jain_dubai.jpg"
             }
         ];
 
@@ -2660,38 +2721,38 @@
                 demandLevel: "Medium",
                 suggestedUniversities: ["American University of Sharjah", "American University of Dubai", "University of Sharjah"],
                 jobOutcomes: "Architectural Designer, Urban Planner, Interior Architect, Landscape Architect",
-                iconUrl: "https://img.icons8.com/fluency/96/000000/blueprint.png" // Placeholder icon
+                iconUrl: "https://img.icons8.com/fluency/96/000000/blueprint.png"
             }
         ];
         
-        // Compute dynamic match scores for careers based on user marks
+
         function computeCareerMatchScores() {
-            // Parse marks safely and provide defaults for all known subjects
+      
             const raw = userProfile.marks || {};
             const marks = SUBJECT_KEYS.reduce((acc, key) => {
                 acc[key] = Number.parseFloat(raw[key]) || 0;
                 return acc;
             }, {});
 
-            // Helper: infer which SUBJECT_KEYS are relevant for a career from its requirements
+         
             function inferRelevantSubjects(requirements) {
                 if (!requirements || !Array.isArray(requirements)) return [];
                 const matched = new Set();
                 const text = requirements.join(' ').toLowerCase();
-                // For each subject, check its keywords once
+ 
                 for (const subj of SUBJECT_KEYS) {
                     const keywords = KEYWORD_MAP[subj] || [];
                     for (const kw of keywords) {
                         if (text.includes(kw)) {
                             matched.add(subj);
-                            break; // stop at first matching keyword for this subject
+                            break;
                         }
                     }
                 }
                 return Array.from(matched);
             }
 
-            // Compute a normalized average for relevant subjects; fallback to overall average
+
             CAREER_RECOMMENDATIONS.forEach(career => {
                 const relevant = inferRelevantSubjects(career.requirements || []);
                 let score;
@@ -2702,7 +2763,7 @@
                     const vals = relevant.map(k => marks[k] || 0);
                     score = vals.reduce((a, b) => a + b, 0) / (vals.length || 1);
                 }
-                // Clamp and round using constants
+
                 career.matchScore = Math.max(MATCH_SCORE_MIN, Math.min(MATCH_SCORE_MAX, Math.round(score)));
             });
         }
@@ -2744,7 +2805,6 @@
             const toastIcon = document.getElementById('toast-icon');
             const toastTitle = document.getElementById('toast-title');
             const toastMessage = document.getElementById('toast-message');
-            // Use centralized icon map and a default if the type is unknown
             const iconName = ICON_MAP[type] || ICON_MAP.info;
             toastIcon.innerHTML = `<i data-lucide="${iconName}" class="w-6 h-6 text-white"></i>`;
             toastTitle.textContent = title;
@@ -2756,7 +2816,13 @@
             }, TOAST_DURATION_MS);
         }
 
-        function updateTranslations() {
+    // ------------------
+    // 5) UI helpers & rendering utilities
+    //    - updateTranslations: maps data-key elements to localized strings
+    //    - showToast: temporary notification utility
+    //    - showPage: simple client-side navigation between pages
+    // ------------------
+    function updateTranslations() {
             const elements = document.querySelectorAll('[data-key]');
             elements.forEach(element => {
                 const key = element.getAttribute('data-key');
@@ -2896,7 +2962,11 @@
         }
 
 
-        function initializeProfileForm() {
+    // ------------------
+    // 6) Form handling, persistence & core app logic
+    //    - initializeProfileForm, setupFormValidation, save/load profile
+    // ------------------
+    function initializeProfileForm() {
             populateInterestsContainer();
             setupFormValidation();
             if (userProfile.full_name) {
@@ -2904,7 +2974,7 @@
             }
             if (userProfile.grade) {
                 document.getElementById('grade').value = userProfile.grade;
-                toggleStreamSelection(userProfile.grade); // Ensure stream visibility is correct on load
+                toggleStreamSelection(userProfile.grade); 
             }
             if (userProfile.stream) {
                 document.getElementById('stream').value = userProfile.stream;
@@ -2928,7 +2998,7 @@
                 streamSelection.classList.remove('hidden');
             } else {
                 streamSelection.classList.add('hidden');
-                document.getElementById('stream').value = ''; // Clear stream if not applicable
+                document.getElementById('stream').value = '';
             }
         }
 
@@ -2967,7 +3037,7 @@
                 userProfile.full_name = document.getElementById('student-name').value;
                 userProfile.grade = document.getElementById('grade').value;
                 userProfile.dreamJob = document.getElementById('dream-job').value;
-                // Get stream if visible
+
                 const streamSelect = document.getElementById('stream');
                 userProfile.stream = (streamSelect && !streamSelect.closest('.hidden')) ? streamSelect.value : '';
 
@@ -2980,17 +3050,14 @@
                     social: document.getElementById('marks-social').value
                 };
 
-                // Basic validation
                 let isValid = true;
                 if (!userProfile.full_name) isValid = false;
                 if (!userProfile.grade) isValid = false;
-                if (['11', '12'].includes(userProfile.grade) && !userProfile.stream) isValid = false; // Stream required for grades 11/12
+                if (['11', '12'].includes(userProfile.grade) && !userProfile.stream) isValid = false; 
                 for (const subject in userProfile.marks) {
                     if (userProfile.marks[subject] === '' || isNaN(userProfile.marks[subject])) {
-                         // Only invalidate if a subject is usually applicable or if it's explicitly filled but invalid
-                        // For this basic validation, we assume all fields are relevant if they exist.
-                        // A more robust validation would check relevance based on stream/grade.
-                        if (document.getElementById(`marks-${subject}`)) { // Check if the input element actually exists
+
+                        if (document.getElementById(`marks-${subject}`)) { 
                             isValid = false;
                         }
                     }
@@ -3080,7 +3147,7 @@
                 safeCreateIcons();
                 return;
             }
-            // compute dynamic scores and sort by best match first
+
             computeCareerMatchScores();
             const sorted = CAREER_RECOMMENDATIONS.slice().sort((a,b) => (b.matchScore || 0) - (a.matchScore || 0));
             container.innerHTML = '';
@@ -3396,13 +3463,13 @@
                     heightLeft -= pageHeight;
                 }
 
-                // Add custom footer
+
                 const footerText = "Generated by AI Career Guide – Created by Sai Pranav, Class 10, IIS.";
                 const totalPages = doc.internal.getNumberOfPages();
                 for (let i = 1; i <= totalPages; i++) {
                     doc.setPage(i);
                     doc.setFontSize(8);
-                    doc.setTextColor(150); // Grey color for footer
+                    doc.setTextColor(150); 
                     doc.text(footerText, doc.internal.pageSize.getWidth() / 2, doc.internal.pageSize.getHeight() - 20, { align: 'center' });
                 }
 
@@ -3414,7 +3481,7 @@
             });
         }
 
-        // Enhanced AI Assistant functions
+
         function sendMessage() {
             const input = document.getElementById('chat-input');
             const message = input.value.trim();
@@ -3501,7 +3568,7 @@
                 const personality = userProfile.assessmentResults?.personalityType || 'analytical';
                 const topInterests = userProfile.interests.length > 0 ? userProfile.interests.slice(0, 2).join(' and ') : 'technology and innovation';
                 const dreamJob = userProfile.dreamJob ? ` and your goal of becoming a ${userProfile.dreamJob}` : '';
-                // Ensure recommendations are computed and sorted before presenting a top pick
+
                 computeCareerMatchScores();
                 const sorted = CAREER_RECOMMENDATIONS.slice().sort((a, b) => (b.matchScore || 0) - (a.matchScore || 0));
                 const topRecommendation = sorted[0] || CAREER_RECOMMENDATIONS[0];
@@ -3513,7 +3580,6 @@
                     `Would you like detailed study paths or university suggestions for this career?`;
             }
 
-            // Specific topic responses
             if (lowerMessage.includes('career') || lowerMessage.includes('job') || lowerMessage.includes('roles')) {
                 return getRandomResponse(AI_RESPONSES.careers);
             }
@@ -3603,22 +3669,20 @@
 
         function saveUserProfile() {
             localStorage.setItem('userProfile', JSON.stringify(userProfile));
-            updateDashboardStats(); // Call updateDashboardStats here to reflect latest saved data
+            updateDashboardStats();
         }
 
-        // loadUserProfile is not explicitly used anymore as DOMContentLoaded handles initial load
-        // But keeping it for potential direct calls if needed elsewhere.
         function loadUserProfile() {
             const saved = localStorage.getItem('userProfile');
             if (saved) {
                 userProfile = JSON.parse(saved);
-                // Removed updateDashboardStats from here as it's called after profile initialization in DOMContentLoaded
+
             }
         }
 
   
         document.addEventListener('DOMContentLoaded', function() {
-            updateTranslations(); // Initial translation load
+            updateTranslations();
 
             document.addEventListener('click', function(e) {
                 const languageSelector = document.querySelector('.language-selector');
@@ -3640,30 +3704,26 @@
                 }
             });
 
-            // --- START MODIFIED CODE ---
-            // Load user profile from localStorage
             const savedProfile = localStorage.getItem('userProfile');
             if (savedProfile) {
                 try {
                     const parsedProfile = JSON.parse(savedProfile);
-                    // Basic validation to ensure it's a valid userProfile object
+
                     if (parsedProfile && typeof parsedProfile === 'object' && parsedProfile.full_name !== undefined) {
                         userProfile = parsedProfile;
                         showToast('Welcome Back', 'Loaded your profile');
                     } else {
-                        // If saved data is corrupt or incomplete, use default
                         initializeDefaultProfile();
                     }
                 } catch (e) {
                     console.error("Error parsing user profile from localStorage:", e);
-                    initializeDefaultProfile(); // Fallback to default if parsing fails
+                    initializeDefaultProfile(); 
                 }
             } else {
-                // If no saved profile, set initial default values for "Sai Pranav"
+
                 initializeDefaultProfile();
             }
-            
-            // Function to initialize a default profile
+
             function initializeDefaultProfile() {
                 userProfile.full_name = "Sai Pranav";
                 userProfile.grade = "10";
@@ -3677,14 +3737,14 @@
                 };
                 userProfile.interests = ["Technology", "Programming", "Artificial Intelligence"];
                 userProfile.dreamJob = "AI Engineer";
-                saveUserProfile(); // Save this default profile to localStorage
+                saveUserProfile(); 
                 showToast('Welcome!', 'AI Career Guide is ready to help you plan your future');
             }
 
-            // Always show the dashboard and update stats after loading/initializing profile
             showPage('dashboard', document.getElementById('nav-dashboard'));
-            updateDashboardStats(); // Update dashboard stats with the loaded/default profile
-            // --- END MODIFIED CODE ---
+            updateDashboardStats();
+
+            
         });
     </script>
 </html>
